@@ -5,9 +5,9 @@
 
 #######################################################################################
 # Book settings
-title: Geospatial Data Science # The title of the book. Will be placed in the left navbar.
-author: Qiusheng Wu # The author of the book
-copyright: "2022" # Copyright year to be placed in the footer
+title: Computer Vision Across Oceanography # The title of the book. Will be placed in the left navbar.
+author: Atticus Carter # The author of the book
+copyright: "2024" # Copyright year to be placed in the footer
 logo: logo.png # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
@@ -34,7 +34,7 @@ launch_buttons:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/giswqs/jb-demo # Online location of your book
+  url: https://atticus-carter.github.io/cv/ # Online location of your book
   # path_to_book: docs # Optional path to your book, relative to the repository root
   branch: main # Which branch of the repository should be used when creating links (optional)
 
@@ -42,7 +42,7 @@ repository:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   favicon: "fav.ico"
-  baseurl: https://giswqs.github.io/jb-demo # The base URL where your book will be hosted.
+  baseurl: https://atticus-carter.github.io/cv/ # The base URL where your book will be hosted.
   use_repository_button: true
   use_issues_button: true
   use_edit_page_button: true
