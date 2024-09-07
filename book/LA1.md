@@ -77,22 +77,29 @@ An example is the **Ocean Observatories Initiative's Regional Cabled Array**, op
 ### 1. **Underwater Cameras**
 Underwater cameras, as mentioned earlier, can be used in fixed locations or mounted on ROVs or AUVs. They are essential tools for **deep-sea exploration** and **long-term environmental monitoring**.
 
-![A digital still camera operated by UW taking photos taking pictures of an active methane seep. Credit: UW/NSF-OOI/WHOI](image.png)
+:::{figure} ![A digital still camera operated by UW taking photos taking pictures of an active methane seep. Credit: UW/NSF-OOI/WHOI](image.png)
+:name: underwater-camera
+A digital still camera operated by UW taking photos taking pictures of an active methane seep. Credit: UW/NSF-OOI/WHOI
+:::
 
 ### 2. **ROVs and AUVs**
 Both ROVs and AUVs offer unique capabilities for exploring the ocean. ROVs provide **real-time control** and are often used in **sample collection** missions, while AUVs can autonomously cover large areas, making them ideal for **mapping** and **survey missions**.
 
 
 
-![The ROV Jason Equipped with 4k video cameras. Credit: M.Elend, University of Washington](image-1.png)
-
+:::{figure} ![The ROV Jason Equipped with 4k video cameras. Credit: M.Elend, University of Washington](image-1.png)
+:name: rov-jason
+The ROV Jason Equipped with 4k video cameras. Credit: M.Elend, University of Washington
+:::
 
 ### 3. **Satellite Imagery**
 Satellites offer the ability to observe global ocean conditions, such as **phytoplankton blooms** or **sea surface temperature**. **Geosynchronous satellites** (those that stay in a fixed position relative to Earth) are especially valuable for monitoring **seasonal changes** and large-scale oceanic events.
 
 
-![Phytoplankton bloom in the bering sea captured by a satellite Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory](image-2.png)
-
+:::{figure} ![Phytoplankton bloom in the bering sea captured by a satellite Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory](image-2.png)
+:name: satellite-imagery
+Example of satellite imagery capturing phytoplankton blooms. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory
+:::
 ---
 
 ## Applications of Computer Vision in Oceanography
@@ -103,8 +110,10 @@ CV techniques can be used to identify marine species from underwater images, ena
 ### 2. **Remote Survey Detection**
 At the **Marine Mammal Laboratory (MML) at NOAA**, researchers use **aerial transect data** and CV models to estimate **seal populations** in remote areas of the Arctic. Using planes equipped with cameras, they collect imagery over large areas, which is then processed with machine learning to detect and count seals.
 
-![Seals sitting on Arctic Sea Ice captured via in flight camera, annotated using a CV Model Credit: A.Carter NOAA, National Marine Mammal Laboratory](image-4.png)
-
+:::{figure} ![Seals sitting on Arctic Sea Ice captured via in flight camera, annotated using a CV Model Credit: A.Carter NOAA, National Marine Mammal Laboratory](image-4.png)
+:name: seal-population
+Seals sitting on Arctic Sea Ice captured via in flight camera, annotated using a CV Model Credit: A.Carter NOAA, National Marine Mammal Laboratory
+:::
 ### 3. **Pollution Detection**
 CV models are increasingly used to detect pollution, such as **oil spills** or **marine debris**. Imagery collected by **drones**, **satellites**, or **underwater cameras** is processed to identify pollution hotspots, helping researchers and policymakers target conservation efforts.
 
