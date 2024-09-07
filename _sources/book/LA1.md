@@ -110,7 +110,7 @@ CV techniques can be used to identify marine species from underwater images, ena
 ### 2. **Remote Survey Detection**
 At the **Marine Mammal Laboratory (MML) at NOAA**, researchers use **aerial transect data** and CV models to estimate **seal populations** in remote areas of the Arctic. Using planes equipped with cameras, they collect imagery over large areas, which is then processed with machine learning to detect and count seals.
 
-:::{figure} images/image4.png
+:::{figure} images/image-4.png
 :name: seal-population
 Seals sitting on Arctic Sea Ice captured via in flight camera, annotated using a CV Model Credit: A.Carter NOAA, National Marine Mammal Laboratory
 :::
