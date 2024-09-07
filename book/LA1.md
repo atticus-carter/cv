@@ -1,4 +1,4 @@
-# Lesson 1: Introduction to Ocean Image Data
+# Introduction to Ocean Image Data
 
 ## Overview
 
