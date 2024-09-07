@@ -17,11 +17,11 @@ By the end of this lesson, you will:
 
 Ocean image data can be broadly categorized into the following types:
 
-### 1. **Underwater Imagery**
+### Underwater Imagery
 
 Underwater imagery can be captured using various types of technology, including **ROVs** (Remotely Operated Vehicles), **AUVs** (Autonomous Underwater Vehicles), and **fixed underwater cameras**.
 
-#### **ROVs (Remotely Operated Vehicles)**
+#### ROVs (Remotely Operated Vehicles)
 
 ROVs are uncrewed submersibles controlled from the surface, allowing researchers to navigate underwater in real-time. Examples include **Jason** and **ROPOS**.
 
@@ -37,7 +37,7 @@ ROVs are uncrewed submersibles controlled from the surface, allowing researchers
 - **Cost**: ROVs are expensive to build, maintain, and operate.
 - **Mobility**: While they are versatile, ROVs are tethered to a support vessel, limiting their range compared to autonomous systems.
 
-#### **AUVs (Autonomous Underwater Vehicles)**
+#### AUVs (Autonomous Underwater Vehicles)
 
 Unlike ROVs, AUVs are completely autonomous. They can be programmed to follow pre-determined missions and collect data without human intervention. A prominent example is **Sentry**, an AUV designed and operated by WHOI.
 
@@ -52,7 +52,7 @@ Unlike ROVs, AUVs are completely autonomous. They can be programmed to follow pr
 - **No real-time control**: Once launched, the operator has no control over the vehicle, meaning they cannot respond to unexpected situations.
 - **Limited power**: The battery life of an AUV limits its operational time, especially for deep dives.
 
-#### **Fixed Underwater Cameras**
+#### Fixed Underwater Cameras
 
 Fixed underwater cameras are cabled or moored to a stationary point, typically on the seafloor, and are designed for long-term monitoring of specific locations. These cameras can provide both still images and video footage. 
 
@@ -74,7 +74,7 @@ An example is the **Ocean Observatories Initiative's Regional Cabled Array**, op
 
 ## Tools for Capturing Ocean Data
 
-### 1. **Underwater Cameras**
+### Underwater Cameras
 Underwater cameras, as mentioned earlier, can be used in fixed locations or mounted on ROVs or AUVs. They are essential tools for **deep-sea exploration** and **long-term environmental monitoring**.
 
 :::{figure} images/image.png
@@ -82,7 +82,7 @@ Underwater cameras, as mentioned earlier, can be used in fixed locations or moun
 A digital still camera operated by UW taking photos taking pictures of an active methane seep. Credit: UW/NSF-OOI/WHOI
 :::
 
-### 2. **ROVs and AUVs**
+### ROVs and AUVs
 Both ROVs and AUVs offer unique capabilities for exploring the ocean. ROVs provide **real-time control** and are often used in **sample collection** missions, while AUVs can autonomously cover large areas, making them ideal for **mapping** and **survey missions**.
 
 
@@ -92,7 +92,7 @@ Both ROVs and AUVs offer unique capabilities for exploring the ocean. ROVs provi
 The ROV Jason Equipped with 4k video cameras. Credit: M.Elend, University of Washington
 :::
 
-### 3. **Satellite Imagery**
+### Satellite Imagery
 Satellites offer the ability to observe global ocean conditions, such as **phytoplankton blooms** or **sea surface temperature**. **Geosynchronous satellites** (those that stay in a fixed position relative to Earth) are especially valuable for monitoring **seasonal changes** and large-scale oceanic events.
 
 
@@ -104,17 +104,17 @@ Example of satellite imagery capturing phytoplankton blooms. Credit: NASA Goddar
 
 ## Applications of Computer Vision in Oceanography
 
-### 1. **Species Identification**
+### Species Identification
 CV techniques can be used to identify marine species from underwater images, enabling researchers to monitor biodiversity and track changes in marine populations.
 
-### 2. **Remote Survey Detection**
+### Remote Survey Detection
 At the **Marine Mammal Laboratory (MML) at NOAA**, researchers use **aerial transect data** and CV models to estimate **seal populations** in remote areas of the Arctic. Using planes equipped with cameras, they collect imagery over large areas, which is then processed with machine learning to detect and count seals.
 
 :::{figure} images/image-4.png
 :name: seal-population
 Seals sitting on Arctic Sea Ice captured via in flight camera, annotated using a CV Model Credit: A.Carter NOAA, National Marine Mammal Laboratory
 :::
-### 3. **Pollution Detection**
+### Pollution Detection
 CV models are increasingly used to detect pollution, such as **oil spills** or **marine debris**. Imagery collected by **drones**, **satellites**, or **underwater cameras** is processed to identify pollution hotspots, helping researchers and policymakers target conservation efforts.
 
 ---
