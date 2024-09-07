@@ -6,6 +6,7 @@ parts:
     chapters:
       - file: book/LA1.md
       - file: book/LA2.md
+      - file: book/LA3.ipynb
       
   - caption: "Appendices"
     numbered: false
