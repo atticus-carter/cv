@@ -6,10 +6,6 @@ parts:
     chapters:
       - file: book/LA1.md
       - file: book/LA2.md
-
-  - caption: "Chapter 2"
-    numbered: true
-    chapters:
       
   - caption: "Appendices"
     numbered: false
