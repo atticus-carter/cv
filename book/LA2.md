@@ -7,11 +7,13 @@ In this lesson, we will explore image annotation techniques and their importance
 ### Learning Objectives
 
 By the end of this lesson, you will:
--Understand the importance of image annotation in computer vision, explaining why annotated training data is critical for models to accurately recognize and differentiate objects in imagery data, particularly in marine environments.
--Differentiate between types of annotations, identifying the key differences between bounding boxes, instance segmentation, and keypoint annotations, and determining the appropriate use cases for each.
--Recognize the impact of annotation quality, evaluating how poor-quality annotations (e.g., overfitting, underfitting, or misidentification) can hinder model performance, and outlining best practices for creating effective annotations.
+- Understand the importance of image annotation in computer vision, explaining why annotated training data is critical for models to accurately recognize and differentiate objects in imagery data, particularly in marine environments.
+- Differentiate between types of annotations, identifying the key differences between bounding boxes, instance segmentation, and keypoint annotations, and determining the appropriate use cases for each.
+- Recognize the impact of annotation quality, evaluating how poor-quality annotations (e.g., overfitting, underfitting, or misidentification) can hinder model performance, and outlining best practices for creating effective annotations.
 
 ---
+
+## Classes and Annotaion
 
 When training models using imagery data, it is crucial to provide the algorithm with properly **annotated** training data. This allows the model to learn what to look for and where to find it within an image. Imagine, for a moment, that you are a computer tasked with identifying every rockfish in an image, but the image is completely unannotated, and you have no prior knowledge or context of what a rockfish looks like. You would likely have a (very) hard time piecing together what that request even means. In the context of computer vision, image annotation serves as a vital guide, providing the labels and boundaries necessary for the model to understand its task. Without annotations, the model would be left guessing, unable to differentiate between objects or recognize key features.
 
@@ -28,7 +30,7 @@ There are various types of annotations depending on the task, but the most commo
 
 These annotation types are essential for different computer vision tasks, such as object detection, segmentation, and pose estimation.
 
-## 1. Bounding Boxes
+## Bounding Boxes
 
 Bounding boxes are one of the simplest and most widely used types of annotations. They involve drawing a square rectangle around an object of interest in the image and noting the pixel coordinates of each corner as well as the class it is defining.
 
@@ -49,7 +51,7 @@ Example PyTorch annotation for a bounding box:
 
 Here, two bounding boxes are defined with class labels `1` and `2` respectively.
 
-## 2. Segmentation
+## Segmentation
 
 Segmentation is a more detailed annotation technique where each pixel in the object is labeled. This differs from bounding boxes, which only define the region around an object. With **instance segmentation**, each object instance has its own mask, allowing the model to distinguish between individual occurrences of an object within the same image. For example, if there are multiple fish in an image, instance segmentation ensures that each fish is labeled as a distinct object, even if they overlap.
 
@@ -68,7 +70,7 @@ Example PyTorch annotation for instance segmentation:
 
 `'masks': torch.tensor([[[0, 0, 0], [0, 1, 1], [0, 0, 0]], [[0, 0, 0], [0, 0, 0], [1, 1, 0]]]), 'labels': torch.tensor([1, 2])`
 
-## 3. Keypoint Annotation
+## Keypoint Annotation
 
 Keypoint annotation involves identifying specific points of interest on an object, like the head and tail of a fish. Each keypoint is represented by its x, y coordinates, and a visibility flag indicating if the keypoint is visible or not. This method is particularly useful in tasks like pose estimation, where the relationship between keypoints can help the model understand the orientation or movement of an object. In marine imagery, keypoint annotation can be applied to track the movement or behavior of animals by marking specific features, such as the fins of a fish or the tentacles of a jellyfish. Additionally, keypoints can be used to measure physical properties, such as the length of an organism, by placing points at key anatomical landmarks. This level of precision enables detailed analysis in both behavioral studies and environmental monitoring.
 
