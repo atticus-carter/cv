@@ -8,7 +8,7 @@
 title: Computer Vision Across Oceanography # The title of the book. Will be placed in the left navbar.
 author: Atticus Carter # The author of the book
 copyright: "2024" # Copyright year to be placed in the footer
-logo: _static\logo.png # A path to the book logo
+logo: logo.png # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 # Auto-exclude files not in the toc
@@ -41,7 +41,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  favicon: _static\fav.ico
+  favicon: fav.ico
   baseurl: https://atticus-carter.github.io/cv/ # The base URL where your book will be hosted.
   use_repository_button: true
   use_issues_button: true
