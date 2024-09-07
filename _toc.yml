@@ -1,23 +1,17 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: index
-chapters:
-  - file: book/LA1.md 
-  - file: book/LA2.md
-  - file: book/markdown
-  - file: book/notebooks
-  - file: book/bibliography
-# Or you organize the TOC by parts
+parts:
+  - caption: "Chapter 1"
+    numbered: true
+    chapters:
+      - file: book/LA1.md
+      - file: book/LA2.md
 
-# parts:
-#   - caption: Chapters
-#     numbered: true
-#     maxdepth: 2
-#     chapters:
-#       - file: book/markdown
-#       - file: book/notebooks
-#   - caption: Appendices
-#     chapters:
-#       - file: book/bibliography
+  - caption: "Chapter 2"
+    numbered: true
+    chapters:
+      
+  - caption: "Appendices"
+    numbered: false
+    chapters:
+      - file: book/bibliography

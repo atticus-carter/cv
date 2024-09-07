@@ -1,4 +1,17 @@
-# Lesson 2: Image Annotation Overview
+# Lesson 2: Image Annotation 
+
+## Overview
+
+In this lesson, we will explore image annotation techniques and their importance in training computer vision models. We will also discuss the different types of annotations—**bounding boxes**, **segmentation**, and **keypoint annotation**—and how they are applied in marine imagery to improve model accuracy and reliability.
+
+### Learning Objectives
+
+By the end of this lesson, you will:
+-Understand the importance of image annotation in computer vision, explaining why annotated training data is critical for models to accurately recognize and differentiate objects in imagery data, particularly in marine environments.
+-Differentiate between types of annotations, identifying the key differences between bounding boxes, instance segmentation, and keypoint annotations, and determining the appropriate use cases for each.
+-Recognize the impact of annotation quality, evaluating how poor-quality annotations (e.g., overfitting, underfitting, or misidentification) can hinder model performance, and outlining best practices for creating effective annotations.
+
+---
 
 When training models using imagery data, it is crucial to provide the algorithm with properly **annotated** training data. This allows the model to learn what to look for and where to find it within an image. Imagine, for a moment, that you are a computer tasked with identifying every rockfish in an image, but the image is completely unannotated, and you have no prior knowledge or context of what a rockfish looks like. You would likely have a (very) hard time piecing together what that request even means. In the context of computer vision, image annotation serves as a vital guide, providing the labels and boundaries necessary for the model to understand its task. Without annotations, the model would be left guessing, unable to differentiate between objects or recognize key features.
 
