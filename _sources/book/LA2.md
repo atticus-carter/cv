@@ -10,18 +10,18 @@ Properly defining and annotating these classes allows the computer to understand
 
 There are various types of annotations depending on the task, but the most common ones we'll focus on in this lesson are:
 1. **Bounding Boxes**
-2. **Instance Segmentation**
+2. **Segmentation**
 3. **Keypoint Annotation**
 
 These annotation types are essential for different computer vision tasks, such as object detection, segmentation, and pose estimation.
 
 ## 1. Bounding Boxes
 
-Bounding boxes are one of the simplest and most widely used types of annotations. They involve drawing a rectangle around an object of interest in the image.
+Bounding boxes are one of the simplest and most widely used types of annotations. They involve drawing a square rectangle around an object of interest in the image and noting the pixel coordinates of each corner as well as the class it is defining.
 
 :::{figure} images/poralia.png
 :name: bboxes_example
-Multiple Organisms are annotated using bounding boxes Credit: A.Carter, OOI-NSF
+Multiple Organisms are annotated using bounding boxes. Credit: A.Carter, OOI-NSF
 :::
 
 ### Format in PyTorch
@@ -36,9 +36,16 @@ Example PyTorch annotation for a bounding box:
 
 Here, two bounding boxes are defined with class labels `1` and `2` respectively.
 
-## 2. Instance Segmentation
+## 2. Segmentation
 
-Instance segmentation is a more detailed annotation technique where each pixel in the object is labeled. This differs from bounding boxes, which only define the region around an object. With instance segmentation, each object instance has its own mask.
+Segmentation is a more detailed annotation technique where each pixel in the object is labeled. This differs from bounding boxes, which only define the region around an object. With **instance segmentation**, each object instance has its own mask, allowing the model to distinguish between individual occurrences of an object within the same image. For example, if there are multiple fish in an image, instance segmentation ensures that each fish is labeled as a distinct object, even if they overlap.
+
+In contrast, **semantic segmentation** assigns a label to every pixel based on the category it belongs to, without differentiating between different instances of the same object. In this case, all pixels belonging to the "fish" class, for instance, would be labeled as "fish," but the model wouldn't differentiate between individual fish. This approach is useful for tasks where understanding the overall composition of an image is important, such as habitat mapping or identifying general patterns in environmental features.
+
+:::{figure} images/segment.png
+:name: segment_example
+Multiple cod are annotated using image segmentation. Credit: A.Carter, OOI-NSF
+:::
 
 ### Format in PyTorch
 
@@ -50,7 +57,12 @@ Example PyTorch annotation for instance segmentation:
 
 ## 3. Keypoint Annotation
 
-Keypoint annotation involves identifying specific points of interest on an object, like joints in human pose estimation. Each keypoint is represented by its `x`, `y` coordinates, and a visibility flag.
+Keypoint annotation involves identifying specific points of interest on an object, like the head and tail of a fish. Each keypoint is represented by its x, y coordinates, and a visibility flag indicating if the keypoint is visible or not. This method is particularly useful in tasks like pose estimation, where the relationship between keypoints can help the model understand the orientation or movement of an object. In marine imagery, keypoint annotation can be applied to track the movement or behavior of animals by marking specific features, such as the fins of a fish or the tentacles of a jellyfish. Additionally, keypoints can be used to measure physical properties, such as the length of an organism, by placing points at key anatomical landmarks. This level of precision enables detailed analysis in both behavioral studies and environmental monitoring.
+
+:::{figure} images/keypoint.png
+:name: keypoint_example
+A rockfishes length is estimated via 2 keypoint annotations. Credit: A.Carter, OOI-NSF
+:::
 
 ### Format in PyTorch
 
@@ -62,11 +74,11 @@ Example PyTorch annotation for keypoint annotation:
 
 `'keypoints': torch.tensor([[[150, 200, 1], [170, 220, 1], [190, 250, 0]]]), 'labels': torch.tensor([1])`
 
-This format is commonly used in pose estimation tasks, where keypoints represent joints on a body.
+This format is commonly used in aerial surveys, where keypoints represents the head to tail length of a target animal.
 
 ## PyTorch Annotation Workflow
 
-In a typical PyTorch workflow, annotations are stored in a dataset, where each image has a corresponding annotation that contains bounding boxes, masks, or keypoints. The dataset can then be used to train a model, such as Faster R-CNN (for object detection), Mask R-CNN (for segmentation), or HRNet (for pose estimation).
+In a typical PyTorch workflow, annotations are stored in a dataset, where each image has a corresponding annotation that contains bounding boxes, masks, or keypoints. The dataset can then be used to train a model, such as **Faster R-CNN (for object detection)**, **Mask R-CNN (for segmentation)**, or **HRNet (for pose estimation)**.
 
 Here's a sample structure for an annotated image in PyTorch:
 
@@ -85,7 +97,6 @@ For instance, if bounding boxes are poorly drawn—either too tightly cropped (u
 Examples of bad bounding box annotations: overfitting, underfitting, and misidentification. Credit: A.Carter, OOI-NS
 :::
 
-This figure highlights how each type of flawed annotation can negatively impact a model's ability to learn correctly. Ensuring high-quality, well-defined annotations is crucial to developing models that perform accurately and consistently across diverse tasks.
 ---
 
 ## Conclusion

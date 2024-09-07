@@ -395,7 +395,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-in-pytorch">Format in PyTorch</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-segmentation">2. Instance Segmentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segmentation">2. Segmentation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Format in PyTorch</a></li>
 </ul>
 </li>
@@ -405,7 +405,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-annotation-workflow">PyTorch Annotation Workflow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-of-annotations">Quality of Annotations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-figure-highlights-how-each-type-of-flawed-annotation-can-negatively-impact-a-model-s-ability-to-learn-correctly-ensuring-high-quality-well-defined-annotations-is-crucial-to-developing-models-that-perform-accurately-and-consistently-across-diverse-tasks">This figure highlights how each type of flawed annotation can negatively impact a model’s ability to learn correctly. Ensuring high-quality, well-defined annotations is crucial to developing models that perform accurately and consistently across diverse tasks.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
@@ -427,17 +426,17 @@ document.write(`
 <p>There are various types of annotations depending on the task, but the most common ones we’ll focus on in this lesson are:</p>
 <ol class="arabic simple">
 <li><p><strong>Bounding Boxes</strong></p></li>
-<li><p><strong>Instance Segmentation</strong></p></li>
+<li><p><strong>Segmentation</strong></p></li>
 <li><p><strong>Keypoint Annotation</strong></p></li>
 </ol>
 <p>These annotation types are essential for different computer vision tasks, such as object detection, segmentation, and pose estimation.</p>
 <section id="bounding-boxes">
 <h2>1. Bounding Boxes<a class="headerlink" href="#bounding-boxes" title="Link to this heading">#</a></h2>
-<p>Bounding boxes are one of the simplest and most widely used types of annotations. They involve drawing a rectangle around an object of interest in the image.</p>
+<p>Bounding boxes are one of the simplest and most widely used types of annotations. They involve drawing a square rectangle around an object of interest in the image and noting the pixel coordinates of each corner as well as the class it is defining.</p>
 <figure class="align-default" id="bboxes-example">
 <img alt="../_images/poralia.png" src="../_images/poralia.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Multiple Organisms are annotated using bounding boxes Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#bboxes-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Multiple Organisms are annotated using bounding boxes. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#bboxes-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="format-in-pytorch">
@@ -452,9 +451,16 @@ document.write(`
 <p>Here, two bounding boxes are defined with class labels <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code> respectively.</p>
 </section>
 </section>
-<section id="instance-segmentation">
-<h2>2. Instance Segmentation<a class="headerlink" href="#instance-segmentation" title="Link to this heading">#</a></h2>
-<p>Instance segmentation is a more detailed annotation technique where each pixel in the object is labeled. This differs from bounding boxes, which only define the region around an object. With instance segmentation, each object instance has its own mask.</p>
+<section id="segmentation">
+<h2>2. Segmentation<a class="headerlink" href="#segmentation" title="Link to this heading">#</a></h2>
+<p>Segmentation is a more detailed annotation technique where each pixel in the object is labeled. This differs from bounding boxes, which only define the region around an object. With <strong>instance segmentation</strong>, each object instance has its own mask, allowing the model to distinguish between individual occurrences of an object within the same image. For example, if there are multiple fish in an image, instance segmentation ensures that each fish is labeled as a distinct object, even if they overlap.</p>
+<p>In contrast, <strong>semantic segmentation</strong> assigns a label to every pixel based on the category it belongs to, without differentiating between different instances of the same object. In this case, all pixels belonging to the “fish” class, for instance, would be labeled as “fish,” but the model wouldn’t differentiate between individual fish. This approach is useful for tasks where understanding the overall composition of an image is important, such as habitat mapping or identifying general patterns in environmental features.</p>
+<figure class="align-default" id="segment-example">
+<img alt="../_images/segment.png" src="../_images/segment.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Multiple cod are annotated using image segmentation. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#segment-example" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="id1">
 <h3>Format in PyTorch<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>In PyTorch, instance segmentation masks are represented as binary masks (same size as the image), where each pixel is marked as either belonging to the object (1) or the background (0).</p>
@@ -464,7 +470,13 @@ document.write(`
 </section>
 <section id="keypoint-annotation">
 <h2>3. Keypoint Annotation<a class="headerlink" href="#keypoint-annotation" title="Link to this heading">#</a></h2>
-<p>Keypoint annotation involves identifying specific points of interest on an object, like joints in human pose estimation. Each keypoint is represented by its <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates, and a visibility flag.</p>
+<p>Keypoint annotation involves identifying specific points of interest on an object, like the head and tail of a fish. Each keypoint is represented by its x, y coordinates, and a visibility flag indicating if the keypoint is visible or not. This method is particularly useful in tasks like pose estimation, where the relationship between keypoints can help the model understand the orientation or movement of an object. In marine imagery, keypoint annotation can be applied to track the movement or behavior of animals by marking specific features, such as the fins of a fish or the tentacles of a jellyfish. Additionally, keypoints can be used to measure physical properties, such as the length of an organism, by placing points at key anatomical landmarks. This level of precision enables detailed analysis in both behavioral studies and environmental monitoring.</p>
+<figure class="align-default" id="keypoint-example">
+<img alt="../_images/keypoint.png" src="../_images/keypoint.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">A rockfishes length is estimated via 2 keypoint annotations. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#keypoint-example" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="id2">
 <h3>Format in PyTorch<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>In PyTorch, keypoints are represented as <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">visibility]</span></code>, where:</p>
@@ -474,12 +486,12 @@ document.write(`
 </ul>
 <p>Example PyTorch annotation for keypoint annotation:</p>
 <p><code class="docutils literal notranslate"><span class="pre">'keypoints':</span> <span class="pre">torch.tensor([[[150,</span> <span class="pre">200,</span> <span class="pre">1],</span> <span class="pre">[170,</span> <span class="pre">220,</span> <span class="pre">1],</span> <span class="pre">[190,</span> <span class="pre">250,</span> <span class="pre">0]]]),</span> <span class="pre">'labels':</span> <span class="pre">torch.tensor([1])</span></code></p>
-<p>This format is commonly used in pose estimation tasks, where keypoints represent joints on a body.</p>
+<p>This format is commonly used in aerial surveys, where keypoints represents the head to tail length of a target animal.</p>
 </section>
 </section>
 <section id="pytorch-annotation-workflow">
 <h2>PyTorch Annotation Workflow<a class="headerlink" href="#pytorch-annotation-workflow" title="Link to this heading">#</a></h2>
-<p>In a typical PyTorch workflow, annotations are stored in a dataset, where each image has a corresponding annotation that contains bounding boxes, masks, or keypoints. The dataset can then be used to train a model, such as Faster R-CNN (for object detection), Mask R-CNN (for segmentation), or HRNet (for pose estimation).</p>
+<p>In a typical PyTorch workflow, annotations are stored in a dataset, where each image has a corresponding annotation that contains bounding boxes, masks, or keypoints. The dataset can then be used to train a model, such as <strong>Faster R-CNN (for object detection)</strong>, <strong>Mask R-CNN (for segmentation)</strong>, or <strong>HRNet (for pose estimation)</strong>.</p>
 <p>Here’s a sample structure for an annotated image in PyTorch:</p>
 <p><code class="docutils literal notranslate"><span class="pre">'image':</span> <span class="pre">image,</span> <span class="pre">'annotations':</span> <span class="pre">{'boxes':</span> <span class="pre">torch.tensor([[10,</span> <span class="pre">20,</span> <span class="pre">200,</span> <span class="pre">400]]),</span> <span class="pre">'labels':</span> <span class="pre">torch.tensor([1]),</span> <span class="pre">'masks':</span> <span class="pre">torch.tensor([[[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">1],</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]]]),</span> <span class="pre">'keypoints':</span> <span class="pre">torch.tensor([[[150,</span> <span class="pre">200,</span> <span class="pre">1]]])}</span></code></p>
 <p>By leveraging these annotations, we can effectively train models for object detection, segmentation, and pose estimation in PyTorch.</p>
@@ -491,13 +503,11 @@ document.write(`
 <figure class="align-default" id="bad-bbox-example">
 <img alt="../_images/bad_annotations.png" src="../_images/bad_annotations.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Examples of bad bounding box annotations: overfitting, underfitting, and misidentification. Credit: A.Carter, OOI-NS</span><a class="headerlink" href="#bad-bbox-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Examples of bad bounding box annotations: overfitting, underfitting, and misidentification. Credit: A.Carter, OOI-NS</span><a class="headerlink" href="#bad-bbox-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="this-figure-highlights-how-each-type-of-flawed-annotation-can-negatively-impact-a-model-s-ability-to-learn-correctly-ensuring-high-quality-well-defined-annotations-is-crucial-to-developing-models-that-perform-accurately-and-consistently-across-diverse-tasks">
-<h2>This figure highlights how each type of flawed annotation can negatively impact a model’s ability to learn correctly. Ensuring high-quality, well-defined annotations is crucial to developing models that perform accurately and consistently across diverse tasks.<a class="headerlink" href="#this-figure-highlights-how-each-type-of-flawed-annotation-can-negatively-impact-a-model-s-ability-to-learn-correctly-ensuring-high-quality-well-defined-annotations-is-crucial-to-developing-models-that-perform-accurately-and-consistently-across-diverse-tasks" title="Link to this heading">#</a></h2>
-</section>
+<hr class="docutils" />
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>Annotated data is the foundation of any successful computer vision model. Without precise labeling, the algorithm would struggle to identify and differentiate objects within an image. Whether you’re working with bounding boxes, instance segmentation, or keypoint annotations, each method serves a specific purpose in guiding the model to understand and predict object locations and relationships.</p>
@@ -572,7 +582,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-in-pytorch">Format in PyTorch</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-segmentation">2. Instance Segmentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segmentation">2. Segmentation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Format in PyTorch</a></li>
 </ul>
 </li>
@@ -582,7 +592,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-annotation-workflow">PyTorch Annotation Workflow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-of-annotations">Quality of Annotations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-figure-highlights-how-each-type-of-flawed-annotation-can-negatively-impact-a-model-s-ability-to-learn-correctly-ensuring-high-quality-well-defined-annotations-is-crucial-to-developing-models-that-perform-accurately-and-consistently-across-diverse-tasks">This figure highlights how each type of flawed annotation can negatively impact a model’s ability to learn correctly. Ensuring high-quality, well-defined annotations is crucial to developing models that perform accurately and consistently across diverse tasks.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
