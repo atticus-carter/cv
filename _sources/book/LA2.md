@@ -1,4 +1,4 @@
-# Lesson 2: Image Annotation 
+# Image Annotation 
 
 ## Overview
 

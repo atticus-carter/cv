@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Lesson 3: The Math Behind Convolutional Neural Networks (CNNs) &#8212; Computer Vision Across Oceanography</title>
+    <title>3. The Math Behind Convolutional Neural Networks (CNNs) &#8212; Computer Vision Across Oceanography</title>
   
   
   
@@ -65,7 +65,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bibliography" href="bibliography.html" />
-    <link rel="prev" title="2. Lesson 2: Image Annotation" href="LA2.html" />
+    <link rel="prev" title="2. Image Annotation" href="LA2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,9 +177,9 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="LA1.html">1. Lesson 1: Introduction to Ocean Image Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA2.html">2. Lesson 2: Image Annotation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Lesson 3: The Math Behind Convolutional Neural Networks (CNNs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA1.html">1. Introduction to Ocean Image Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA2.html">2. Image Annotation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. The Math Behind Convolutional Neural Networks (CNNs)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -435,7 +435,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lesson 3: The Math Behind Convolutional Neural Networks (CNNs)</h1>
+    <h1>The Math Behind Convolutional Neural Networks (CNNs)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -447,16 +447,25 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">3.1. Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.1.1. Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-cnn">3.1.2. What is a CNN?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-cnns-ubiquitous-in-marine-imagery">3.1.3. Why are CNNs Ubiquitous in Marine Imagery?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotations-in-cnns-bounding-boxes">3.1.4. Annotations in CNNs: Bounding Boxes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ocean-metaphor-cnns-as-marine-explorers">3.1.5. Ocean Metaphor: CNNs as Marine Explorers</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-foundations-of-cnns">3.2. Mathematical Foundations of CNNs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutions">3.2.1. Convolutions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-formula">3.2.1.1. Convolution Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#images-as-data-and-why-grayscale-is-used">3.2.1. Images as Data and Why Grayscale is Used</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-convert-to-grayscale">3.2.1.1. Why Convert to Grayscale?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filters">3.2.2. Filters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stride-and-padding">3.2.3. Stride and Padding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pooling">3.2.4. Pooling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-machines-see-images">3.2.2. How Machines See Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutions">3.2.3. Convolutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-formula">3.2.3.1. Convolution Formula</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filters-kernels">3.2.4. Filters / Kernels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stride-and-padding">3.2.5. Stride and Padding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pooling">3.2.6. Pooling</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-hierarchical-features">3.3. Building Hierarchical Features</a><ul class="nav section-nav flex-column">
@@ -475,6 +484,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-8-displaying-the-images">3.4.9. Block 8: Displaying the Images</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnns-and-multiple-layers">3.5. CNNs and Multiple Layers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-cnns-use-multiple-layers">3.5.1. How CNNs Use Multiple Layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-of-next-section-how-weights-change-during-training">3.5.2. Preview of next section : how Weights Change During Training</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -486,45 +500,86 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lesson-3-the-math-behind-convolutional-neural-networks-cnns">
-<h1><span class="section-number">3. </span>Lesson 3: The Math Behind Convolutional Neural Networks (CNNs)<a class="headerlink" href="#lesson-3-the-math-behind-convolutional-neural-networks-cnns" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-math-behind-convolutional-neural-networks-cnns">
+<h1><span class="section-number">3. </span>The Math Behind Convolutional Neural Networks (CNNs)<a class="headerlink" href="#the-math-behind-convolutional-neural-networks-cnns" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2><span class="section-number">3.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In this lesson, we will explore the basic mathematical concepts that form the foundation of <strong>Convolutional Neural Networks (CNNs)</strong>, one of the most popular models used in <strong>Computer Vision</strong>. We will discuss concepts such as <strong>convolutions</strong>, <strong>filters</strong>, <strong>stride</strong>, and <strong>padding</strong>, and how these operations help in extracting meaningful features from images for tasks like object detection, classification, and segmentation.</p>
 <section id="learning-objectives">
 <h3><span class="section-number">3.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
-<p>By the end of this lesson, you will:</p>
+<p>By the end of this section, you will:</p>
 <ul class="simple">
-<li><p>Understand the basic mathematical operations behind CNNs, such as convolutions and filters.</p></li>
-<li><p>Learn how CNNs process image data using operations like stride and padding.</p></li>
-<li><p>Explore how CNNs build hierarchical features from simple edges to complex shapes.</p></li>
+<li><p>Understand how images are represented as numerical data and why grayscale images are often used in CNNs.</p></li>
+<li><p>Learn how to apply a single-layer convolution to detect edges in an image.</p></li>
+<li><p>Explore how deeper CNNs are structured and how they use multiple layers to extract complex features.</p></li>
 </ul>
 </section>
-</section>
 <hr class="docutils" />
+<section id="what-is-a-cnn">
+<h3><span class="section-number">3.1.2. </span>What is a CNN?<a class="headerlink" href="#what-is-a-cnn" title="Link to this heading">#</a></h3>
+<p>A <strong>Convolutional Neural Network (CNN)</strong> is a type of deep learning model specifically designed to process grid-like data, such as images. Unlike traditional neural networks, CNNs use a special operation called <strong>convolution</strong> to automatically detect and learn important features in images, such as edges, shapes, and textures. This ability makes CNNs highly effective at recognizing objects in images without requiring manual feature extraction.</p>
+</section>
+<section id="why-are-cnns-ubiquitous-in-marine-imagery">
+<h3><span class="section-number">3.1.3. </span>Why are CNNs Ubiquitous in Marine Imagery?<a class="headerlink" href="#why-are-cnns-ubiquitous-in-marine-imagery" title="Link to this heading">#</a></h3>
+<p>In marine science, CNNs have become ubiquitous due to their ability to handle complex imagery data from sources like underwater cameras, aerial drones, and satellite imagery. Marine imagery often involves detecting, classifying, and tracking various objects, such as fish, corals, and other marine organisms, within diverse and noisy environments.</p>
+<p>CNNs are powerful in these tasks because they can:</p>
+<ul class="simple">
+<li><p><strong>Automatically identify features</strong> like shapes and patterns, even in challenging conditions such as low light or murky water.</p></li>
+<li><p><strong>Scale to large datasets</strong>, such as vast amounts of underwater footage or satellite imagery.</p></li>
+<li><p><strong>Handle variations</strong> in object size, orientation, and viewpoint, which are common in dynamic marine environments.</p></li>
+</ul>
+</section>
+<section id="annotations-in-cnns-bounding-boxes">
+<h3><span class="section-number">3.1.4. </span>Annotations in CNNs: Bounding Boxes<a class="headerlink" href="#annotations-in-cnns-bounding-boxes" title="Link to this heading">#</a></h3>
+<p>To train CNNs, annotated datasets are crucial. In the case of marine imagery, annotations are often in the form of <strong>bounding boxes</strong>. Bounding boxes are rectangular frames drawn around objects of interest within an image. For example, when detecting and classifying fish in an underwater video, bounding boxes are used to mark the locations of each fish.</p>
+<p>These annotations help the CNN learn which parts of an image correspond to specific objects. The model is trained to detect and predict bounding boxes for new, unseen images, allowing it to automatically identify and localize objects in marine imagery.</p>
+</section>
+<section id="ocean-metaphor-cnns-as-marine-explorers">
+<h3><span class="section-number">3.1.5. </span>Ocean Metaphor: CNNs as Marine Explorers<a class="headerlink" href="#ocean-metaphor-cnns-as-marine-explorers" title="Link to this heading">#</a></h3>
+<p>You can think of CNNs as underwater explorers. Imagine you’re navigating through the ocean, trying to identify different marine species. As you move through the water, you focus on small, local regions—like a coral reef or a school of fish. You start by identifying simple patterns, such as the shapes of fins or tails, much like how CNNs detect basic features like edges and corners.</p>
+<p>As you explore deeper, you begin to recognize more complex patterns, such as the full outline of a fish or the intricate structure of coral. Similarly, CNNs use multiple layers to build up a more detailed understanding of the image. Just as your brain integrates this information to form a complete picture of the underwater world, CNNs aggregate features to classify and identify objects in marine imagery.</p>
+<p>By using these localized “snapshots” and combining them across an image, CNNs can explore, analyze, and understand the rich biodiversity of the ocean, all from visual data.</p>
+</section>
+</section>
 <section id="mathematical-foundations-of-cnns">
 <h2><span class="section-number">3.2. </span>Mathematical Foundations of CNNs<a class="headerlink" href="#mathematical-foundations-of-cnns" title="Link to this heading">#</a></h2>
 <p>Convolutional Neural Networks rely on mathematical operations that process image data in layers. The key operation is <strong>convolution</strong>, which is used to detect features in the input images.</p>
+<section id="images-as-data-and-why-grayscale-is-used">
+<h3><span class="section-number">3.2.1. </span>Images as Data and Why Grayscale is Used<a class="headerlink" href="#images-as-data-and-why-grayscale-is-used" title="Link to this heading">#</a></h3>
+<p>Before diving into the math behind CNNs, it’s important to understand how images are represented as data in a way that machines can process. While humans can look at an image and instinctively understand it, machines treat images as numerical matrices.</p>
+<p>An image is essentially a grid of pixel values, where each pixel represents some form of intensity or color information. For a <strong>grayscale image</strong>, this is simple: each pixel contains a single intensity value, typically ranging from 0 (black) to 255 (white). In the case of <strong>RGB images</strong> (red, green, blue), each pixel holds three values, one for each color channel. This makes RGB images a bit more complex, as the pixel data consists of three matrices (one for each channel). This is why for this lessons activity, the image will be translated to grayscale before processing</p>
+<section id="why-convert-to-grayscale">
+<h4><span class="section-number">3.2.1.1. </span>Why Convert to Grayscale?<a class="headerlink" href="#why-convert-to-grayscale" title="Link to this heading">#</a></h4>
+<p>Grayscale images are often used in CNNs because they simplify the data representation. Instead of working with three separate color channels (red, green, and blue), you only need to deal with one channel—the intensity of light. This reduces the computational complexity, allowing the model to focus on extracting important features like edges, shapes, and textures, which are key for object recognition.</p>
+<p>Grayscale images also help avoid color-related biases. For many computer vision tasks, the essential features of an image are independent of color. For instance, detecting edges or shapes is more important than detecting the exact color. Converting to grayscale strips away the additional information that may not be crucial for a particular task, ensuring that the network focuses purely on spatial structures.</p>
+</section>
+</section>
+<section id="how-machines-see-images">
+<h3><span class="section-number">3.2.2. </span>How Machines See Images<a class="headerlink" href="#how-machines-see-images" title="Link to this heading">#</a></h3>
+<p>Humans can abstract images and recognize objects or patterns even when presented with complex scenes. However, machines don’t “see” images the same way we do. For a machine, an image is nothing more than a matrix of numbers—each number representing the intensity of light at a specific location.</p>
+<p>When a machine processes an image, it uses mathematical operations like <strong>convolutions</strong> to extract numerical patterns from the image. These patterns help the machine recognize edges, textures, or specific features, like the shape of a fish or the outline of a crab leg. Unlike humans, who can effortlessly understand the meaning behind an image, a machine must systematically learn to detect patterns through data, which is why CNNs play a critical role in helping machines interpret and classify images.</p>
+</section>
 <section id="convolutions">
-<h3><span class="section-number">3.2.1. </span>Convolutions<a class="headerlink" href="#convolutions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3. </span>Convolutions<a class="headerlink" href="#convolutions" title="Link to this heading">#</a></h3>
 <p>A convolution operation is essentially a way of applying a filter (kernel) to an image. The kernel slides over the input image, multiplying and summing the values to produce an output.</p>
 <section id="convolution-formula">
-<h4><span class="section-number">3.2.1.1. </span>Convolution Formula<a class="headerlink" href="#convolution-formula" title="Link to this heading">#</a></h4>
-<p>Let’s represent the convolution operation mathematically:
-Given an image <code class="docutils literal notranslate"><span class="pre">I</span></code> and a filter <code class="docutils literal notranslate"><span class="pre">F</span></code>, the convolution at a position <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> can be expressed as:</p>
-<p>[
-S(x, y) = \sum_{i=0}^{k-1} \sum_{j=0}^{k-1} I(x+i, y+j) \cdot F(i,j)
-]</p>
+<h4><span class="section-number">3.2.3.1. </span>Convolution Formula<a class="headerlink" href="#convolution-formula" title="Link to this heading">#</a></h4>
+<p>Let’s represent the convolution operation mathematically:<br />
+Given an image <span class="math notranslate nohighlight">\(I\)</span> and a filter <span class="math notranslate nohighlight">\(F\)</span> of size <span class="math notranslate nohighlight">\(m \times n\)</span>, the convolution at a position <span class="math notranslate nohighlight">\((x, y)\)</span> can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+S(x, y) = \sum_{i=0}^{m-1} \sum_{j=0}^{n-1} I(x+i, y+j) \cdot F(i,j)
+\]</div>
 <p>Where:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">I(x,</span> <span class="pre">y)</span></code> is the pixel value at position <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> in the input image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">F(i,</span> <span class="pre">j)</span></code> is the value of the filter at position <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">j)</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">S(x,</span> <span class="pre">y)</span></code> is the output (or feature map) after applying the filter.</p></li>
+<li><p><span class="math notranslate nohighlight">\(I(x, y)\)</span> is the pixel value at position <span class="math notranslate nohighlight">\((x, y)\)</span> in the input image.</p></li>
+<li><p><span class="math notranslate nohighlight">\(F(i, j)\)</span> is the value of the filter at position <span class="math notranslate nohighlight">\((i, j)\)</span>, where <span class="math notranslate nohighlight">\(F\)</span> is of size <span class="math notranslate nohighlight">\(m \times n\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(S(x, y)\)</span> is the output (or feature map) after applying the filter.</p></li>
 </ul>
 </section>
 </section>
-<section id="filters">
-<h3><span class="section-number">3.2.2. </span>Filters<a class="headerlink" href="#filters" title="Link to this heading">#</a></h3>
+<section id="filters-kernels">
+<h3><span class="section-number">3.2.4. </span>Filters / Kernels<a class="headerlink" href="#filters-kernels" title="Link to this heading">#</a></h3>
 <p>Filters (also called kernels) are small matrices of weights that are applied to input images to extract features such as edges, textures, and more. For example, a 3x3 filter applied to an image can help detect vertical edges.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -542,7 +597,7 @@ S(x, y) = \sum_{i=0}^{k-1} \sum_{j=0}^{k-1} I(x+i, y+j) \cdot F(i,j)
 </div>
 </section>
 <section id="stride-and-padding">
-<h3><span class="section-number">3.2.3. </span>Stride and Padding<a class="headerlink" href="#stride-and-padding" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.5. </span>Stride and Padding<a class="headerlink" href="#stride-and-padding" title="Link to this heading">#</a></h3>
 <p>Two other important concepts in CNNs are <strong>stride</strong> and <strong>padding</strong>.</p>
 <ul class="simple">
 <li><p><strong>Stride</strong>: Stride defines how the filter moves across the image. A stride of 1 means the filter moves one pixel at a time, whereas a stride of 2 skips every other pixel.</p></li>
@@ -558,7 +613,7 @@ S(x, y) = \sum_{i=0}^{k-1} \sum_{j=0}^{k-1} I(x+i, y+j) \cdot F(i,j)
 </ul>
 </section>
 <section id="pooling">
-<h3><span class="section-number">3.2.4. </span>Pooling<a class="headerlink" href="#pooling" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.6. </span>Pooling<a class="headerlink" href="#pooling" title="Link to this heading">#</a></h3>
 <p>Pooling is a downsampling operation used to reduce the spatial size of the feature maps. The most common type of pooling is <strong>max pooling</strong>, which takes the maximum value from a portion of the image.</p>
 <p>For example, in 2x2 max pooling:</p>
 <div class="math notranslate nohighlight">
@@ -651,7 +706,7 @@ P(x, y) = \max \{I(x, y), I(x+1, y), I(x, y+1), I(x+1, y+1)\}
 </div>
 <p>Here, we open the uploaded image and convert it to grayscale using <code class="docutils literal notranslate"><span class="pre">.convert('L')</span></code>, where <code class="docutils literal notranslate"><span class="pre">'L'</span></code> means luminance or grayscale. The image is resized to <strong>180x180 pixels</strong> to ensure it’s the correct size for our convolution operation.</p>
 <ul class="simple">
-<li><p><strong>Why grayscale?</strong> CNNs typically process grayscale or single-channel images more efficiently for basic operations like edge detection, as it simplifies the data (reducing from 3 RGB channels to 1).</p></li>
+<li><p><strong>Recakk why we convert to grayscale:</strong> CNNs typically process grayscale or single-channel images more efficiently for basic operations like edge detection, as it simplifies the data (reducing from 3 RGB channels to 1).</p></li>
 <li><p><strong>Resizing</strong> ensures that the image fits within the expected dimensions of the neural network input.</p></li>
 </ul>
 </section>
@@ -800,6 +855,35 @@ P(x, y) = \max \{I(x, y), I(x+1, y), I(x, y+1), I(x+1, y+1)\}
 </div>
 </section>
 </section>
+<section id="cnns-and-multiple-layers">
+<h2><span class="section-number">3.5. </span>CNNs and Multiple Layers<a class="headerlink" href="#cnns-and-multiple-layers" title="Link to this heading">#</a></h2>
+<p>The edge detector example demonstrates how a simple convolutional filter can detect vertical edges in an image. However, <strong>Convolutional Neural Networks (CNNs)</strong> go far beyond using just one filter or one layer. CNNs are composed of many layers, each designed to detect increasingly complex features of an image. Let’s explore how these layers function together to make CNNs so powerful.</p>
+<section id="how-cnns-use-multiple-layers">
+<h3><span class="section-number">3.5.1. </span>How CNNs Use Multiple Layers<a class="headerlink" href="#how-cnns-use-multiple-layers" title="Link to this heading">#</a></h3>
+<p>CNNs are made up of a sequence of layers, each of which transforms the input image in a different way. The first few layers typically detect <strong>simple features</strong> like edges, lines, and corners, similar to the edge detection filter we just used. As the network progresses deeper into subsequent layers, it begins to detect more <strong>complex patterns</strong> such as shapes, textures, and entire objects.</p>
+<ul class="simple">
+<li><p><strong>Early Layers</strong>: Focus on basic features like edges and corners. These are the low-level features that are present in almost every image.</p></li>
+<li><p><strong>Middle Layers</strong>: Detect more complex structures, like patterns, textures, or object parts (e.g., fins of a fish or the body of a coral).</p></li>
+<li><p><strong>Deeper Layers</strong>: Recognize entire objects and relationships between objects. In marine imagery, these layers might detect full fish species, coral formations, or even patterns of animal behavior.</p></li>
+</ul>
+<p>This hierarchical approach allows CNNs to build a progressively more sophisticated understanding of the input data.</p>
+</section>
+<section id="preview-of-next-section-how-weights-change-during-training">
+<h3><span class="section-number">3.5.2. </span>Preview of next section : how Weights Change During Training<a class="headerlink" href="#preview-of-next-section-how-weights-change-during-training" title="Link to this heading">#</a></h3>
+<p>The power of CNNs comes from their ability to <strong>learn</strong> and <strong>adapt</strong> their filters (or weights) during training. Each filter in a CNN has associated <strong>weights</strong>, which are numbers that control how the filter interacts with the input image. When a CNN is trained on a dataset, these weights are updated over many <strong>epochs</strong> (iterations over the dataset).</p>
+<ol class="arabic simple">
+<li><p><strong>Initial Weights</strong>: At the beginning of training, the weights in each layer are typically initialized randomly. These random weights might detect patterns, but they don’t yet represent useful features for the task.</p></li>
+<li><p><strong>Training and Backpropagation</strong>: During training, the CNN processes the input image and makes predictions. The difference between the prediction and the true label (known as the <strong>loss</strong>) is calculated. Using an optimization process called <strong>backpropagation</strong>, the CNN updates the weights to minimize this loss.</p></li>
+<li><p><strong>Epochs and Weight Updates</strong>: Training is repeated over many <strong>epochs</strong>. An epoch refers to a full cycle through the training dataset. After each epoch, the weights are slightly adjusted based on the feedback from the loss function. Over time, the CNN learns to modify its weights to better detect the relevant features in the image.</p>
+<ul class="simple">
+<li><p><strong>Early Epochs</strong>: The weights are still far from optimal. The CNN is learning basic patterns, and the filters may be detecting random noise or unrelated features.</p></li>
+<li><p><strong>Later Epochs</strong>: As training progresses, the weights in each layer become specialized. Filters in the early layers may focus on detecting edges, while filters in deeper layers become tuned to recognizing specific objects, like marine species or coral structures.</p></li>
+</ul>
+</li>
+<li><p><strong>Convergence</strong>: After sufficient epochs, the weights reach a point where the CNN can accurately classify images in the dataset. At this point, the network has effectively learned how to transform raw pixel data into meaningful representations of objects.</p></li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -838,7 +922,7 @@ P(x, y) = \max \{I(x, y), I(x+1, y), I(x, y+1), I(x+1, y+1)\}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Lesson 2: Image Annotation</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Image Annotation</p>
       </div>
     </a>
     <a class="right-next"
@@ -868,16 +952,25 @@ P(x, y) = \max \{I(x, y), I(x+1, y), I(x, y+1), I(x+1, y+1)\}
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">3.1. Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.1.1. Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-cnn">3.1.2. What is a CNN?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-cnns-ubiquitous-in-marine-imagery">3.1.3. Why are CNNs Ubiquitous in Marine Imagery?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotations-in-cnns-bounding-boxes">3.1.4. Annotations in CNNs: Bounding Boxes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ocean-metaphor-cnns-as-marine-explorers">3.1.5. Ocean Metaphor: CNNs as Marine Explorers</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-foundations-of-cnns">3.2. Mathematical Foundations of CNNs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutions">3.2.1. Convolutions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-formula">3.2.1.1. Convolution Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#images-as-data-and-why-grayscale-is-used">3.2.1. Images as Data and Why Grayscale is Used</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-convert-to-grayscale">3.2.1.1. Why Convert to Grayscale?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filters">3.2.2. Filters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stride-and-padding">3.2.3. Stride and Padding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pooling">3.2.4. Pooling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-machines-see-images">3.2.2. How Machines See Images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolutions">3.2.3. Convolutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-formula">3.2.3.1. Convolution Formula</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filters-kernels">3.2.4. Filters / Kernels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stride-and-padding">3.2.5. Stride and Padding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pooling">3.2.6. Pooling</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-hierarchical-features">3.3. Building Hierarchical Features</a><ul class="nav section-nav flex-column">
@@ -894,6 +987,11 @@ P(x, y) = \max \{I(x, y), I(x+1, y), I(x, y+1), I(x+1, y+1)\}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-6-applying-the-filter">3.4.7. Block 6: Applying the Filter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-7-converting-the-filtered-image-for-display">3.4.8. Block 7: Converting the Filtered Image for Display</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-8-displaying-the-images">3.4.9. Block 8: Displaying the Images</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cnns-and-multiple-layers">3.5. CNNs and Multiple Layers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-cnns-use-multiple-layers">3.5.1. How CNNs Use Multiple Layers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-of-next-section-how-weights-change-during-training">3.5.2. Preview of next section : how Weights Change During Training</a></li>
 </ul>
 </li>
 </ul>
