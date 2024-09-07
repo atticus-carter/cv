@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lesson 1: Introduction to Ocean Image Data &#8212; Computer Vision Across Oceanography</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/LA1';</script>
+    <link rel="canonical" href="https://atticus-carter.github.io/cv/book/LA1.html" />
+    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Markdown Files" href="markdown.html" />
+    <link rel="prev" title="Welcome to Computer Vision Across Oceanography" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Computer Vision Across Oceanography - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Computer Vision Across Oceanography - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lesson 1: Introduction to Ocean Image Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv/edit/main/book/LA1.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv/issues/new?title=Issue%20on%20page%20%2Fbook/LA1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/book/LA1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesson 1: Introduction to Ocean Image Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-ocean-image-data">Types of Ocean Image Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underwater-imagery">1. <strong>Underwater Imagery</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rovs-remotely-operated-vehicles"><strong>ROVs (Remotely Operated Vehicles)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#auvs-autonomous-underwater-vehicles"><strong>AUVs (Autonomous Underwater Vehicles)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-underwater-cameras"><strong>Fixed Underwater Cameras</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-capturing-ocean-data">Tools for Capturing Ocean Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underwater-cameras">1. <strong>Underwater Cameras</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rovs-and-auvs">2. <strong>ROVs and AUVs</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-imagery">3. <strong>Satellite Imagery</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-computer-vision-in-oceanography">Applications of Computer Vision in Oceanography</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#species-identification">1. <strong>Species Identification</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-survey-detection">2. <strong>Remote Survey Detection</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pollution-detection">3. <strong>Pollution Detection</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lesson-1-introduction-to-ocean-image-data">
+<h1>Lesson 1: Introduction to Ocean Image Data<a class="headerlink" href="#lesson-1-introduction-to-ocean-image-data" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lesson, we will explore <strong>marine photographic and videographic data</strong>. We will also discuss the tools used to capture these images and videos, such as <strong>underwater cameras</strong>, <strong>drones</strong>, and <strong>satellite imagery</strong>. Understanding this data is the first step toward applying <strong>Computer Vision</strong> (CV) techniques to oceanographic research.</p>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this lesson, you will:</p>
+<ul class="simple">
+<li><p>Understand the different types of ocean image data.</p></li>
+<li><p>Identify the tools and techniques used to capture marine imagery.</p></li>
+<li><p>Learn how CV can be applied to oceanographic research.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="types-of-ocean-image-data">
+<h2>Types of Ocean Image Data<a class="headerlink" href="#types-of-ocean-image-data" title="Link to this heading">#</a></h2>
+<p>Ocean image data can be broadly categorized into the following types:</p>
+<section id="underwater-imagery">
+<h3>1. <strong>Underwater Imagery</strong><a class="headerlink" href="#underwater-imagery" title="Link to this heading">#</a></h3>
+<p>Underwater imagery can be captured using various types of technology, including <strong>ROVs</strong> (Remotely Operated Vehicles), <strong>AUVs</strong> (Autonomous Underwater Vehicles), and <strong>fixed underwater cameras</strong>.</p>
+<section id="rovs-remotely-operated-vehicles">
+<h4><strong>ROVs (Remotely Operated Vehicles)</strong><a class="headerlink" href="#rovs-remotely-operated-vehicles" title="Link to this heading">#</a></h4>
+<p>ROVs are uncrewed submersibles controlled from the surface, allowing researchers to navigate underwater in real-time. Examples include <strong>Jason</strong> and <strong>ROPOS</strong>.</p>
+<ul class="simple">
+<li><p><strong>Jason</strong>: Operated by the Woods Hole Oceanographic Institution (WHOI), Jason is capable of deep-sea exploration, down to 6,500 meters. It is equipped with high-definition video cameras, lights, and a robotic arm for collecting samples.</p></li>
+<li><p><strong>ROPOS</strong>: A Canadian ROV used for a wide range of oceanographic research, capable of working at depths of up to 5,000 meters. ROPOS is well-known for its ability to operate in harsh environments like hydrothermal vent systems.</p></li>
+</ul>
+<p><strong>Advantages of ROVs</strong>:</p>
+<ul class="simple">
+<li><p><strong>Real-time control</strong>: The operator can see and control the ROV, making it ideal for collecting targeted samples or exploring specific areas.</p></li>
+<li><p><strong>Depth capabilities</strong>: Some ROVs can reach extreme depths, beyond the limits of human divers.</p></li>
+</ul>
+<p><strong>Drawbacks of ROVs</strong>:</p>
+<ul class="simple">
+<li><p><strong>Cost</strong>: ROVs are expensive to build, maintain, and operate.</p></li>
+<li><p><strong>Mobility</strong>: While they are versatile, ROVs are tethered to a support vessel, limiting their range compared to autonomous systems.</p></li>
+</ul>
+</section>
+<section id="auvs-autonomous-underwater-vehicles">
+<h4><strong>AUVs (Autonomous Underwater Vehicles)</strong><a class="headerlink" href="#auvs-autonomous-underwater-vehicles" title="Link to this heading">#</a></h4>
+<p>Unlike ROVs, AUVs are completely autonomous. They can be programmed to follow pre-determined missions and collect data without human intervention. A prominent example is <strong>Sentry</strong>, an AUV designed and operated by WHOI.</p>
+<ul class="simple">
+<li><p><strong>Sentry</strong>: Capable of diving to depths of 6,000 meters, Sentry is used to map the seafloor and gather high-resolution sonar, photographic, and environmental data. AUVs like Sentry are equipped with both still and video cameras, and they can cover vast areas autonomously.</p></li>
+</ul>
+<p><strong>Advantages of AUVs</strong>:</p>
+<ul class="simple">
+<li><p><strong>Autonomy</strong>: AUVs can operate independently for long periods, making them ideal for covering large areas.</p></li>
+<li><p><strong>Efficiency</strong>: Without the need for a tether, AUVs can move quickly and efficiently through the water.</p></li>
+<li><p><strong>Data collection</strong>: AUVs can be fitted with a wide range of sensors in addition to cameras, providing comprehensive environmental data.</p></li>
+</ul>
+<p><strong>Drawbacks of AUVs</strong>:</p>
+<ul class="simple">
+<li><p><strong>No real-time control</strong>: Once launched, the operator has no control over the vehicle, meaning they cannot respond to unexpected situations.</p></li>
+<li><p><strong>Limited power</strong>: The battery life of an AUV limits its operational time, especially for deep dives.</p></li>
+</ul>
+</section>
+<section id="fixed-underwater-cameras">
+<h4><strong>Fixed Underwater Cameras</strong><a class="headerlink" href="#fixed-underwater-cameras" title="Link to this heading">#</a></h4>
+<p>Fixed underwater cameras are cabled or moored to a stationary point, typically on the seafloor, and are designed for long-term monitoring of specific locations. These cameras can provide both still images and video footage.</p>
+<p>An example is the <strong>Ocean Observatories Initiative’s Regional Cabled Array</strong>, operated by the University of Washington, which streams live footage from the ocean floor.</p>
+<ul class="simple">
+<li><p><strong>Digital Still Cameras</strong>: These cameras are often used for scientific monitoring because they produce high-quality, detailed images. They are effective in applications where still frames are sufficient for analysis. Oftentimes, these cameras can provide timeseries of a single area producing high quality ecological datasets.</p></li>
+<li><p><strong>Video Cameras</strong>: Video cameras provide continuous monitoring and are crucial for studying dynamic processes, such as animal behavior or environmental changes over time.</p></li>
+</ul>
+<p><strong>Advantages of Fixed Cameras</strong>:</p>
+<ul class="simple">
+<li><p><strong>Long-term monitoring</strong>: Fixed cameras are ideal for observing a location over a long period, capturing important temporal data.</p></li>
+<li><p><strong>High-quality imagery</strong>: Both digital still and video cameras can provide high-definition images that are vital for detailed analysis.</p></li>
+</ul>
+<p><strong>Drawbacks of Fixed Cameras</strong>:</p>
+<ul class="simple">
+<li><p><strong>Limited range</strong>: Fixed cameras are stationary, which means they only cover a small area.</p></li>
+<li><p><strong>Maintenance</strong>: Maintaining these systems over long periods, especially in harsh underwater environments, can be challenging and costly.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tools-for-capturing-ocean-data">
+<h2>Tools for Capturing Ocean Data<a class="headerlink" href="#tools-for-capturing-ocean-data" title="Link to this heading">#</a></h2>
+<section id="underwater-cameras">
+<h3>1. <strong>Underwater Cameras</strong><a class="headerlink" href="#underwater-cameras" title="Link to this heading">#</a></h3>
+<p>Underwater cameras, as mentioned earlier, can be used in fixed locations or mounted on ROVs or AUVs. They are essential tools for <strong>deep-sea exploration</strong> and <strong>long-term environmental monitoring</strong>.</p>
+<p><img alt="A digital still camera operated by UW taking photos taking pictures of an active methane seep. Credit: UW/NSF-OOI/WHOI" src="../_images/image.png" /></p>
+</section>
+<section id="rovs-and-auvs">
+<h3>2. <strong>ROVs and AUVs</strong><a class="headerlink" href="#rovs-and-auvs" title="Link to this heading">#</a></h3>
+<p>Both ROVs and AUVs offer unique capabilities for exploring the ocean. ROVs provide <strong>real-time control</strong> and are often used in <strong>sample collection</strong> missions, while AUVs can autonomously cover large areas, making them ideal for <strong>mapping</strong> and <strong>survey missions</strong>.</p>
+<p><img alt="The ROV Jason Equipped with 4k video cameras. Credit: M.Elend, University of Washington" src="../_images/image-1.png" /></p>
+</section>
+<section id="satellite-imagery">
+<h3>3. <strong>Satellite Imagery</strong><a class="headerlink" href="#satellite-imagery" title="Link to this heading">#</a></h3>
+<p>Satellites offer the ability to observe global ocean conditions, such as <strong>phytoplankton blooms</strong> or <strong>sea surface temperature</strong>. <strong>Geosynchronous satellites</strong> (those that stay in a fixed position relative to Earth) are especially valuable for monitoring <strong>seasonal changes</strong> and large-scale oceanic events.</p>
+<p><img alt="Phytoplankton bloom in the bering sea captured by a satellite Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory" src="../_images/image-2.png" /></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="applications-of-computer-vision-in-oceanography">
+<h2>Applications of Computer Vision in Oceanography<a class="headerlink" href="#applications-of-computer-vision-in-oceanography" title="Link to this heading">#</a></h2>
+<section id="species-identification">
+<h3>1. <strong>Species Identification</strong><a class="headerlink" href="#species-identification" title="Link to this heading">#</a></h3>
+<p>CV techniques can be used to identify marine species from underwater images, enabling researchers to monitor biodiversity and track changes in marine populations.</p>
+</section>
+<section id="remote-survey-detection">
+<h3>2. <strong>Remote Survey Detection</strong><a class="headerlink" href="#remote-survey-detection" title="Link to this heading">#</a></h3>
+<p>At the <strong>Marine Mammal Laboratory (MML) at NOAA</strong>, researchers use <strong>aerial transect data</strong> and CV models to estimate <strong>seal populations</strong> in remote areas of the Arctic. Using planes equipped with cameras, they collect imagery over large areas, which is then processed with machine learning to detect and count seals.</p>
+<p><img alt="Seals sitting on Arctic Sea Ice captured via in flight camera, annotated using a CV Model Credit: A.Carter NOAA, National Marine Mammal Laboratory" src="../_images/image-4.png" /></p>
+</section>
+<section id="pollution-detection">
+<h3>3. <strong>Pollution Detection</strong><a class="headerlink" href="#pollution-detection" title="Link to this heading">#</a></h3>
+<p>CV models are increasingly used to detect pollution, such as <strong>oil spills</strong> or <strong>marine debris</strong>. Imagery collected by <strong>drones</strong>, <strong>satellites</strong>, or <strong>underwater cameras</strong> is processed to identify pollution hotspots, helping researchers and policymakers target conservation efforts.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Marine imagery, collected through advanced ocean technologies such as <strong>ROVs</strong>, <strong>AUVs</strong>, and <strong>satellites</strong>, plays a crucial role in <strong>oceanographic research</strong>. These tools allow us to gather vast amounts of data that can be processed with <strong>Computer Vision</strong> to gain insights into marine ecosystems, monitor species, and detect environmental changes.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to Computer Vision Across Oceanography</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="markdown.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Markdown Files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-ocean-image-data">Types of Ocean Image Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underwater-imagery">1. <strong>Underwater Imagery</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rovs-remotely-operated-vehicles"><strong>ROVs (Remotely Operated Vehicles)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#auvs-autonomous-underwater-vehicles"><strong>AUVs (Autonomous Underwater Vehicles)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-underwater-cameras"><strong>Fixed Underwater Cameras</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-capturing-ocean-data">Tools for Capturing Ocean Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underwater-cameras">1. <strong>Underwater Cameras</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rovs-and-auvs">2. <strong>ROVs and AUVs</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-imagery">3. <strong>Satellite Imagery</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-computer-vision-in-oceanography">Applications of Computer Vision in Oceanography</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#species-identification">1. <strong>Species Identification</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-survey-detection">2. <strong>Remote Survey Detection</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pollution-detection">3. <strong>Pollution Detection</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Atticus Carter
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
