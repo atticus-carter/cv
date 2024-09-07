@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Image Annotation Overview &#8212; Computer Vision Across Oceanography</title>
+    <title>Lesson 2: Image Annotation Overview &#8212; Computer Vision Across Oceanography</title>
   
   
   
@@ -175,7 +175,7 @@
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="LA1.html">Lesson 1: Introduction to Ocean Image Data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Image Annotation Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lesson 2: Image Annotation Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -381,7 +381,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Image Annotation Overview</h1>
+    <h1>Lesson 2: Image Annotation Overview</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -404,6 +404,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-annotation-workflow">PyTorch Annotation Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-of-annotations">Quality of Annotations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-figure-highlights-how-each-type-of-flawed-annotation-can-negatively-impact-a-model-s-ability-to-learn-correctly-ensuring-high-quality-well-defined-annotations-is-crucial-to-developing-models-that-perform-accurately-and-consistently-across-diverse-tasks">This figure highlights how each type of flawed annotation can negatively impact a model’s ability to learn correctly. Ensuring high-quality, well-defined annotations is crucial to developing models that perform accurately and consistently across diverse tasks.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
@@ -416,9 +418,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="image-annotation-overview">
-<h1>Image Annotation Overview<a class="headerlink" href="#image-annotation-overview" title="Link to this heading">#</a></h1>
-<p>When training models using imagery data, it is crucial to provide the algorithm with properly annotated training data. This allows the model to learn what to look for and where to find it within an image. Imagine, for a moment, that you are a computer tasked with identifying every rockfish in an image, but the image is completely unannotated, and you have no prior knowledge or context of what a rockfish looks like. You would likely have a (very) hard time piecing together what that request even means. In the context of computer vision, image annotation serves as a vital guide, providing the labels and boundaries necessary for the model to understand its task. Without annotations, the model would be left guessing, unable to differentiate between objects or recognize key features. Image annotation refers to the process of labeling images in a way that helps the machine learning model recognize objects, patterns, or other relevant features. Depending on the specific task at hand, there are different types of annotations that can be applied, each serving a distinct purpose in guiding the model’s learning process. For this lesson, we will focus on the most common annotation types, as these are foundational for many computer vision tasks and essential for developing accurate and efficient models. Proper annotation not only improves the model’s ability to detect and classify objects but also ensures the quality and reliability of the outputs in real-world applications. There are various types of annotations depending on the task, but the most common ones we’ll focus on in this lesson are:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lesson-2-image-annotation-overview">
+<h1>Lesson 2: Image Annotation Overview<a class="headerlink" href="#lesson-2-image-annotation-overview" title="Link to this heading">#</a></h1>
+<p>When training models using imagery data, it is crucial to provide the algorithm with properly <strong>annotated</strong> training data. This allows the model to learn what to look for and where to find it within an image. Imagine, for a moment, that you are a computer tasked with identifying every rockfish in an image, but the image is completely unannotated, and you have no prior knowledge or context of what a rockfish looks like. You would likely have a (very) hard time piecing together what that request even means. In the context of computer vision, image annotation serves as a vital guide, providing the labels and boundaries necessary for the model to understand its task. Without annotations, the model would be left guessing, unable to differentiate between objects or recognize key features.</p>
+<p>A critical part of annotation is defining classes. <strong>In computer vision, a class refers to a category or label that is assigned to a specific object or feature within an image.</strong> Classes are essential for helping the model understand what it’s looking at. Without clear class definitions, the model wouldn’t know how to distinguish between objects like a fish and a rock or identify whether a certain object should be labeled as pollution or marine life. Classes can be very specific, such as labeling an organism down to the species level, like “rockfish,” or more generalized, such as labeling a broader group like “fish” or “jelly.”</p>
+<p>In the context of marine imagery, classes can vary widely. Sometimes, annotations are done at a species level for detailed ecological studies, while other times, they may simply label a broader morphotype like “fish” or “jelly.” Classes are not limited to biological organisms; they can also represent other features such as geological formations (“ice,” “cobble,” “vent”) or indicators of human impact, such as “plastic debris” or “fishing gear.” The way you define classes has a significant effect on how the model learns to interpret the data. For instance, a class like “plastic” might be used to train a model that detects marine pollution, while a class like “coral” would be used in studies focusing on habitat mapping.</p>
+<p>Properly defining and annotating these classes allows the computer to understand what it is looking for during training. Without well-defined classes, the model would be unable to make the distinctions necessary to identify objects or features within the images. <strong>Image annotation refers to the process of labeling images with these classes, which helps the machine learning model recognize objects, patterns, or other relevant features.</strong> Depending on the specific task at hand, there are different types of annotations that can be applied, each serving a distinct purpose in guiding the model’s learning process. For this lesson, we will focus on the most common annotation types, as these are foundational for many computer vision tasks and essential for developing accurate and efficient models. Proper annotation not only improves the model’s ability to detect and classify objects but also ensures the quality and reliability of the outputs in real-world applications.</p>
+<p>There are various types of annotations depending on the task, but the most common ones we’ll focus on in this lesson are:</p>
 <ol class="arabic simple">
 <li><p><strong>Bounding Boxes</strong></p></li>
 <li><p><strong>Instance Segmentation</strong></p></li>
@@ -478,7 +484,20 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">'image':</span> <span class="pre">image,</span> <span class="pre">'annotations':</span> <span class="pre">{'boxes':</span> <span class="pre">torch.tensor([[10,</span> <span class="pre">20,</span> <span class="pre">200,</span> <span class="pre">400]]),</span> <span class="pre">'labels':</span> <span class="pre">torch.tensor([1]),</span> <span class="pre">'masks':</span> <span class="pre">torch.tensor([[[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">1],</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]]]),</span> <span class="pre">'keypoints':</span> <span class="pre">torch.tensor([[[150,</span> <span class="pre">200,</span> <span class="pre">1]]])}</span></code></p>
 <p>By leveraging these annotations, we can effectively train models for object detection, segmentation, and pose estimation in PyTorch.</p>
 </section>
-<hr class="docutils" />
+<section id="quality-of-annotations">
+<h2>Quality of Annotations<a class="headerlink" href="#quality-of-annotations" title="Link to this heading">#</a></h2>
+<p>Not all annotations are created equal, and poor-quality annotations can significantly impact the performance and reliability of a model. Annotations produced by hasty annotators or automated processes can result in inaccuracies that may mislead the model, leading to faulty predictions or misclassifications. Incomplete, imprecise, or inconsistent labeling can introduce noise into the training data, ultimately reducing the model’s accuracy and effectiveness. These bad annotations can disrupt workflows, causing models to learn incorrect patterns, confuse similar objects, or fail to generalize well to new data. Additionally, poor annotations may lead to an increased likelihood of overfitting, where the model memorizes incorrect relationships rather than learning meaningful patterns. This can be particularly damaging when scaling the model to larger datasets or applying it to real-world scenarios.</p>
+<p>For instance, if bounding boxes are poorly drawn—either too tightly cropped (underfitting), too loosely drawn (overfitting), or missing the object entirely— the model may struggle to focus on the object or be misled by irrelevant background. Inconsistent use of class labels across images can also confuse the model, reducing its performance. To better understand how different types of poor annotations can affect model training, the figure below demonstrates three common examples of bad bounding box annotations: overfitting, underfitting, and misidentification.</p>
+<figure class="align-default" id="bad-bbox-example">
+<img alt="../_images/bad_annotations.png" src="../_images/bad_annotations.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Examples of bad bounding box annotations: overfitting, underfitting, and misidentification. Credit: A.Carter, OOI-NS</span><a class="headerlink" href="#bad-bbox-example" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="this-figure-highlights-how-each-type-of-flawed-annotation-can-negatively-impact-a-model-s-ability-to-learn-correctly-ensuring-high-quality-well-defined-annotations-is-crucial-to-developing-models-that-perform-accurately-and-consistently-across-diverse-tasks">
+<h2>This figure highlights how each type of flawed annotation can negatively impact a model’s ability to learn correctly. Ensuring high-quality, well-defined annotations is crucial to developing models that perform accurately and consistently across diverse tasks.<a class="headerlink" href="#this-figure-highlights-how-each-type-of-flawed-annotation-can-negatively-impact-a-model-s-ability-to-learn-correctly-ensuring-high-quality-well-defined-annotations-is-crucial-to-developing-models-that-perform-accurately-and-consistently-across-diverse-tasks" title="Link to this heading">#</a></h2>
+</section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>Annotated data is the foundation of any successful computer vision model. Without precise labeling, the algorithm would struggle to identify and differentiate objects within an image. Whether you’re working with bounding boxes, instance segmentation, or keypoint annotations, each method serves a specific purpose in guiding the model to understand and predict object locations and relationships.</p>
@@ -562,6 +581,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-annotation-workflow">PyTorch Annotation Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-of-annotations">Quality of Annotations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-figure-highlights-how-each-type-of-flawed-annotation-can-negatively-impact-a-model-s-ability-to-learn-correctly-ensuring-high-quality-well-defined-annotations-is-crucial-to-developing-models-that-perform-accurately-and-consistently-across-diverse-tasks">This figure highlights how each type of flawed annotation can negatively impact a model’s ability to learn correctly. Ensuring high-quality, well-defined annotations is crucial to developing models that perform accurately and consistently across diverse tasks.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
