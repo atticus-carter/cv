@@ -4,7 +4,7 @@
 format: jb-book
 root: index
 chapters:
-  - file: book/LA1
+  - file: book/LA1.md
   - file: book/markdown
   - file: book/notebooks
   - file: book/bibliography
