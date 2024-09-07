@@ -57,5 +57,6 @@ Check out the content pages bundled with this book to dive into the details.
 
 :::{note}
 For any feedback or suggestions, feel free to open an issue on the [GitHub repository](https://github.com/atticus-carter/cv).
+This text was created using jupyter book: [@holdgraf_portable_2017]
 :::
 

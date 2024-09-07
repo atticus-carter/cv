@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lesson, we will explore **marine photographic and videographic data**. We will also discuss the tools used to capture these images and videos, such as **underwater cameras**, **drones**, and **satellite imagery**. Understanding this data is the first step toward applying **Computer Vision** (CV) techniques to oceanographic research.
+In this lesson, we will explore **marine photographic and videographic data**. We will also discuss the tools used to capture these images and videos, such as **underwater cameras**, **drones**, and **satellite imagery**. Understanding this data is the first step toward applying **Computer Vision (CV)** techniques to oceanographic research.
 
 ### Learning Objectives
 
@@ -13,112 +13,91 @@ By the end of this lesson, you will:
 
 ---
 
-## Types of Ocean Image Data
+## Types and Tools for Capturing Ocean Image Data
 
-Ocean image data can be broadly categorized into the following types:
+Ocean image data comes from a variety of sources, each with unique strengths and limitations. Let's explore the main types of ocean image data and the tools used to capture them.
 
 ### Underwater Imagery
 
-Underwater imagery can be captured using various types of technology, including **ROVs** (Remotely Operated Vehicles), **AUVs** (Autonomous Underwater Vehicles), and **fixed underwater cameras**.
+Underwater imagery is captured using technologies like **Remotely Operated Vehicles (ROVs)**, **Autonomous Underwater Vehicles (AUVs)**, and **fixed underwater cameras**.
 
 #### ROVs (Remotely Operated Vehicles)
 
-ROVs are uncrewed submersibles controlled from the surface, allowing researchers to navigate underwater in real-time. Examples include **Jason** and **ROPOS**.
+ROVs are uncrewed submersibles controlled from the surface. They provide real-time video and still imagery, often equipped with sampling tools. Notable examples are:
 
-- **Jason**: Operated by the Woods Hole Oceanographic Institution (WHOI), Jason is capable of deep-sea exploration, down to 6,500 meters. It is equipped with high-definition video cameras, lights, and a robotic arm for collecting samples.
-  
-- **ROPOS**: A Canadian ROV used for a wide range of oceanographic research, capable of working at depths of up to 5,000 meters. ROPOS is well-known for its ability to operate in harsh environments like hydrothermal vent systems.
-
-**Advantages of ROVs**:
-- **Real-time control**: The operator can see and control the ROV, making it ideal for collecting targeted samples or exploring specific areas.
-- **Depth capabilities**: Some ROVs can reach extreme depths, beyond the limits of human divers.
-
-**Drawbacks of ROVs**:
-- **Cost**: ROVs are expensive to build, maintain, and operate.
-- **Mobility**: While they are versatile, ROVs are tethered to a support vessel, limiting their range compared to autonomous systems.
-
-#### AUVs (Autonomous Underwater Vehicles)
-
-Unlike ROVs, AUVs are completely autonomous. They can be programmed to follow pre-determined missions and collect data without human intervention. A prominent example is **Sentry**, an AUV designed and operated by WHOI.
-
-- **Sentry**: Capable of diving to depths of 6,000 meters, Sentry is used to map the seafloor and gather high-resolution sonar, photographic, and environmental data. AUVs like Sentry are equipped with both still and video cameras, and they can cover vast areas autonomously.
-
-**Advantages of AUVs**:
-- **Autonomy**: AUVs can operate independently for long periods, making them ideal for covering large areas.
-- **Efficiency**: Without the need for a tether, AUVs can move quickly and efficiently through the water.
-- **Data collection**: AUVs can be fitted with a wide range of sensors in addition to cameras, providing comprehensive environmental data.
-
-**Drawbacks of AUVs**:
-- **No real-time control**: Once launched, the operator has no control over the vehicle, meaning they cannot respond to unexpected situations.
-- **Limited power**: The battery life of an AUV limits its operational time, especially for deep dives.
-
-#### Fixed Underwater Cameras
-
-Fixed underwater cameras are cabled or moored to a stationary point, typically on the seafloor, and are designed for long-term monitoring of specific locations. These cameras can provide both still images and video footage. 
-
-An example is the **Ocean Observatories Initiative's Regional Cabled Array**, operated by the University of Washington, which streams live footage from the ocean floor.
-
-- **Digital Still Cameras**: These cameras are often used for scientific monitoring because they produce high-quality, detailed images. They are effective in applications where still frames are sufficient for analysis. Oftentimes, these cameras can provide timeseries of a single area producing high quality ecological datasets.
-
-- **Video Cameras**: Video cameras provide continuous monitoring and are crucial for studying dynamic processes, such as animal behavior or environmental changes over time.
-
-**Advantages of Fixed Cameras**:
-- **Long-term monitoring**: Fixed cameras are ideal for observing a location over a long period, capturing important temporal data.
-- **High-quality imagery**: Both digital still and video cameras can provide high-definition images that are vital for detailed analysis.
-  
-**Drawbacks of Fixed Cameras**:
-- **Limited range**: Fixed cameras are stationary, which means they only cover a small area.
-- **Maintenance**: Maintaining these systems over long periods, especially in harsh underwater environments, can be challenging and costly.
-
----
-
-## Tools for Capturing Ocean Data
-
-### Underwater Cameras
-Underwater cameras, as mentioned earlier, can be used in fixed locations or mounted on ROVs or AUVs. They are essential tools for **deep-sea exploration** and **long-term environmental monitoring**.
-
-:::{figure} images/image.png
-:name: underwater-camera
-A digital still camera operated by UW taking photos taking pictures of an active methane seep. Credit: UW/NSF-OOI/WHOI
-:::
-
-### ROVs and AUVs
-Both ROVs and AUVs offer unique capabilities for exploring the ocean. ROVs provide **real-time control** and are often used in **sample collection** missions, while AUVs can autonomously cover large areas, making them ideal for **mapping** and **survey missions**.
-
-
+- **Jason**: Capable of deep-sea exploration, reaching depths of up to 6,500 meters. Operated by WHOI, it includes high-definition video and robotic arms for sample collection.
+- **ROPOS**: A Canadian ROV capable of diving to depths of 5,000 meters, ideal for exploring hydrothermal vent systems.
 
 :::{figure} images/image-1.png
 :name: rov-jason
-The ROV Jason Equipped with 4k video cameras. Credit: M.Elend, University of Washington
+The ROV Jason Equipped with 4k video cameras. Credit: M. Elend, University of Washington
 :::
 
-### Satellite Imagery
-Satellites offer the ability to observe global ocean conditions, such as **phytoplankton blooms** or **sea surface temperature**. **Geosynchronous satellites** (those that stay in a fixed position relative to Earth) are especially valuable for monitoring **seasonal changes** and large-scale oceanic events.
+**Advantages of ROVs**:
+- Real-time control for targeted exploration.
+- Deep-water capabilities beyond the reach of divers.
 
+**Drawbacks of ROVs**:
+- High cost and limited mobility due to tethers.
+
+#### AUVs (Autonomous Underwater Vehicles)
+
+AUVs are pre-programmed to follow missions autonomously, capturing imagery without human intervention. A prime example is **Sentry**, which collects data at depths of up to 6,000 meters.
+
+:::{figure} images/image-3.png
+:name: auv-sentry
+AUV Sentry at the surface after a deep dive. Credit: WHOI
+:::
+
+**Advantages of AUVs**:
+- Autonomous, covering large areas efficiently.
+- Can be fitted with multiple sensors.
+
+**Drawbacks of AUVs**:
+- Limited real-time control and operational time due to battery life.
+
+#### Fixed Underwater Cameras
+
+These cameras are positioned on the seafloor for long-term monitoring. The **Ocean Observatories Initiative's Regional Cabled Array** provides live video feeds from deep-sea environments.
+
+:::{figure} images/image.png
+:name: underwater-camera
+A digital still camera capturing methane seep activity. Credit: UW/NSF-OOI/WHOI
+:::
+
+**Advantages of Fixed Cameras**:
+- Ideal for long-term ecological studies.
+- High-definition video and still imagery.
+
+**Drawbacks of Fixed Cameras**:
+- Limited to specific, small areas.
+
+### Satellite Imagery
+
+Satellites offer broad coverage for observing large-scale oceanographic phenomena, such as **phytoplankton blooms** and **sea surface temperature**.
 
 :::{figure} images/image-2.png
 :name: satellite-imagery
-Example of satellite imagery capturing phytoplankton blooms. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory
+Satellite imagery showing a phytoplankton bloom. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory
 :::
----
 
-## Applications of Computer Vision in Oceanography
+**Advantages of Satellite Imagery**:
+- Global coverage and ability to monitor seasonal changes.
+  
+**Drawbacks of Satellite Imagery**:
+- Lower resolution compared to underwater systems, making it less ideal for studying small-scale features.
 
-### Species Identification
-CV techniques can be used to identify marine species from underwater images, enabling researchers to monitor biodiversity and track changes in marine populations.
+### Aerial Imagery
 
-### Remote Survey Detection
-At the **Marine Mammal Laboratory (MML) at NOAA**, researchers use **aerial transect data** and CV models to estimate **seal populations** in remote areas of the Arctic. Using planes equipped with cameras, they collect imagery over large areas, which is then processed with machine learning to detect and count seals.
+Aerially mounted cameras on drones, planes and helicopters can produce high quality often georeferenced imagery of nearshore sites or areas that are hard to get to by other means of transport like sea ice.
 
 :::{figure} images/image-4.png
 :name: seal-population
-Seals sitting on Arctic Sea Ice captured via in flight camera, annotated using a CV Model Credit: A.Carter NOAA, National Marine Mammal Laboratory
+Seals on Arctic sea ice captured with an aerial camera, annotated with a CV model. Credit: A. Carter, NOAA National Marine Mammal Laboratory
 :::
-### Pollution Detection
-CV models are increasingly used to detect pollution, such as **oil spills** or **marine debris**. Imagery collected by **drones**, **satellites**, or **underwater cameras** is processed to identify pollution hotspots, helping researchers and policymakers target conservation efforts.
 
----
-
-## Conclusion
-
-Marine imagery, collected through advanced ocean technologies such as **ROVs**, **AUVs**, and **satellites**, plays a crucial role in **oceanographic research**. These tools allow us to gather vast amounts of data that can be processed with **Computer Vision** to gain insights into marine ecosystems, monitor species, and detect environmental changes.
+**Advantages of Aerial Imagery**:
+- Large georeferenced imagery can be obtained in relatively quick transects.
+  
+**Drawbacks of Aerial Imagery**:
+- Aerial imagery doesn't capture underwater information, and can be very expensive to operate.

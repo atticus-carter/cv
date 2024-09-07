@@ -111,9 +111,3 @@ For instance, if bounding boxes are poorly drawn—either too tightly cropped (u
 :name: bad_bbox_example 
 Examples of bad bounding box annotations: overfitting, underfitting, and misidentification. Credit: A.Carter, OOI-NS
 :::
-
----
-
-## Conclusion
-
-Annotated data is the foundation of any successful computer vision model. Without precise labeling, the algorithm would struggle to identify and differentiate objects within an image. Whether you're working with bounding boxes, instance segmentation, or keypoint annotations, each method serves a specific purpose in guiding the model to understand and predict object locations and relationships. 
