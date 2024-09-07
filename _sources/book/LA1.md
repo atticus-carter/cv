@@ -77,7 +77,7 @@ An example is the **Ocean Observatories Initiative's Regional Cabled Array**, op
 ### 1. **Underwater Cameras**
 Underwater cameras, as mentioned earlier, can be used in fixed locations or mounted on ROVs or AUVs. They are essential tools for **deep-sea exploration** and **long-term environmental monitoring**.
 
-:::{figure} images\image.png
+:::{figure} images/image.png
 :name: underwater-camera
 A digital still camera operated by UW taking photos taking pictures of an active methane seep. Credit: UW/NSF-OOI/WHOI
 :::
@@ -87,7 +87,7 @@ Both ROVs and AUVs offer unique capabilities for exploring the ocean. ROVs provi
 
 
 
-:::{figure} images\image-1.png
+:::{figure} images/image-1.png
 :name: rov-jason
 The ROV Jason Equipped with 4k video cameras. Credit: M.Elend, University of Washington
 :::
@@ -96,7 +96,7 @@ The ROV Jason Equipped with 4k video cameras. Credit: M.Elend, University of Was
 Satellites offer the ability to observe global ocean conditions, such as **phytoplankton blooms** or **sea surface temperature**. **Geosynchronous satellites** (those that stay in a fixed position relative to Earth) are especially valuable for monitoring **seasonal changes** and large-scale oceanic events.
 
 
-:::{figure} images\image-2.png
+:::{figure} images/image-2.png
 :name: satellite-imagery
 Example of satellite imagery capturing phytoplankton blooms. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory
 :::
@@ -110,7 +110,7 @@ CV techniques can be used to identify marine species from underwater images, ena
 ### 2. **Remote Survey Detection**
 At the **Marine Mammal Laboratory (MML) at NOAA**, researchers use **aerial transect data** and CV models to estimate **seal populations** in remote areas of the Arctic. Using planes equipped with cameras, they collect imagery over large areas, which is then processed with machine learning to detect and count seals.
 
-:::{figure} images\image4.png
+:::{figure} images/image4.png
 :name: seal-population
 Seals sitting on Arctic Sea Ice captured via in flight camera, annotated using a CV Model Credit: A.Carter NOAA, National Marine Mammal Laboratory
 :::
