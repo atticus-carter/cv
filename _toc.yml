@@ -7,6 +7,7 @@ parts:
       - file: book/LA1.md
       - file: book/LA2.md
       - file: book/LA2.5.ipynb
+      - file: book/LA2.75.ipynb
       - file: book/LA3.ipynb
       - file: book/LA4.ipynb
 
