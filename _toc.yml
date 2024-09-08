@@ -8,6 +8,7 @@ parts:
       - file: book/LA2.md
       - file: book/LA2.5.ipynb
       - file: book/LA3.ipynb
+      - file: book/LA4.ipynb
       
   - caption: "Appendices"
     numbered: false
