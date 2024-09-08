@@ -520,6 +520,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">3.17.1. Using OpenCV:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#color-space-conversion-bgr-to-rgb">3.18. Color Space Conversion: BGR to RGB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">3.18.1. Using OpenCV:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -1088,6 +1092,28 @@ document.write(`
 </div>
 </section>
 </section>
+<section id="color-space-conversion-bgr-to-rgb">
+<h2><span class="section-number">3.18. </span>Color Space Conversion: BGR to RGB<a class="headerlink" href="#color-space-conversion-bgr-to-rgb" title="Link to this heading">#</a></h2>
+<p>OpenCV loads images in <strong>BGR</strong> (Blue, Green, Red) format by default, whereas most image processing libraries like <strong>Matplotlib</strong> expect images in <strong>RGB</strong> (Red, Green, Blue) format. To ensure the correct color representation when displaying images, you need to convert from BGR to RGB.</p>
+<section id="id21">
+<h3><span class="section-number">3.18.1. </span>Using OpenCV:<a class="headerlink" href="#id21" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert image from BGR to RGB using OpenCV</span>
+<span class="n">opencv_image_bgr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;path_to_image&#39;</span><span class="p">)</span>  <span class="c1"># Load the image in BGR format</span>
+<span class="n">opencv_image_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">opencv_image_bgr</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>  <span class="c1"># Convert to RGB</span>
+
+<span class="c1"># Display the RGB image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">opencv_image_rgb</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;BGR to RGB Conversion using OpenCV&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1227,6 +1253,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-transformation">3.17. Affine Transformation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">3.17.1. Using OpenCV:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#color-space-conversion-bgr-to-rgb">3.18. Color Space Conversion: BGR to RGB</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">3.18.1. Using OpenCV:</a></li>
 </ul>
 </li>
 </ul>
