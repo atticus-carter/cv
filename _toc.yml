@@ -9,6 +9,16 @@ parts:
       - file: book/LA2.5.ipynb
       - file: book/LA3.ipynb
       - file: book/LA4.ipynb
+
+      - file: book/LA5.ipynb
+      - file: book/LA6.ipynb
+      - file: book/LA7.ipynb
+      - file: book/LA8.ipynb
+      - file: book/LA9.ipynb
+      - file: book/LA10.ipynb
+      - file: book/LA11.ipynb
+      - file: book/LA12.ipynb
+      - file: book/LA13.ipynb
       
   - caption: "Appendices"
     numbered: false
