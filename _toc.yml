@@ -1,7 +1,7 @@
 format: jb-book
 root: index
 parts:
-  - caption: "Chapter 1"
+  - caption: "Chapter 1 - Introduction"
     numbered: true
     chapters:
       - file: book/LA1.md
@@ -10,6 +10,9 @@ parts:
       - file: book/LA3.ipynb
       - file: book/LA4.ipynb
 
+  - caption: "Chapter 2 - Computer Vision Development"
+    numbered: true
+    chapters:  
       - file: book/LA5.ipynb
       - file: book/LA6.ipynb
       - file: book/LA7.ipynb
@@ -19,7 +22,17 @@ parts:
       - file: book/LA11.ipynb
       - file: book/LA12.ipynb
       - file: book/LA13.ipynb
-      
+
+  - caption: "Chapter 3 - Synthesis Project"
+    numbered: true
+    chapters:  
+      - file: book/LA14.ipynb
+      - file: book/LA15.ipynb
+      - file: book/LA16.ipynb
+      - file: book/LA17.ipynb
+      - file: book/LA18.ipynb
+      - file: book/LA19.ipynb
+
   - caption: "Appendices"
     numbered: false
     chapters:
