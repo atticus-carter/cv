@@ -446,8 +446,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">5.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection-vs-image-classification">5.1.1. Object Detection vs. Image Classification</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1.2. Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1.1. Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection-vs-image-classification">5.1.2. Object Detection vs. Image Classification</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries-overview">5.2. Libraries Overview</a></li>
@@ -502,23 +502,24 @@ document.write(`
 <h2><span class="section-number">5.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In this lesson, we will explore image classification using a <strong>Convolutional Neural Network (CNN)</strong> in <strong>Keras</strong> with <strong>TensorFlow</strong>. Keras is a high-level API built on top of TensorFlow, designed to simplify the process of building and training neural networks. TensorFlow, on the other hand, is a comprehensive open-source machine learning framework that provides powerful tools for building and deploying deep learning models, including neural networks.</p>
 <p>We will use a dataset of benthic animals to classify images of <strong>crabs</strong> and <strong>rockfish</strong>, which were captured in 2011 by the <strong>ROV ROPOS</strong> at <strong>Southern Hydrate Ridge</strong>, as part of the <strong>Ocean Observatories Initiative Regional Cabled Array</strong> operated by the University of Washington and funded by the National Science Foundation (NSF).</p>
+<section id="learning-objectives">
+<h3><span class="section-number">5.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this section, you will:</p>
+<ul class="simple">
+<li><p>Understand how to load, preprocess, and split image datasets for training a neural network.</p></li>
+<li><p>Develop, compile, and train a Convolutional Neural Network (CNN) model for image classification using Keras.</p></li>
+<li><p>Start to visualize and interpret training and validation accuracy and loss graphs, and evaluate model performance.</p></li>
+<li><p>Make predictions on new, unseen images and assess the model’s confidence in classifying them.</p></li>
+</ul>
+</section>
 <section id="object-detection-vs-image-classification">
-<h3><span class="section-number">5.1.1. </span>Object Detection vs. Image Classification<a class="headerlink" href="#object-detection-vs-image-classification" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.1.2. </span>Object Detection vs. Image Classification<a class="headerlink" href="#object-detection-vs-image-classification" title="Link to this heading">#</a></h3>
 <p>There are two common tasks in computer vision: <strong>object detection</strong> and <strong>image classification</strong>.</p>
 <ul class="simple">
 <li><p><strong>Image classification</strong> involves categorizing an entire image into a single class. In this case, we are classifying each image as either a “crab” or a “rockfish.”</p></li>
 <li><p><strong>Object detection</strong>, on the other hand, is more complex. It involves not only identifying the objects present in an image but also determining their exact location within the image. This requires the use of annotations (usually separate files) to provide bounding boxes around each object.</p></li>
 </ul>
 <p>In this lesson, we focus on <strong>image classification</strong>. The images used in this dataset are not annotated with bounding boxes because they are assumed to contain only one of the two possible classes—either “crab” or “rockfish.” This simplifies the problem, allowing us to rely on the image file names and folder structure to determine the class labels. No separate annotation files are necessary.</p>
-</section>
-<section id="learning-objectives">
-<h3><span class="section-number">5.1.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Understand how to load, preprocess, and split image datasets for training a neural network.</p></li>
-<li><p>Develop, compile, and train a Convolutional Neural Network (CNN) model for image classification using Keras.</p></li>
-<li><p>Start to visualize and interpret training and validation accuracy and loss graphs, and evaluate model performance.</p></li>
-<li><p>Make predictions on new, unseen images and assess the model’s confidence in classifying them.</p></li>
-</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The following activity requires a small dataset download, you can download it here:</p>
@@ -1049,8 +1050,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">5.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection-vs-image-classification">5.1.1. Object Detection vs. Image Classification</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1.2. Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1.1. Learning Objectives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection-vs-image-classification">5.1.2. Object Detection vs. Image Classification</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries-overview">5.2. Libraries Overview</a></li>
