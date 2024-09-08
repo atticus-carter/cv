@@ -6,7 +6,7 @@ In this lesson, we will explore **marine photographic and videographic data**. W
 
 ### Learning Objectives
 
-By the end of this lesson, you will:
+By the end of this section, you will:
 - Understand the different types of ocean image data.
 - Identify the tools and techniques used to capture marine imagery.
 - Learn how CV can be applied to oceanographic research.

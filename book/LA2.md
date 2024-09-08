@@ -6,7 +6,7 @@ In this lesson, we will explore image annotation techniques and their importance
 
 ### Learning Objectives
 
-By the end of this lesson, you will:
+By the end of this section, you will:
 - Understand the importance of image annotation in computer vision, explaining why annotated training data is critical for models to accurately recognize and differentiate objects in imagery data, particularly in marine environments.
 - Differentiate between types of annotations, identifying the key differences between bounding boxes, instance segmentation, and keypoint annotations, and determining the appropriate use cases for each.
 - Recognize the impact of annotation quality, evaluating how poor-quality annotations (e.g., overfitting, underfitting, or misidentification) can hinder model performance, and outlining best practices for creating effective annotations.
