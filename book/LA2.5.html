@@ -179,6 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="LA2.html">2. Image Annotation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Image Manipulation in Python with PIL and OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA3.html">4. The Math Behind Convolutional Neural Networks (CNNs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA4.html">5. Image Classification with Keras</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -503,12 +504,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">3.13.1. Using OpenCV:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thresholding">3.14. Thresholding</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-detection">3.14. Edge Detection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">3.14.1. Using OpenCV:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-transformation">3.15. Affine Transformation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blending-two-images">3.15. Blending Two Images</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">3.15.1. Using OpenCV:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thresholding">3.16. Thresholding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">3.16.1. Using OpenCV:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-transformation">3.17. Affine Transformation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">3.17.1. Using OpenCV:</a></li>
 </ul>
 </li>
 </ul>
@@ -984,18 +993,13 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Edge Detection</span>
-
-<span class="n">Detecting</span> <span class="n">edges</span> <span class="ow">is</span> <span class="n">useful</span> <span class="k">for</span> <span class="nb">object</span> <span class="n">detection</span> <span class="ow">and</span> <span class="n">shape</span> <span class="n">analysis</span><span class="o">.</span> <span class="n">Currently</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">almost</span> <span class="n">exclusively</span> <span class="n">done</span> <span class="n">using</span> <span class="n">OpenCV</span><span class="o">.</span>
-
-
-<span class="c1">### Using OpenCV:</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+</section>
+<section id="edge-detection">
+<h2><span class="section-number">3.14. </span>Edge Detection<a class="headerlink" href="#edge-detection" title="Link to this heading">#</a></h2>
+<p>Detecting edges is useful for object detection and shape analysis. Currently this is almost exclusively done using OpenCV.</p>
+<section id="id17">
+<h3><span class="section-number">3.14.1. </span>Using OpenCV:<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Perform edge detection using Canny method in OpenCV</span>
@@ -1010,17 +1014,13 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Blending Two Images</span>
-
-<span class="n">Blending</span> <span class="n">combines</span> <span class="n">two</span> <span class="n">images</span> <span class="k">with</span> <span class="n">a</span> <span class="n">specified</span> <span class="n">weight</span> <span class="n">ratio</span><span class="o">.</span>
-
-<span class="c1">### Using OpenCV:</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+</section>
+<section id="blending-two-images">
+<h2><span class="section-number">3.15. </span>Blending Two Images<a class="headerlink" href="#blending-two-images" title="Link to this heading">#</a></h2>
+<p>Blending combines two images with a specified weight ratio.</p>
+<section id="id18">
+<h3><span class="section-number">3.15.1. </span>Using OpenCV:<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Blend two images using OpenCV</span>
@@ -1040,10 +1040,10 @@ document.write(`
 </section>
 </section>
 <section id="thresholding">
-<h2><span class="section-number">3.14. </span>Thresholding<a class="headerlink" href="#thresholding" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.16. </span>Thresholding<a class="headerlink" href="#thresholding" title="Link to this heading">#</a></h2>
 <p>Thresholding converts an image to a binary (black-and-white) image by setting a threshold value. Currently this is almost exclusively done using OpenCV</p>
-<section id="id17">
-<h3><span class="section-number">3.14.1. </span>Using OpenCV:<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h3><span class="section-number">3.16.1. </span>Using OpenCV:<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply simple thresholding in OpenCV</span>
@@ -1061,10 +1061,10 @@ document.write(`
 </section>
 </section>
 <section id="affine-transformation">
-<h2><span class="section-number">3.15. </span>Affine Transformation<a class="headerlink" href="#affine-transformation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.17. </span>Affine Transformation<a class="headerlink" href="#affine-transformation" title="Link to this heading">#</a></h2>
 <p>Affine transformations include rotation, translation, scaling, and shearing while preserving collinearity.</p>
-<section id="id18">
-<h3><span class="section-number">3.15.1. </span>Using OpenCV:<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<section id="id20">
+<h3><span class="section-number">3.17.1. </span>Using OpenCV:<a class="headerlink" href="#id20" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the affine transformation matrix</span>
@@ -1212,12 +1212,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">3.13.1. Using OpenCV:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thresholding">3.14. Thresholding</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-detection">3.14. Edge Detection</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">3.14.1. Using OpenCV:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-transformation">3.15. Affine Transformation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blending-two-images">3.15. Blending Two Images</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">3.15.1. Using OpenCV:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thresholding">3.16. Thresholding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">3.16.1. Using OpenCV:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-transformation">3.17. Affine Transformation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">3.17.1. Using OpenCV:</a></li>
 </ul>
 </li>
 </ul>
