@@ -185,23 +185,28 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="LA5.html">7. Image Classification with Keras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA6.html">8. Object Detection with TensorFlow API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA7.html">9. Instance Segmentation with Detectron2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA8.html">10. Keypoint Detection with MediaPipe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA9.html">11. Object and Multi-Object Tracking with TensorFlow and OpenCV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA10.html">12. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA11.html">13. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA12.html">14. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA13.html">15. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA6.html">8. LA6: Object Detection with TensorFlow API</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="LA7.html">14. Instance Segmentation with Detectron2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA8.html">15. Keypoint Detection with MediaPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA9.html">16. Object and Multi-Object Tracking with TensorFlow and OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA10.html">17. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA11.html">18. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA12.html">19. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA13.html">20. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Synthesis Project</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="LA14.html">16. Dataset Preparation and Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA15.html">17. Model Selection and Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA16.html">18. Training and Evaluation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA17.html">19. Data Visualization and Figure Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA18.html">20. Usecase Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA19.html">21. Tying it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA14.html">21. Dataset Preparation and Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA15.html">22. Model Selection and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA16.html">23. Training and Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA17.html">24. Data Visualization and Figure Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA18.html">25. Usecase Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA19.html">26. Tying it all together</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -569,14 +574,14 @@ document.write(`
 <ul class="simple">
 <li><p>Understand the importance of selecting appropriate image augmentations for training machine learning models in underwater imagery analysis.</p></li>
 <li><p>Learn how to apply image transformations such as shearing, cropping, adding noise, and adjusting brightness using <strong>PIL</strong> and <strong>OpenCV</strong>.</p></li>
-<li><p>Develop a deeper understanding of how augmentations improve model robustness in real-world scenarios, such as handling camera misalignment, murky water conditions, and variable lighting during <strong>AUV surveys</strong>.</p></li>
+<li><p>Develop a deeper understanding of how augmentations improve model robustness in real-world scenarios, such as handling camera misalignment, murky water conditions, and variable lighting during <strong>AUV surveys</strong></p></li>
 </ul>
 </section>
 </section>
 <hr class="docutils" />
 <section id="the-theory-behind-choosing-augmentations-for-training-imagery">
 <h2><span class="section-number">3.2. </span>The Theory Behind Choosing Augmentations for Training Imagery<a class="headerlink" href="#the-theory-behind-choosing-augmentations-for-training-imagery" title="Link to this heading">#</a></h2>
-<p>When training machine learning models, particularly in <strong>highky variable condition</strong> tasks such as underwater image analysis, image augmentation is a powerful tool to improve model robustness and performance. Augmentation creates variations of the training data, allowing models to generalize better to real-world conditions. For example, <strong>shearing</strong> can simulate the effects of camera tilt commonly seen in <strong>AUV surveys</strong>, where slight angles and shifts can distort how objects are captured. By applying shear transformations, we teach models to recognize objects even when they are skewed due to misalignment during transect movement. Another useful augmentation is <strong>cropping</strong>, which mimics scenarios where cameras, such as stationary underwater systems, capture only part of an object—often seen in situations where fish or coral are cut off at the edges of the frame. Training with cropped images helps models learn to detect partial objects and improves their robustness in handling incomplete data. In murky underwater environments with sediment or low visibility, <strong>adding noise</strong> can replicate the challenge of detecting objects in degraded imagery. Noise simulates particles in the water, preparing models to distinguish features despite visual interference. Similarly, <strong>brightness adjustments</strong> are crucial for dealing with varying lighting conditions that change with depth or time of day. By exposing models to images with different brightness levels, they become more adaptable to fluctuations in light intensity. Additionally, <strong>rotations</strong> help models handle misalignment that occurs naturally in dynamic underwater environments, where cameras may not always be perfectly horizontal. Lastly, <strong>blurring</strong> can simulate motion or water flow, which is useful when image clarity is compromised by movement during data collection. Tailoring these augmentations to the challenges of underwater surveys helps build models that are more adaptable, improving detection accuracy and resilience in diverse conditions. The following sections provide examples of how to implement these augmentations in <strong>PIL</strong> and <strong>OpenCV</strong>.</p>
+<p>When training machine learning models, particularly in <strong>highly variable condition</strong> tasks such as underwater image analysis, image augmentation is a powerful tool to improve model robustness and performance. Augmentation creates variations of the training data, allowing models to generalize better to real-world conditions. For example, <strong>shearing</strong> can simulate the effects of camera tilt commonly seen in <strong>AUV surveys</strong>, where slight angles and shifts can distort how objects are captured. By applying shear transformations, we teach models to recognize objects even when they are skewed due to misalignment during transect movement. Another useful augmentation is <strong>cropping</strong>, which mimics scenarios where cameras, such as stationary underwater systems, capture only part of an object—often seen in situations where fish or coral are cut off at the edges of the frame. Training with cropped images helps models learn to detect partial objects and improves their robustness in handling incomplete data. In murky underwater environments with sediment or low visibility, <strong>adding noise</strong> can replicate the challenge of detecting objects in degraded imagery. Noise simulates particles in the water, preparing models to distinguish features despite visual interference. Similarly, <strong>brightness adjustments</strong> are crucial for dealing with varying lighting conditions that change with depth or time of day. By exposing models to images with different brightness levels, they become more adaptable to fluctuations in light intensity. Additionally, <strong>rotations</strong> help models handle misalignment that occurs naturally in dynamic underwater environments, where cameras may not always be perfectly horizontal. Lastly, <strong>blurring</strong> can simulate motion or water flow, which is useful when image clarity is compromised by movement during data collection. Tailoring these augmentations to the challenges of underwater surveys helps build models that are more adaptable, improving detection accuracy and resilience in diverse conditions. The following sections provide examples of how to implement these augmentations in <strong>PIL</strong> and <strong>OpenCV</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The following is meant to be a place for you to come back and reference these crucial augmentations in future activities.</p>

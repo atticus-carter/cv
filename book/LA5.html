@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Object Detection with TensorFlow API" href="LA6.html" />
+    <link rel="next" title="8. LA6: Object Detection with TensorFlow API" href="LA6.html" />
     <link rel="prev" title="6. Understanding CV Metrics and Graphs" href="LA4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -185,23 +185,28 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Image Classification with Keras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA6.html">8. Object Detection with TensorFlow API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA7.html">9. Instance Segmentation with Detectron2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA8.html">10. Keypoint Detection with MediaPipe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA9.html">11. Object and Multi-Object Tracking with TensorFlow and OpenCV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA10.html">12. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA11.html">13. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA12.html">14. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA13.html">15. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA6.html">8. LA6: Object Detection with TensorFlow API</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="LA7.html">14. Instance Segmentation with Detectron2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA8.html">15. Keypoint Detection with MediaPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA9.html">16. Object and Multi-Object Tracking with TensorFlow and OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA10.html">17. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA11.html">18. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA12.html">19. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA13.html">20. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Synthesis Project</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="LA14.html">16. Dataset Preparation and Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA15.html">17. Model Selection and Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA16.html">18. Training and Evaluation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA17.html">19. Data Visualization and Figure Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA18.html">20. Usecase Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA19.html">21. Tying it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA14.html">21. Dataset Preparation and Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA15.html">22. Model Selection and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA16.html">23. Training and Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA17.html">24. Data Visualization and Figure Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA18.html">25. Usecase Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA19.html">26. Tying it all together</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -544,7 +549,8 @@ document.write(`
 <p>In this lesson, we focus on <strong>image classification</strong>. The images used in this dataset are not annotated with bounding boxes because they are assumed to contain only one of the two possible classes—either “crab” or “rockfish.” This simplifies the problem, allowing us to rely on the image file names and folder structure to determine the class labels. No separate annotation files are necessary.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The following activity requires a small dataset download, you can download it here: <a class="reference external" href="https://drive.google.com/file/d/1aX3nUPtPWp3ScgGU1q4JPkZRLAyuo8ax/view?usp=sharing">https://drive.google.com/file/d/1aX3nUPtPWp3ScgGU1q4JPkZRLAyuo8ax/view?usp=sharing</a></p>
+<p>The following activity requires a small dataset download, you can download it here: - <a class="reference external" href="https://drive.google.com/file/d/1aX3nUPtPWp3ScgGU1q4JPkZRLAyuo8ax/view?usp=sharing">SHRCrabsandFishClassification.zip</a></p>
+<p>Alternatively, you can use a dataset modified in the previous lesson!</p>
 </div>
 </section>
 </section>
@@ -923,7 +929,6 @@ document.write(`
 <li><p><strong>Training Loss and Validation Loss</strong>: These graphs show how the model’s loss decreases during training. Loss is a measure of how well the model’s predictions match the true labels.</p></li>
 </ul>
 <p>Interpreting these graphs is one of the most important skills in CV. They help you assess whether the model is <strong>overfitting</strong> (performing well on training but poorly on validation) or <strong>underfitting</strong> (performing poorly on both training and validation).</p>
-<p>The next section will cover different metrics in greater depth and what constitutes good training results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize Training Results</span>
@@ -1041,7 +1046,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Object Detection with TensorFlow API</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>LA6: Object Detection with TensorFlow API</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
