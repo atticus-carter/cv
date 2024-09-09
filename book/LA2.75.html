@@ -475,6 +475,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-and-vertical-flips">4.3.3. Horizontal and Vertical Flips</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-rotations">4.3.4. Random Rotations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brightness-and-contrast-adjustments">4.3.5. Brightness and Contrast Adjustments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-blur">4.3.6. Gaussian Blur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-noise">4.3.7. Gaussian Noise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-crop">4.3.8. Random Crop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shift-scale-rotate">4.3.9. Shift, Scale, Rotate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-shadow">4.3.10. Random Shadow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clahe-contrast-limited-adaptive-histogram-equalization">4.3.11. CLAHE (Contrast Limited Adaptive Histogram Equalization)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resize">4.3.12. Resize</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-splitting-and-ensuring-annotation-integrity">4.4. 2. Dataset Splitting and Ensuring Annotation Integrity</a><ul class="nav section-nav flex-column">
@@ -523,12 +530,14 @@ document.write(`
 <p>In this lesson, we will focus on building and preparing datasets for deep learning models, discussing the rationale behind dataset creation and augmentation. We will learn how to perform batch processing of images with multiple augmentations, ensure that associated annotation files stay intact during dataset splitting, and how to choose the right augmentation techniques for different use cases. By the end of this lesson, you’ll have the skills to create a robust dataset pipeline.</p>
 <section id="learning-objectives">
 <h2><span class="section-number">4.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Understand the rationale behind building datasets for deep learning, including the importance of augmentations and splits.</p></li>
-<li><p>Learn how to split datasets into training, validation, and test sets while ensuring associated annotation files (e.g., XML, JSON) stay intact.</p></li>
-<li><p>Use <strong>batch processing</strong> to apply different augmentations to large datasets.</p></li>
-<li><p>Customize augmentations based on the task (e.g., object detection, segmentation, classification).</p></li>
-</ol>
+<p>By the end of this section, you will:</p>
+<ul class="simple">
+<li><p>Understand the rationale behind building datasets for deep learning, including the importance of augmentations and data splits.</p></li>
+<li><p>Learn how to split datasets into training, validation, and test sets while ensuring associated annotation files (e.g., XML, JSON) remain intact.</p></li>
+<li><p>Apply <strong>batch processing</strong> techniques to augment large datasets efficiently.</p></li>
+<li><p>Customize augmentations based on the specific task, such as object detection, segmentation, or classification.</p></li>
+<li><p>Explore and implement augmentations using <strong>Albumentations</strong>, a fast and flexible image augmentation library.</p></li>
+</ul>
 </section>
 <hr class="docutils" />
 <section id="rationale-behind-dataset-creation-and-augmentation">
@@ -580,15 +589,76 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">Rotate</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Use Case</strong>: When marine cameras tilt or rotate due to currents or vehicle movement, applying random rotations can make models more robust to different camera orientations.</p>
 <p>Here, ‘limit’ is the Maximum rotation angle (in degrees) in both directions.’p’ is the probability of applying the rotation.</p>
+<p><strong>Use Case</strong>: When marine cameras tilt or rotate due to currents or vehicle movement, applying random rotations can make models more robust to different camera orientations.</p>
 </section>
 <section id="brightness-and-contrast-adjustments">
 <h3><span class="section-number">4.3.5. </span>Brightness and Contrast Adjustments<a class="headerlink" href="#brightness-and-contrast-adjustments" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">RandomBrightnessContrast</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>MORE TO COME HERE, stopped at 1.29PM 9/8</p>
+<p>Here, ‘p’ is the probability of applying a random amount of brightness or contrast augmentation</p>
+<p><strong>Use Case</strong>: Underwater lighting conditions vary dramatically, especially when working with still cam imagery that has a very bright illuminated foreground and a much darker background.</p>
+</section>
+<section id="gaussian-blur">
+<h3><span class="section-number">4.3.6. </span>Gaussian Blur<a class="headerlink" href="#gaussian-blur" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">Blur</span><span class="p">(</span><span class="n">blur_limit</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, ‘blur_limit’ is the maximum kernel size for blurring and ‘p’ is the probability of applying that blur</p>
+<p><strong>Use Case</strong>: Blurring can simulate the effect of water turbidity, where visibility is reduced due to particles in the water. This is particularly useful for deep-sea environments or locations with high sediment. This can also be useful when looking at aerial survey data of marine mammals where varying degrees of their bodies are underwater or above water leading to a blur like effect. Similarly diffuse flows in hydrothermal imagery can show up as an intense blur, adding this augmentation is a good idea to catch classes that are partially obstructed by it.</p>
+</section>
+<section id="gaussian-noise">
+<h3><span class="section-number">4.3.7. </span>Gaussian Noise<a class="headerlink" href="#gaussian-noise" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">GaussNoise</span><span class="p">(</span><span class="n">var_limit</span><span class="o">=</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, ‘var_limit’ is the range of variance for the noise and ‘p’ is the probability of applying that blur</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no strict upper or lower limit imposed by the function itself; it’s based on the range you define. However, extremely large variance values might lead to very noisy and potentially unusable images. For that reason its good to stick to something like 10-50</p>
+</div>
+<p><strong>Use Case</strong>: Similar to Gaussian blur, adding Gaussian noise simulates image degradation in murky waters or low-light environments. This is important for creating a more realistic training dataset in challenging underwater conditions.</p>
+</section>
+<section id="random-crop">
+<h3><span class="section-number">4.3.8. </span>Random Crop<a class="headerlink" href="#random-crop" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">RandomCrop</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, Width and Height are self explanotory and given in pixel value, and ‘p’ is the probability of applying the crop</p>
+<p><strong>Use Case</strong>: Random cropping can simulate the loss of image data, helping the model learn to focus on partial objects or areas. This is especially useful when the camera cannot capture the entire object due to occlusion or framing issues.</p>
+</section>
+<section id="shift-scale-rotate">
+<h3><span class="section-number">4.3.9. </span>Shift, Scale, Rotate<a class="headerlink" href="#shift-scale-rotate" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">ShiftScaleRotate</span><span class="p">(</span><span class="n">shift_limit</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">scale_limit</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">rotate_limit</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, ‘shift_limit’ controls the maximum shift as a fraction of image size, ‘scale_limit’ is the maximum scaling factor, ‘rotate_limit’ is the maximum rotation angle in degrees, and ‘p’ is the probability of applying the transformation.</p>
+<p><strong>Use Case</strong>: This augmentation is useful for simulating camera movement underwater, where slight shifts and rotations occur due to currents or vehicle navigation. Scaling can help the model handle different sizes of objects, and shifting ensures robustness against changes in object placement.</p>
+</section>
+<section id="random-shadow">
+<h3><span class="section-number">4.3.10. </span>Random Shadow<a class="headerlink" href="#random-shadow" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">RandomShadow</span><span class="p">(</span><span class="n">shadow_roi</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">num_shadows_lower</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_shadows_upper</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shadow_dimension</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, ‘shadow_roi’ is the region of interest for placing shadows (coordinates as a fraction of the image size), ‘num_shadows_lower’ and ‘num_shadows_upper’ control the range for the number of shadows, ‘shadow_dimension’ determines the size of the shadow, and ‘p’ is the probability of applying the shadow.</p>
+<p><strong>Use Case</strong>: This augmentation can simulate shadows caused by marine structures, plants, or large marine animals. Shadows can introduce varying light conditions, making the model more resilient to different lighting situations in real-world environments.</p>
+</section>
+<section id="clahe-contrast-limited-adaptive-histogram-equalization">
+<h3><span class="section-number">4.3.11. </span>CLAHE (Contrast Limited Adaptive Histogram Equalization)<a class="headerlink" href="#clahe-contrast-limited-adaptive-histogram-equalization" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">CLAHE</span><span class="p">(</span><span class="n">clip_limit</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">tile_grid_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, ‘clip_limit’ is the threshold for contrast limiting, ‘tile_grid_size’ is the size of the grid for histogram equalization, and ‘p’ is the probability of applying the augmentation.</p>
+<p><strong>Use Case</strong>: CLAHE is useful for improving image contrast in underwater environments where lighting can be uneven or dim. It enhances details that may otherwise be missed, particularly in images with low contrast, such as deep-sea or low-light environments.</p>
+</section>
+<section id="resize">
+<h3><span class="section-number">4.3.12. </span>Resize<a class="headerlink" href="#resize" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">Resize</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, ‘height’ and ‘width’ specify the target dimensions of the image, and ‘p’ is the probability of applying the resize (usually set to 1.0 to ensure resizing is applied to every image).</p>
+<p><strong>Use Case</strong>: This ensures that all images are resized to a standard size, such as 180x180, making them consistent for training in deep learning models. Resizing is often necessary when working with images of varying resolutions, particularly in datasets with mixed sources like drone imagery or satellite images.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -790,11 +860,15 @@ document.write(`
 <hr class="docutils" />
 <section id="instructions">
 <h2><span class="section-number">4.8. </span>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
+<ol class="arabic">
 <li><p><strong>Download and extract the ZIP files</strong>:</p>
-<ul class="simple">
-<li><p><strong>randomcrab.zip</strong> contains 35 images of crabs.</p></li>
-<li><p><strong>randomfish.zip</strong> contains 35 images of fish.</p></li>
+<ul>
+<li><p><strong>randomcrab.zip</strong> contains 35 images of crabs.</p>
+<p><a class="reference external" href="https://drive.google.com/file/d/1ARAFOQ7CNsuPFIM4QaQBU89nQ35GMSlj/view?usp=sharing">https://drive.google.com/file/d/1ARAFOQ7CNsuPFIM4QaQBU89nQ35GMSlj/view?usp=sharing</a></p>
+</li>
+<li><p><strong>randomfish.zip</strong> contains 35 images of fish.</p>
+<p><a class="reference external" href="https://drive.google.com/file/d/1RRqS8k_-k_w7ZqGYCjVHwxgYqWlOO4zZ/view?usp=sharing">https://drive.google.com/file/d/1RRqS8k_-k_w7ZqGYCjVHwxgYqWlOO4zZ/view?usp=sharing</a></p>
+</li>
 </ul>
 </li>
 <li><p><strong>Augment each dataset</strong>: Your goal is to generate a total of <strong>400 images</strong> for each class (crabs and fish) by applying various transformations (rotation, brightness, flips, etc.).</p></li>
@@ -854,6 +928,30 @@ document.write(`
 <span class="c1"># Create the output directories</span>
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;augmented_data/crabs&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;augmented_data/fish&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="c1"># Function to apply augmentations and save images</span>
+<span class="k">def</span> <span class="nf">augment_and_save</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">):</span>
+    <span class="c1"># Read the image</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+    
+    <span class="c1"># Apply augmentations</span>
+    <span class="n">augmented</span> <span class="o">=</span> <span class="n">augmentations</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">)[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
+    
+    <span class="c1"># Get the base filename (e.g., &#39;1.png&#39;)</span>
+    <span class="n">base_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+    
+    <span class="c1"># Save the augmented image to the output directory</span>
+    <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">base_filename</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">augmented</span><span class="p">)</span>
+
+<span class="c1"># Apply augmentations to crab images</span>
+<span class="k">for</span> <span class="n">crab_image</span> <span class="ow">in</span> <span class="n">crab_images</span><span class="p">:</span>
+    <span class="n">augment_and_save</span><span class="p">(</span><span class="n">crab_image</span><span class="p">,</span> <span class="s1">&#39;augmented_data/crabs&#39;</span><span class="p">)</span>
+
+<span class="c1"># Apply augmentations to fish images</span>
+<span class="k">for</span> <span class="n">fish_image</span> <span class="ow">in</span> <span class="n">fish_images</span><span class="p">:</span>
+    <span class="n">augment_and_save</span><span class="p">(</span><span class="n">fish_image</span><span class="p">,</span> <span class="s1">&#39;augmented_data/fish&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -934,6 +1032,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#horizontal-and-vertical-flips">4.3.3. Horizontal and Vertical Flips</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-rotations">4.3.4. Random Rotations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brightness-and-contrast-adjustments">4.3.5. Brightness and Contrast Adjustments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-blur">4.3.6. Gaussian Blur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-noise">4.3.7. Gaussian Noise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-crop">4.3.8. Random Crop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shift-scale-rotate">4.3.9. Shift, Scale, Rotate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-shadow">4.3.10. Random Shadow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clahe-contrast-limited-adaptive-histogram-equalization">4.3.11. CLAHE (Contrast Limited Adaptive Histogram Equalization)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resize">4.3.12. Resize</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-splitting-and-ensuring-annotation-integrity">4.4. 2. Dataset Splitting and Ensuring Annotation Integrity</a><ul class="nav section-nav flex-column">
