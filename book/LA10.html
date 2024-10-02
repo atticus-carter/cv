@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/LA10';</script>
     <link rel="canonical" href="https://atticus-carter.github.io/cv/book/LA10.html" />
     <link rel="icon" href="../_static/fav.ico"/>
@@ -449,7 +451,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -465,6 +469,61 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">17.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marine-science-applications-of-super-resolution">17.2. Marine Science Applications of Super-Resolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-dataset">17.3. Downloading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-environment-and-data">17.4. Preparing the Environment and Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-the-dataset">17.4.1. Extracting the Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-and-preprocessing-the-data">17.4.2. Loading and Preprocessing the Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-srgan">17.5. Understanding SRGAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-two-convolutional-networks">17.5.1. Why Use Two Convolutional Networks?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-background">17.5.2. Theoretical Background</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-adversarial-networks-gans">17.5.2.1. Generative Adversarial Networks (GANs)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptual-loss">17.5.2.2. Perceptual Loss</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-two-networks-improve-performance">17.5.2.3. Why Two Networks Improve Performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-the-srgan-model">17.6. Implementing the SRGAN Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-network">17.6.1. Generator Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">17.6.1.1. Key Components:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminator-network">17.6.2. Discriminator Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">17.6.2.1. Key Components:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-models">17.6.3. Compiling the Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-srgan">17.7. Training the SRGAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-process">17.7.1. Training Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-and-interpreting-the-results">17.8. Evaluating and Interpreting the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-metrics-for-srgan">17.8.1. Evaluation Metrics for SRGAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-metrics">17.8.1.1. Quantitative Metrics:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-assessment">17.8.1.2. Qualitative Assessment:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">17.8.2. Reflection Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-discussion">17.8.3. Interactive Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">17.9. Conclusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">17.9.1. Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -476,18 +535,513 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="image-super-resolution-and-enhancement-with-srgan-in-tensorflow">
 <h1><span class="section-number">17. </span>Image Super-Resolution and Enhancement with SRGAN in TensorFlow<a class="headerlink" href="#image-super-resolution-and-enhancement-with-srgan-in-tensorflow" title="Link to this heading">#</a></h1>
+<p>In this lesson, we will explore how to apply Super-Resolution Generative Adversarial Networks (SRGAN) to enhance marine images. Super-resolution is crucial in marine science for improving the quality of images taken in challenging environments, such as underwater scenes with low visibility or images captured from remote sensing devices.</p>
+<section id="learning-objectives">
+<h2><span class="section-number">17.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this section, you will:</p>
+<ul class="simple">
+<li><p>Understand the importance of super-resolution in marine science applications.</p></li>
+<li><p>Learn how to prepare and load a dataset for super-resolution tasks.</p></li>
+<li><p>Implement and train an SRGAN model using TensorFlow.</p></li>
+<li><p>Understand the theory behind SRGAN and why it uses two convolutional networks.</p></li>
+<li><p>Evaluate and interpret the results of super-resolution on marine images.</p></li>
+<li><p>Reflect on the evaluation metrics and discuss the applicability of SRGANs in marine contexts.</p></li>
+</ul>
+</section>
+<section id="marine-science-applications-of-super-resolution">
+<h2><span class="section-number">17.2. </span>Marine Science Applications of Super-Resolution<a class="headerlink" href="#marine-science-applications-of-super-resolution" title="Link to this heading">#</a></h2>
+<p>Marine images often suffer from low resolution due to factors like water absorption, scattering, and limitations of underwater cameras. Enhancing these images is vital for tasks such as:</p>
+<ul class="simple">
+<li><p>Identifying marine species and habitats.</p></li>
+<li><p>Monitoring coral reef health.</p></li>
+<li><p>Detecting illegal fishing activities.</p></li>
+<li><p>Improving navigation and obstacle avoidance for underwater vehicles.</p></li>
+</ul>
+</section>
+<section id="downloading-the-dataset">
+<h2><span class="section-number">17.3. </span>Downloading the Dataset<a class="headerlink" href="#downloading-the-dataset" title="Link to this heading">#</a></h2>
+<p>We will use a dataset called <code class="docutils literal notranslate"><span class="pre">digitalstill.zip</span></code>, which contains low-resolution and corresponding high-resolution marine images. Ensure you have this dataset available in your working directory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;this is a test&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary libraries</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">BatchNormalization</span><span class="p">,</span> <span class="n">PReLU</span><span class="p">,</span> <span class="n">Add</span><span class="p">,</span> <span class="n">UpSampling2D</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.applications</span> <span class="kn">import</span> <span class="n">VGG19</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">Dropdown</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is a test
+</div>
+</section>
+<section id="preparing-the-environment-and-data">
+<h2><span class="section-number">17.4. </span>Preparing the Environment and Data<a class="headerlink" href="#preparing-the-environment-and-data" title="Link to this heading">#</a></h2>
+<section id="extracting-the-dataset">
+<h3><span class="section-number">17.4.1. </span>Extracting the Dataset<a class="headerlink" href="#extracting-the-dataset" title="Link to this heading">#</a></h3>
+<p>First, extract the contents of <code class="docutils literal notranslate"><span class="pre">digitalstill.zip</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Path to the uploaded dataset</span>
+<span class="n">zip_file</span> <span class="o">=</span> <span class="s1">&#39;/content/digitalstill.zip&#39;</span>
+
+<span class="c1"># Extract the zip file</span>
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+    <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;/content/digitalstill/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="loading-and-preprocessing-the-data">
+<h3><span class="section-number">17.4.2. </span>Loading and Preprocessing the Data<a class="headerlink" href="#loading-and-preprocessing-the-data" title="Link to this heading">#</a></h3>
+<p>We will load the images and prepare them for training. We’ll create low-resolution (LR) and high-resolution (HR) image pairs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define directories</span>
+<span class="n">hr_dir</span> <span class="o">=</span> <span class="s1">&#39;/content/digitalstill/high_resolution/&#39;</span>
+<span class="n">lr_dir</span> <span class="o">=</span> <span class="s1">&#39;/content/digitalstill/low_resolution/&#39;</span>
+
+<span class="c1"># Get image file names</span>
+<span class="n">hr_images</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">hr_dir</span><span class="p">))</span>
+<span class="n">lr_images</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">lr_dir</span><span class="p">))</span>
+
+<span class="c1"># Function to load images</span>
+<span class="k">def</span> <span class="nf">load_image</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>  <span class="c1"># Resize for uniformity</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span> <span class="o">/</span> <span class="mf">127.5</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># Normalize to [-1, 1]</span>
+    <span class="k">return</span> <span class="n">img</span>
+
+<span class="c1"># Load datasets</span>
+<span class="n">X_hr</span> <span class="o">=</span> <span class="p">[</span><span class="n">load_image</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">hr_dir</span><span class="p">,</span> <span class="n">img</span><span class="p">))</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">hr_images</span><span class="p">]</span>
+<span class="n">X_lr</span> <span class="o">=</span> <span class="p">[</span><span class="n">load_image</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lr_dir</span><span class="p">,</span> <span class="n">img</span><span class="p">))</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">lr_images</span><span class="p">]</span>
+
+<span class="c1"># Convert to numpy arrays</span>
+<span class="n">X_hr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_hr</span><span class="p">)</span>
+<span class="n">X_lr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_lr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="understanding-srgan">
+<h2><span class="section-number">17.5. </span>Understanding SRGAN<a class="headerlink" href="#understanding-srgan" title="Link to this heading">#</a></h2>
+<p>Super-Resolution Generative Adversarial Networks (SRGAN) are designed to produce high-resolution images from low-resolution inputs. They consist of two main components:</p>
+<ul class="simple">
+<li><p><strong>Generator Network</strong>: Attempts to create high-resolution images from low-resolution inputs.</p></li>
+<li><p><strong>Discriminator Network</strong>: Tries to distinguish between the generated high-resolution images and real high-resolution images.</p></li>
+</ul>
+<section id="why-use-two-convolutional-networks">
+<h3><span class="section-number">17.5.1. </span>Why Use Two Convolutional Networks?<a class="headerlink" href="#why-use-two-convolutional-networks" title="Link to this heading">#</a></h3>
+<p>The use of two convolutional networks in SRGAN is rooted in the concept of Generative Adversarial Networks (GANs), where two models are trained simultaneously through an adversarial process.</p>
+<ul class="simple">
+<li><p><strong>Generator (G)</strong>: The generator’s role is to generate images that are as close as possible to the real high-resolution images. It learns to map low-resolution images to high-resolution counterparts.</p></li>
+<li><p><strong>Discriminator (D)</strong>: The discriminator’s role is to differentiate between the real high-resolution images and the images generated by the generator.</p></li>
+</ul>
+<p>This adversarial setup creates a minimax game:</p>
+<ul class="simple">
+<li><p>The <strong>generator</strong> tries to minimize the difference between generated images and real images, effectively “fooling” the discriminator.</p></li>
+<li><p>The <strong>discriminator</strong> tries to maximize its ability to correctly classify real and generated images.</p></li>
+</ul>
+</section>
+<section id="theoretical-background">
+<h3><span class="section-number">17.5.2. </span>Theoretical Background<a class="headerlink" href="#theoretical-background" title="Link to this heading">#</a></h3>
+<section id="generative-adversarial-networks-gans">
+<h4><span class="section-number">17.5.2.1. </span>Generative Adversarial Networks (GANs)<a class="headerlink" href="#generative-adversarial-networks-gans" title="Link to this heading">#</a></h4>
+<p>GANs are a class of machine learning frameworks where two networks contest with each other in a game. Given a training set, this technique learns to generate new data with the same statistics as the training set.</p>
+<ul class="simple">
+<li><p><strong>Objective Function</strong>:
+$<span class="math notranslate nohighlight">\(
+\min_G \max_D \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
+\)</span>$
+Where:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(G\)</span> is the generator.</p></li>
+<li><p><span class="math notranslate nohighlight">\(D\)</span> is the discriminator.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> is a real data sample.</p></li>
+<li><p><span class="math notranslate nohighlight">\(z\)</span> is a random noise vector.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="perceptual-loss">
+<h4><span class="section-number">17.5.2.2. </span>Perceptual Loss<a class="headerlink" href="#perceptual-loss" title="Link to this heading">#</a></h4>
+<p>SRGAN introduces a perceptual loss function, which is more effective than traditional loss functions (like Mean Squared Error) for capturing high-frequency details. It combines:</p>
+<ul class="simple">
+<li><p><strong>Content Loss</strong>: Measures the difference in high-level feature representations between generated and real images using a pre-trained network (e.g., VGG19).</p></li>
+<li><p><strong>Adversarial Loss</strong>: Encourages the generator to produce images that are indistinguishable from real images to the discriminator.</p></li>
+</ul>
+</section>
+<section id="why-two-networks-improve-performance">
+<h4><span class="section-number">17.5.2.3. </span>Why Two Networks Improve Performance<a class="headerlink" href="#why-two-networks-improve-performance" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Adversarial Training</strong>: The generator improves by learning from the discriminator’s feedback, leading to more realistic and high-quality images.</p></li>
+<li><p><strong>Feature Learning</strong>: The discriminator learns to identify intricate details, pushing the generator to enhance these details in generated images.</p></li>
+<li><p><strong>Balance</strong>: The competition between the two networks helps in balancing the trade-off between blurriness and artifact introduction.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="implementing-the-srgan-model">
+<h2><span class="section-number">17.6. </span>Implementing the SRGAN Model<a class="headerlink" href="#implementing-the-srgan-model" title="Link to this heading">#</a></h2>
+<p>We will now define the generator and discriminator models. Both networks are convolutional neural networks (CNNs) but serve different purposes.</p>
+<section id="generator-network">
+<h3><span class="section-number">17.6.1. </span>Generator Network<a class="headerlink" href="#generator-network" title="Link to this heading">#</a></h3>
+<p>The generator is responsible for upsampling low-resolution images to high-resolution images. It employs residual blocks and upsampling layers to reconstruct high-frequency details.</p>
+<section id="key-components">
+<h4><span class="section-number">17.6.1.1. </span>Key Components:<a class="headerlink" href="#key-components" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Residual Blocks</strong>: Help in training deeper networks by mitigating the vanishing gradient problem.</p></li>
+<li><p><strong>Upsampling Layers</strong>: Increase the spatial dimensions of the feature maps.</p></li>
+<li><p><strong>Activation Functions</strong>: Use Parametric ReLU (PReLU) to allow for learning the activation parameters.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the generator model</span>
+<span class="k">def</span> <span class="nf">build_generator</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">residual_block</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">momentum</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">PReLU</span><span class="p">(</span><span class="n">shared_axes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">momentum</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">Add</span><span class="p">()([</span><span class="n">res</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="c1"># Input layer</span>
+    <span class="n">input_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+    <span class="c1"># Pre-residual block</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)(</span><span class="n">input_layer</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">PReLU</span><span class="p">(</span><span class="n">shared_axes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># Store output for skip connection</span>
+    <span class="n">skip_connection</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="c1"># Residual blocks</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">residual_block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># Post-residual block</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">momentum</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Add</span><span class="p">()([</span><span class="n">x</span><span class="p">,</span> <span class="n">skip_connection</span><span class="p">])</span>
+
+    <span class="c1"># Upsampling blocks</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">UpSampling2D</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">PReLU</span><span class="p">(</span><span class="n">shared_axes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># Output layer</span>
+    <span class="n">output_layer</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;tanh&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># Define model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">input_layer</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">output_layer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Build generator</span>
+<span class="n">generator</span> <span class="o">=</span> <span class="n">build_generator</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="discriminator-network">
+<h3><span class="section-number">17.6.2. </span>Discriminator Network<a class="headerlink" href="#discriminator-network" title="Link to this heading">#</a></h3>
+<p>The discriminator’s role is to distinguish between real high-resolution images and the images generated by the generator. It is a binary classifier that outputs the probability of an image being real.</p>
+<section id="id1">
+<h4><span class="section-number">17.6.2.1. </span>Key Components:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Convolutional Layers</strong>: Extract features at different levels.</p></li>
+<li><p><strong>LeakyReLU Activation</strong>: Helps in learning non-linear relationships without dying neurons.</p></li>
+<li><p><strong>Fully Connected Layers</strong>: Aggregate extracted features to make the final classification.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the discriminator model</span>
+<span class="k">def</span> <span class="nf">build_discriminator</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">d_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="n">strides</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">bn</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">momentum</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+    <span class="c1"># Input layer</span>
+    <span class="n">input_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+    <span class="c1"># Convolutional blocks</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">d_block</span><span class="p">(</span><span class="n">input_layer</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">bn</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">d_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">d_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">d_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">d_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">d_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">d_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">d_block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Flatten and dense layers</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1024</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># Output layer</span>
+    <span class="n">output_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># Define model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">input_layer</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">output_layer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="c1"># Build discriminator</span>
+<span class="n">discriminator</span> <span class="o">=</span> <span class="n">build_discriminator</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="compiling-the-models">
+<h3><span class="section-number">17.6.3. </span>Compiling the Models<a class="headerlink" href="#compiling-the-models" title="Link to this heading">#</a></h3>
+<p>We will compile the discriminator and the combined model. The discriminator is trained to classify images as real or fake, while the generator is trained to produce images that can fool the discriminator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compile the discriminator</span>
+<span class="n">discriminator</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="mf">0.0002</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1"># Freeze the discriminator when training the generator</span>
+<span class="n">discriminator</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># VGG19 for perceptual loss</span>
+<span class="n">vgg</span> <span class="o">=</span> <span class="n">VGG19</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s1">&#39;imagenet&#39;</span><span class="p">,</span> <span class="n">include_top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">vgg</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Define perceptual loss</span>
+<span class="k">def</span> <span class="nf">perceptual_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">applications</span><span class="o">.</span><span class="n">vgg19</span><span class="o">.</span><span class="n">preprocess_input</span><span class="p">((</span><span class="n">y_true</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">127.5</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">applications</span><span class="o">.</span><span class="n">vgg19</span><span class="o">.</span><span class="n">preprocess_input</span><span class="p">((</span><span class="n">y_pred</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">127.5</span><span class="p">)</span>
+    <span class="n">hr_features</span> <span class="o">=</span> <span class="n">vgg</span><span class="p">(</span><span class="n">y_true</span><span class="p">)</span>
+    <span class="n">sr_features</span> <span class="o">=</span> <span class="n">vgg</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">MeanSquaredError</span><span class="p">()(</span><span class="n">hr_features</span><span class="p">,</span> <span class="n">sr_features</span><span class="p">)</span>
+
+<span class="c1"># Input for generator</span>
+<span class="n">img_lr</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># Generate high-resolution images</span>
+<span class="n">generated_hr</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="n">img_lr</span><span class="p">)</span>
+
+<span class="c1"># Discriminator determines validity</span>
+<span class="n">validity</span> <span class="o">=</span> <span class="n">discriminator</span><span class="p">(</span><span class="n">generated_hr</span><span class="p">)</span>
+
+<span class="c1"># Combined model (generator and discriminator)</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">img_lr</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">validity</span><span class="p">,</span> <span class="n">generated_hr</span><span class="p">])</span>
+
+<span class="c1"># Compile the combined model</span>
+<span class="n">combined</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">perceptual_loss</span><span class="p">],</span>
+                 <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="mf">0.0002</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+                 <span class="n">loss_weights</span><span class="o">=</span><span class="p">[</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="training-the-srgan">
+<h2><span class="section-number">17.7. </span>Training the SRGAN<a class="headerlink" href="#training-the-srgan" title="Link to this heading">#</a></h2>
+<p>We will now train the SRGAN model using the prepared datasets. The training involves alternating between training the discriminator and the generator.</p>
+<section id="training-process">
+<h3><span class="section-number">17.7.1. </span>Training Process<a class="headerlink" href="#training-process" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Train Discriminator</strong>:</p>
+<ul class="simple">
+<li><p>Use real high-resolution images and label them as real (1).</p></li>
+<li><p>Use generated high-resolution images from the generator and label them as fake (0).</p></li>
+<li><p>Update the discriminator’s weights based on the loss.</p></li>
+</ul>
+</li>
+<li><p><strong>Train Generator</strong>:</p>
+<ul class="simple">
+<li><p>Use low-resolution images as input.</p></li>
+<li><p>The generator tries to produce high-resolution images that the discriminator classifies as real.</p></li>
+<li><p>The combined model’s loss is a weighted sum of adversarial loss and perceptual loss.</p></li>
+<li><p>Update the generator’s weights based on the combined loss.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training parameters</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">sample_interval</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># Labels for real and fake images</span>
+<span class="n">valid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">fake</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Training loop</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    
+    <span class="c1"># ----------------------</span>
+    <span class="c1">#  Train Discriminator</span>
+    <span class="c1"># ----------------------</span>
+
+    <span class="c1"># Select a random batch of images</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X_hr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">imgs_hr</span> <span class="o">=</span> <span class="n">X_hr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    <span class="n">imgs_lr</span> <span class="o">=</span> <span class="n">X_lr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    
+    <span class="c1"># Generate high-resolution images from low-resolution images</span>
+    <span class="n">fake_hr</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">imgs_lr</span><span class="p">)</span>
+    
+    <span class="c1"># Train the discriminator (real classified as real and fake as fake)</span>
+    <span class="n">d_loss_real</span> <span class="o">=</span> <span class="n">discriminator</span><span class="o">.</span><span class="n">train_on_batch</span><span class="p">(</span><span class="n">imgs_hr</span><span class="p">,</span> <span class="n">valid</span><span class="p">)</span>
+    <span class="n">d_loss_fake</span> <span class="o">=</span> <span class="n">discriminator</span><span class="o">.</span><span class="n">train_on_batch</span><span class="p">(</span><span class="n">fake_hr</span><span class="p">,</span> <span class="n">fake</span><span class="p">)</span>
+    <span class="n">d_loss</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">d_loss_real</span><span class="p">,</span> <span class="n">d_loss_fake</span><span class="p">)</span>
+    
+    <span class="c1"># ------------------</span>
+    <span class="c1">#  Train Generator</span>
+    <span class="c1"># ------------------</span>
+
+    <span class="c1"># Train the generator (wants discriminator to label generated images as real)</span>
+    <span class="n">g_loss</span> <span class="o">=</span> <span class="n">combined</span><span class="o">.</span><span class="n">train_on_batch</span><span class="p">(</span><span class="n">imgs_lr</span><span class="p">,</span> <span class="p">[</span><span class="n">valid</span><span class="p">,</span> <span class="n">imgs_hr</span><span class="p">])</span>
+    
+    <span class="c1"># Print the progress</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="n">sample_interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">epochs</span><span class="si">}</span><span class="s2">] [D loss: </span><span class="si">{</span><span class="n">d_loss</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">, acc: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">d_loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%] [G loss: </span><span class="si">{</span><span class="n">g_loss</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="evaluating-and-interpreting-the-results">
+<h2><span class="section-number">17.8. </span>Evaluating and Interpreting the Results<a class="headerlink" href="#evaluating-and-interpreting-the-results" title="Link to this heading">#</a></h2>
+<p>We will now evaluate the performance of the trained SRGAN model by visualizing some results and discussing evaluation metrics.</p>
+<section id="evaluation-metrics-for-srgan">
+<h3><span class="section-number">17.8.1. </span>Evaluation Metrics for SRGAN<a class="headerlink" href="#evaluation-metrics-for-srgan" title="Link to this heading">#</a></h3>
+<p>Evaluating super-resolution models involves both quantitative metrics and qualitative assessments.</p>
+<section id="quantitative-metrics">
+<h4><span class="section-number">17.8.1.1. </span>Quantitative Metrics:<a class="headerlink" href="#quantitative-metrics" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Peak Signal-to-Noise Ratio (PSNR)</strong>: Measures the ratio between the maximum possible power of a signal and the power of corrupting noise. Higher PSNR indicates better quality.</p></li>
+<li><p><strong>Structural Similarity Index (SSIM)</strong>: Measures the similarity between two images. Values range from -1 to 1, with 1 indicating perfect similarity.</p></li>
+</ul>
+</section>
+<section id="qualitative-assessment">
+<h4><span class="section-number">17.8.1.2. </span>Qualitative Assessment:<a class="headerlink" href="#qualitative-assessment" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Visual Inspection</strong>: Assessing the visual quality of the generated images for artifacts, blurriness, and realistic textures.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import additional libraries for evaluation</span>
+<span class="kn">from</span> <span class="nn">skimage.metrics</span> <span class="kn">import</span> <span class="n">peak_signal_noise_ratio</span> <span class="k">as</span> <span class="n">psnr</span>
+<span class="kn">from</span> <span class="nn">skimage.metrics</span> <span class="kn">import</span> <span class="n">structural_similarity</span> <span class="k">as</span> <span class="n">ssim</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a random set of images</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X_lr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">imgs_lr</span> <span class="o">=</span> <span class="n">X_lr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">imgs_hr</span> <span class="o">=</span> <span class="n">X_hr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+<span class="c1"># Generate high-resolution images</span>
+<span class="n">generated_hr</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">imgs_lr</span><span class="p">)</span>
+
+<span class="c1"># Rescale images for visualization</span>
+<span class="n">imgs_lr_vis</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">imgs_lr</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">generated_hr_vis</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">generated_hr</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">imgs_hr_vis</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">imgs_hr</span> <span class="o">+</span> <span class="mf">0.5</span>
+
+<span class="c1"># Calculate metrics</span>
+<span class="n">psnr_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">psnr</span><span class="p">(</span><span class="n">imgs_hr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">generated_hr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">data_range</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">ssim_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">ssim</span><span class="p">(</span><span class="n">imgs_hr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">generated_hr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">multichannel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data_range</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="c1"># Plot the results</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Low-resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;Generated High-resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;Original High-resolution&#39;</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgs_lr_vis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">generated_hr_vis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">titles</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">PSNR: </span><span class="si">{</span><span class="n">psnr_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, SSIM: </span><span class="si">{</span><span class="n">ssim_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">imgs_hr_vis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="reflection-questions">
+<h3><span class="section-number">17.8.2. </span>Reflection Questions<a class="headerlink" href="#reflection-questions" title="Link to this heading">#</a></h3>
+<p>Consider the following questions to reflect on the results and deepen your understanding:</p>
+<ol class="arabic simple">
+<li><p><strong>Detail Enhancement</strong>: Observing the generated images, do you notice a significant improvement in details compared to the low-resolution inputs? Provide specific examples.</p></li>
+<li><p><strong>PSNR and SSIM Metrics</strong>: How do the PSNR and SSIM values correlate with the visual quality of the images? Are higher values always indicative of better quality in the context of marine images?</p></li>
+<li><p><strong>Artifacts</strong>: Are there any artifacts introduced in the generated images? What might be causing them, and how could they affect marine image analysis?</p></li>
+<li><p><strong>Color Accuracy</strong>: Does the color reproduction in the generated images match the original high-resolution images? How important is color accuracy in marine applications?</p></li>
+<li><p><strong>Limitations of SRGAN</strong>: Based on your observations, what are some limitations of using SRGANs for marine image enhancement? Consider factors like computational resources, training data requirements, and potential overfitting.</p></li>
+<li><p><strong>Alternative Approaches</strong>: If SRGANs are not suitable for certain marine applications, what alternative methods could be used for image enhancement? Discuss their potential advantages and disadvantages.</p></li>
+</ol>
+</section>
+<section id="interactive-discussion">
+<h3><span class="section-number">17.8.3. </span>Interactive Discussion<a class="headerlink" href="#interactive-discussion" title="Link to this heading">#</a></h3>
+<p>Select a question from the dropdown below to see a suggested discussion point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define discussion points</span>
+<span class="n">discussion_points</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Detail Enhancement&#39;</span><span class="p">:</span> <span class="s1">&#39;In marine images, fine details such as textures of coral reefs or patterns on fish are crucial. If the SRGAN effectively restores these details, it can significantly aid in species identification and habitat mapping.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PSNR and SSIM Metrics&#39;</span><span class="p">:</span> <span class="s1">&#39;While higher PSNR and SSIM values generally indicate better reconstruction, they may not always align with perceptual quality. In marine contexts, certain features may be more important than what these metrics capture.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Artifacts&#39;</span><span class="p">:</span> <span class="s1">&#39;Artifacts like ringing or blurring can obscure important details or create false features. Identifying and minimizing these artifacts is essential for accurate marine analysis.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Color Accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Color plays a vital role in identifying species and assessing coral health. Inaccurate colors can lead to misclassification or incorrect assessments.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Limitations of SRGAN&#39;</span><span class="p">:</span> <span class="s1">&#39;SRGANs require substantial computational resources and large datasets for training. In marine science, collecting large amounts of labeled data can be challenging due to the environment.&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Alternative Approaches&#39;</span><span class="p">:</span> <span class="s1">&#39;Alternative methods like traditional interpolation, CNN-based super-resolution without adversarial training, or physics-based image enhancement techniques may be more feasible in some cases.&#39;</span>
+<span class="p">}</span>
+
+<span class="c1"># Create interactive widget</span>
+<span class="k">def</span> <span class="nf">display_discussion</span><span class="p">(</span><span class="n">question</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">discussion_points</span><span class="p">[</span><span class="n">question</span><span class="p">])</span>
+
+<span class="n">question_dropdown</span> <span class="o">=</span> <span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">discussion_points</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Question:&#39;</span><span class="p">)</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">display_discussion</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">question_dropdown</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion">
+<h2><span class="section-number">17.9. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In this lesson, we explored how super-resolution can significantly enhance marine images, aiding in various scientific and monitoring tasks. We implemented an SRGAN model in TensorFlow, trained it on marine images, and evaluated its performance using both quantitative metrics and qualitative assessments. We also delved into the theoretical underpinnings of SRGAN, understanding the roles of the generator and discriminator networks.</p>
+<section id="key-takeaways">
+<h3><span class="section-number">17.9.1. </span>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Applicability</strong>: SRGANs can improve image resolution, but their effectiveness depends on the quality and quantity of training data.</p></li>
+<li><p><strong>Evaluation</strong>: Metrics like PSNR and SSIM are helpful but should be complemented with visual inspections.</p></li>
+<li><p><strong>Challenges</strong>: High computational costs and the need for extensive training data can limit the use of SRGANs in marine contexts.</p></li>
+<li><p><strong>Alternatives</strong>: Other methods may be more suitable depending on the specific marine application and available resources.</p></li>
+</ul>
+<p>Super-resolution techniques like SRGAN hold great promise for improving the quality of marine imagery, leading to better analysis and decision-making. However, it’s essential to consider their limitations and evaluate whether they are the best tool for a given task in marine science.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -544,6 +1098,68 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">17.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marine-science-applications-of-super-resolution">17.2. Marine Science Applications of Super-Resolution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-dataset">17.3. Downloading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-environment-and-data">17.4. Preparing the Environment and Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-the-dataset">17.4.1. Extracting the Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-and-preprocessing-the-data">17.4.2. Loading and Preprocessing the Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-srgan">17.5. Understanding SRGAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-two-convolutional-networks">17.5.1. Why Use Two Convolutional Networks?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-background">17.5.2. Theoretical Background</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-adversarial-networks-gans">17.5.2.1. Generative Adversarial Networks (GANs)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perceptual-loss">17.5.2.2. Perceptual Loss</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-two-networks-improve-performance">17.5.2.3. Why Two Networks Improve Performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-the-srgan-model">17.6. Implementing the SRGAN Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-network">17.6.1. Generator Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#key-components">17.6.1.1. Key Components:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminator-network">17.6.2. Discriminator Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">17.6.2.1. Key Components:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-models">17.6.3. Compiling the Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-srgan">17.7. Training the SRGAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-process">17.7.1. Training Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-and-interpreting-the-results">17.8. Evaluating and Interpreting the Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-metrics-for-srgan">17.8.1. Evaluation Metrics for SRGAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quantitative-metrics">17.8.1.1. Quantitative Metrics:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#qualitative-assessment">17.8.1.2. Qualitative Assessment:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">17.8.2. Reflection Questions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-discussion">17.8.3. Interactive Discussion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">17.9. Conclusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">17.9.1. Key Takeaways</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
