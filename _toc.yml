@@ -5,6 +5,7 @@ parts:
     numbered: true
     chapters:
       - file: book/LA1.md
+      - file: book/LA1.5.md
       - file: book/LA2.md
       - file: book/LA2.5.ipynb
       - file: book/LA2.75.ipynb
