@@ -1,5 +1,10 @@
 # Welcome to Computer Vision Across the Marine Sciences
 
+
+:::{note}
+Hi MIW Workshop Participants! here is a link for the collaboration survey that I will discuss: https://forms.gle/1CFfG8WJ1bZT6azVA
+:::
+
 This textbook aims to provide a comprehensive and interactive guide to applying **Computer Vision (CV)** techniques in the fields of **Marine Biology**, **Fisheries** and, **Oceanography**. You'll explore how modern-day CV techniques can help with interpreting oceanic image data, building models, and understanding marine environments through visual data. 
 
 The book is structured to cover both **theoretical foundations** and **practical implementations** using **Python**, **PyTorch**, **Tensorflow** and marine datasets. You’ll also work on real-world datasets from open-source repositories to solidify your understanding.
