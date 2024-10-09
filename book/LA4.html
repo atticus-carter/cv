@@ -186,7 +186,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="LA5.html">8. Image Classification with Keras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA6.html">9. LA6: Object Detection with TensorFlow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA6.html">9. Object Detection with TensorFlow API</a></li>
 
 
 
@@ -473,7 +473,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">7.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">7.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">7.1.1. Learning Objectives</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics-in-computer-vision">7.2. Key Metrics in Computer Vision</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy">7.2.1. Accuracy</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formula">7.2.1.1. Formula:</a></li>
@@ -544,10 +547,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="understanding-cv-metrics-and-graphs">
 <h1><span class="section-number">7. </span>Understanding CV Metrics and Graphs<a class="headerlink" href="#understanding-cv-metrics-and-graphs" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2><span class="section-number">7.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In this lesson, we will dive deep into the essential <strong>metrics and graphs</strong> used to evaluate computer vision models during training and after deployment. Understanding these metrics is crucial for diagnosing issues like overfitting and underfitting, as well as improving model performance. We will cover key metrics such as <strong>accuracy</strong>, <strong>precision</strong>, <strong>mAP (mean Average Precision)</strong>, and discuss important concepts like <strong>training loss</strong> and <strong>validation loss</strong>, and their associated graphs.</p>
-<hr class="docutils" />
 <section id="learning-objectives">
-<h2><span class="section-number">7.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">7.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
 <li><p>Understand the importance of key metrics such as <strong>accuracy</strong>, <strong>precision</strong>, <strong>mAP</strong>, and <strong>F1 score</strong> for evaluating model performance.</p></li>
@@ -555,6 +559,7 @@ document.write(`
 <li><p>Recognize the signs of <strong>overfitting</strong> and <strong>underfitting</strong>, and understand how to address these issues.</p></li>
 <li><p>Gain practical knowledge of how these metrics relate to model generalization and performance on unseen data.</p></li>
 </ul>
+</section>
 </section>
 <hr class="docutils" />
 <section id="key-metrics-in-computer-vision">
@@ -800,7 +805,10 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">7.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">7.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">7.1.1. Learning Objectives</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics-in-computer-vision">7.2. Key Metrics in Computer Vision</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy">7.2.1. Accuracy</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formula">7.2.1.1. Formula:</a></li>

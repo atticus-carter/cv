@@ -186,7 +186,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="LA5.html">8. Image Classification with Keras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA6.html">9. LA6: Object Detection with TensorFlow API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA6.html">9. Object Detection with TensorFlow API</a></li>
 
 
 
@@ -473,7 +473,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">5.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1.1. Learning Objectives</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rationale-behind-dataset-creation-and-augmentation">5.2. Rationale Behind Dataset Creation and Augmentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-albumentations">5.3. Introduction to Albumentations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-knowing-the-foundations-is-still-important">5.3.1. Why Knowing the Foundations is Still Important</a></li>
@@ -533,9 +536,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="creating-and-augmenting-datasets">
 <h1><span class="section-number">5. </span>Creating and Augmenting Datasets<a class="headerlink" href="#creating-and-augmenting-datasets" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2><span class="section-number">5.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>In this lesson, we will focus on building and preparing datasets for deep learning models, discussing the rationale behind dataset creation and augmentation. We will learn how to perform batch processing of images with multiple augmentations, ensure that associated annotation files stay intact during dataset splitting, and how to choose the right augmentation techniques for different use cases. By the end of this lesson, you’ll have the skills to create a robust dataset pipeline.</p>
 <section id="learning-objectives">
-<h2><span class="section-number">5.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">5.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
 <li><p>Understand the rationale behind building datasets for deep learning, including the importance of augmentations and data splits.</p></li>
@@ -544,6 +549,7 @@ document.write(`
 <li><p>Customize augmentations based on the specific task, such as object detection, segmentation, or classification.</p></li>
 <li><p>Explore and implement augmentations using <strong>Albumentations</strong>, a fast and flexible image augmentation library.</p></li>
 </ul>
+</section>
 </section>
 <hr class="docutils" />
 <section id="rationale-behind-dataset-creation-and-augmentation">
@@ -1034,7 +1040,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">5.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">5.1.1. Learning Objectives</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rationale-behind-dataset-creation-and-augmentation">5.2. Rationale Behind Dataset Creation and Augmentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-albumentations">5.3. Introduction to Albumentations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-knowing-the-foundations-is-still-important">5.3.1. Why Knowing the Foundations is Still Important</a></li>
