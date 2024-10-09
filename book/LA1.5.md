@@ -47,7 +47,7 @@ Below is a table that outlines the distribution of respondents by their major or
 
 ## Visualizations of Survey Responses
 
-<img src="images/grad_undergrad_breakdown.png" alt="Graduate vs Undergraduate" width="50%">
+![Graduate vs Undergraduate](images/grad_undergrad_breakdown.png)
 
 The pie chart highlights the proportion of graduate and undergraduate students who participated in the survey.
 
