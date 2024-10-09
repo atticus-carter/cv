@@ -3,6 +3,9 @@
 
 :::{note}
 Hi MIW Workshop Participants! here is a link for the collaboration survey that I will discuss: https://forms.gle/1CFfG8WJ1bZT6azVA
+
+And here is a google doc for us to share ideas etc.
+https://docs.google.com/document/d/1NtpzFWzQEXJXA57bcZhsL8427H_UpqbU8js5ZCh-9kc/edit?usp=sharing
 :::
 
 This textbook aims to provide a comprehensive and interactive guide to applying **Computer Vision (CV)** techniques in the fields of **Marine Biology**, **Fisheries** and, **Oceanography**. You'll explore how modern-day CV techniques can help with interpreting oceanic image data, building models, and understanding marine environments through visual data. 
