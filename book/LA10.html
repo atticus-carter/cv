@@ -519,7 +519,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">18.8.2. Reflection Questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-discussion">18.8.3. Interactive Discussion</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">18.9. Conclusion</a><ul class="nav section-nav flex-column">
@@ -1008,33 +1007,6 @@ Where:</p>
 <li><p><strong>Alternative Approaches</strong>: If SRGANs are not suitable for certain marine applications, what alternative methods could be used for image enhancement? Discuss their potential advantages and disadvantages.</p></li>
 </ol>
 </section>
-<section id="interactive-discussion">
-<h3><span class="section-number">18.8.3. </span>Interactive Discussion<a class="headerlink" href="#interactive-discussion" title="Link to this heading">#</a></h3>
-<p>Select a question from the dropdown below to see a suggested discussion point.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define discussion points</span>
-<span class="n">discussion_points</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Detail Enhancement&#39;</span><span class="p">:</span> <span class="s1">&#39;In marine images, fine details such as textures of coral reefs or patterns on fish are crucial. If the SRGAN effectively restores these details, it can significantly aid in species identification and habitat mapping.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;PSNR and SSIM Metrics&#39;</span><span class="p">:</span> <span class="s1">&#39;While higher PSNR and SSIM values generally indicate better reconstruction, they may not always align with perceptual quality. In marine contexts, certain features may be more important than what these metrics capture.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Artifacts&#39;</span><span class="p">:</span> <span class="s1">&#39;Artifacts like ringing or blurring can obscure important details or create false features. Identifying and minimizing these artifacts is essential for accurate marine analysis.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Color Accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Color plays a vital role in identifying species and assessing coral health. Inaccurate colors can lead to misclassification or incorrect assessments.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Limitations of SRGAN&#39;</span><span class="p">:</span> <span class="s1">&#39;SRGANs require substantial computational resources and large datasets for training. In marine science, collecting large amounts of labeled data can be challenging due to the environment.&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Alternative Approaches&#39;</span><span class="p">:</span> <span class="s1">&#39;Alternative methods like traditional interpolation, CNN-based super-resolution without adversarial training, or physics-based image enhancement techniques may be more feasible in some cases.&#39;</span>
-<span class="p">}</span>
-
-<span class="c1"># Create interactive widget</span>
-<span class="k">def</span> <span class="nf">display_discussion</span><span class="p">(</span><span class="n">question</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">discussion_points</span><span class="p">[</span><span class="n">question</span><span class="p">])</span>
-
-<span class="n">question_dropdown</span> <span class="o">=</span> <span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">discussion_points</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Question:&#39;</span><span class="p">)</span>
-
-<span class="n">interact</span><span class="p">(</span><span class="n">display_discussion</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">question_dropdown</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 <section id="conclusion">
 <h2><span class="section-number">18.9. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
@@ -1160,7 +1132,6 @@ Where:</p>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection-questions">18.8.2. Reflection Questions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-discussion">18.8.3. Interactive Discussion</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">18.9. Conclusion</a><ul class="nav section-nav flex-column">
