@@ -1,3 +1,4 @@
+(lesson-3)=
 # Image Annotation 
 
 ## Overview
