@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>18. Object and Multi-Object Tracking with SAM 2 &#8212; Computer Vision Across Oceanography</title>
+    <title>20. Object and Multi-Object Tracking with SAM 2 &#8212; Computer Vision Across Oceanography</title>
   
   
   
@@ -62,8 +62,8 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="19. Image Super-Resolution and Enhancement with SRGAN in TensorFlow" href="LA10.html" />
-    <link rel="prev" title="17. Keypoint Detection with MediaPipe" href="LA8.html" />
+    <link rel="next" title="21. Image Super-Resolution and Enhancement with SRGAN in TensorFlow" href="LA10.html" />
+    <link rel="prev" title="19. Keypoint Detection with MediaPipe" href="LA8.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,22 +193,24 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="LA6.25.html">15. Object Detection with YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA7.html">16. Instance Segmentation with Detectron2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA8.html">17. Keypoint Detection with MediaPipe</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Object and Multi-Object Tracking with SAM 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA10.html">19. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA11.html">20. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA12.html">21. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA13.html">22. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA6.26.html">16. Localizing Fathomnet to a new dataset with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA6.27.html">17. Pulling Data from Fathomverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA7.html">18. Instance Segmentation with Detectron2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA8.html">19. Keypoint Detection with MediaPipe</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Object and Multi-Object Tracking with SAM 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA10.html">21. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA11.html">22. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA12.html">23. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA13.html">24. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Synthesis Project</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="LA14.html">23. Dataset Preparation and Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA15.html">24. Model Selection and Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA16.html">25. Training and Evaluation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA17.html">26. Data Visualization and Figure Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA18.html">27. Usecase Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA19.html">28. Tying it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA14.html">25. Dataset Preparation and Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA15.html">26. Model Selection and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA16.html">27. Training and Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA17.html">28. Data Visualization and Figure Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA18.html">29. Usecase Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA19.html">30. Tying it all together</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -477,7 +479,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="object-and-multi-object-tracking-with-sam-2">
-<h1><span class="section-number">18. </span>Object and Multi-Object Tracking with SAM 2<a class="headerlink" href="#object-and-multi-object-tracking-with-sam-2" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>Object and Multi-Object Tracking with SAM 2<a class="headerlink" href="#object-and-multi-object-tracking-with-sam-2" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;this is a test&#39;</span><span class="p">)</span>
@@ -528,7 +530,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Keypoint Detection with MediaPipe</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Keypoint Detection with MediaPipe</p>
       </div>
     </a>
     <a class="right-next"
@@ -536,7 +538,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Image Super-Resolution and Enhancement with SRGAN in TensorFlow</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Image Super-Resolution and Enhancement with SRGAN in TensorFlow</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
