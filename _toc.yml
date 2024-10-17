@@ -11,6 +11,7 @@ parts:
       - file: book/LA2.75.ipynb
       - file: book/LA3.ipynb
       - file: book/LA4.ipynb
+      - file: book/ImShow.ipynb
 
   - caption: "Chapter 2 - Computer Vision Development"
     numbered: true
