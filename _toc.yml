@@ -43,3 +43,4 @@ parts:
     numbered: false
     chapters:
       - file: book/bibliography
+      - file: book/imageData.md
