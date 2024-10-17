@@ -16,7 +16,6 @@ parts:
     numbered: true
     chapters:  
       - file: book/LA5.ipynb
-      - file: book/LA6.ipynb
       - file: book/LA6.25.ipynb
       - file: book/LA6.26.ipynb
       - file: book/LA6.27.ipynb
