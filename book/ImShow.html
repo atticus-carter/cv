@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Introduction to Ocean Image Data &#8212; Computer Vision Across Oceanography</title>
+    <title>8. Exploring Image Data With ImShow &#8212; Computer Vision Across Oceanography</title>
   
   
   
@@ -57,13 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/LA1';</script>
-    <link rel="canonical" href="https://atticus-carter.github.io/cv/book/LA1.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/ImShow';</script>
+    <link rel="canonical" href="https://atticus-carter.github.io/cv/book/ImShow.html" />
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Survey Results" href="LA1.5.html" />
-    <link rel="prev" title="Welcome to Computer Vision Across the Marine Sciences" href="../index.html" />
+    <link rel="next" title="9. Image Classification with Keras" href="LA5.html" />
+    <link rel="prev" title="7. Understanding CV Metrics and Graphs" href="LA4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,14 +175,14 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction to Ocean Image Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA1.html">1. Introduction to Ocean Image Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA1.5.html">2. Survey Results</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA2.html">3. Image Annotation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA2.5.html">4. Image Manipulation in Python with PIL and OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA2.75.html">5. Creating and Augmenting Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA3.html">6. The Math Behind Convolutional Neural Networks (CNNs)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA4.html">7. Understanding CV Metrics and Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ImShow.html">8. Exploring Image Data With ImShow</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Exploring Image Data With ImShow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
 <ul class="nav bd-sidenav">
@@ -257,6 +257,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/atticus-carter/cv/master?urlpath=tree/book/ImShow.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/atticus-carter/cv/blob/master/book/ImShow.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -282,7 +331,7 @@
       
       
       
-      <li><a href="https://github.com/atticus-carter/cv/edit/main/book/LA1.md" target="_blank"
+      <li><a href="https://github.com/atticus-carter/cv/edit/main/book/ImShow.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -299,7 +348,7 @@
       
       
       
-      <li><a href="https://github.com/atticus-carter/cv/issues/new?title=Issue%20on%20page%20%2Fbook/LA1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/atticus-carter/cv/issues/new?title=Issue%20on%20page%20%2Fbook/ImShow.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -329,7 +378,7 @@
       
       
       
-      <li><a href="../_sources/book/LA1.md" target="_blank"
+      <li><a href="../_sources/book/ImShow.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +388,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -400,9 +449,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -413,33 +460,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Ocean Image Data</h1>
+    <h1>Exploring Image Data With ImShow</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">1.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">1.1.1. Learning Objectives</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-and-tools-for-capturing-ocean-image-data">1.2. Types and Tools for Capturing Ocean Image Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underwater-imagery">1.2.1. Underwater Imagery</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rovs-remotely-operated-vehicles">1.2.1.1. ROVs (Remotely Operated Vehicles)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#auvs-autonomous-underwater-vehicles">1.2.1.2. AUVs (Autonomous Underwater Vehicles)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-underwater-cameras">1.2.1.3. Fixed Underwater Cameras</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-imagery">1.2.2. Satellite Imagery</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aerial-imagery">1.2.3. Aerial Imagery</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -449,127 +474,73 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-ocean-image-data">
-<span id="lesson-1"></span><h1><span class="section-number">1. </span>Introduction to Ocean Image Data<a class="headerlink" href="#introduction-to-ocean-image-data" title="Link to this heading">#</a></h1>
-<section id="overview">
-<h2><span class="section-number">1.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>In this lesson, we will explore <strong>marine photographic and videographic data</strong>. We will also discuss the tools used to capture these images and videos, such as <strong>underwater cameras</strong>, <strong>drones</strong>, and <strong>satellite imagery</strong>. Understanding this data is the first step toward applying <strong>Computer Vision (CV)</strong> techniques to oceanographic research.</p>
-<section id="learning-objectives">
-<h3><span class="section-number">1.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
-<p>By the end of this section, you will:</p>
-<ul class="simple">
-<li><p>Understand the different types of ocean image data.</p></li>
-<li><p>Identify the tools and techniques used to capture marine imagery.</p></li>
-<li><p>Learn how CV can be applied to oceanographic research.</p></li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="types-and-tools-for-capturing-ocean-image-data">
-<h2><span class="section-number">1.2. </span>Types and Tools for Capturing Ocean Image Data<a class="headerlink" href="#types-and-tools-for-capturing-ocean-image-data" title="Link to this heading">#</a></h2>
-<p>Ocean image data comes from a variety of sources, each with unique strengths and limitations. Let’s explore the main types of ocean image data and the tools used to capture them.</p>
-<section id="underwater-imagery">
-<h3><span class="section-number">1.2.1. </span>Underwater Imagery<a class="headerlink" href="#underwater-imagery" title="Link to this heading">#</a></h3>
-<p>Underwater imagery is captured using technologies like <strong>Remotely Operated Vehicles (ROVs)</strong>, <strong>Autonomous Underwater Vehicles (AUVs)</strong>, and <strong>fixed underwater cameras</strong>.</p>
-<section id="rovs-remotely-operated-vehicles">
-<h4><span class="section-number">1.2.1.1. </span>ROVs (Remotely Operated Vehicles)<a class="headerlink" href="#rovs-remotely-operated-vehicles" title="Link to this heading">#</a></h4>
-<p>ROVs are uncrewed submersibles controlled from the surface. They provide real-time video and still imagery, often equipped with sampling tools. Notable examples are:</p>
-<ul class="simple">
-<li><p><strong>Jason</strong>: Capable of deep-sea exploration, reaching depths of up to 6,500 meters. Operated by WHOI, it includes high-definition video and robotic arms for sample collection.</p></li>
-<li><p><strong>ROPOS</strong>: A Canadian ROV capable of diving to depths of 5,000 meters, ideal for exploring hydrothermal vent systems.</p></li>
-</ul>
-<figure class="align-default" id="rov-jason">
-<img alt="../_images/image-1.png" src="../_images/image-1.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">The ROV Jason Equipped with 4k video cameras. Credit: M. Elend, University of Washington</span><a class="headerlink" href="#rov-jason" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p><strong>Advantages of ROVs</strong>:</p>
-<ul class="simple">
-<li><p>Real-time control for targeted exploration.</p></li>
-<li><p>Deep-water capabilities beyond the reach of divers.</p></li>
-</ul>
-<p><strong>Drawbacks of ROVs</strong>:</p>
-<ul class="simple">
-<li><p>High cost and limited mobility due to tethers.</p></li>
-</ul>
-</section>
-<section id="auvs-autonomous-underwater-vehicles">
-<h4><span class="section-number">1.2.1.2. </span>AUVs (Autonomous Underwater Vehicles)<a class="headerlink" href="#auvs-autonomous-underwater-vehicles" title="Link to this heading">#</a></h4>
-<p>AUVs are pre-programmed to follow missions autonomously, capturing imagery without human intervention. A prime example is <strong>Sentry</strong>, which collects data at depths of up to 6,000 meters.</p>
-<figure class="align-default" id="auv-sentry">
-<img alt="../_images/image-3.png" src="../_images/image-3.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">AUV Sentry at the surface after a deep dive. Credit: WHOI</span><a class="headerlink" href="#auv-sentry" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p><strong>Advantages of AUVs</strong>:</p>
-<ul class="simple">
-<li><p>Autonomous, covering large areas efficiently.</p></li>
-<li><p>Can be fitted with multiple sensors.</p></li>
-</ul>
-<p><strong>Drawbacks of AUVs</strong>:</p>
-<ul class="simple">
-<li><p>Limited real-time control and operational time due to battery life.</p></li>
-</ul>
-</section>
-<section id="fixed-underwater-cameras">
-<h4><span class="section-number">1.2.1.3. </span>Fixed Underwater Cameras<a class="headerlink" href="#fixed-underwater-cameras" title="Link to this heading">#</a></h4>
-<p>These cameras are positioned on the seafloor for long-term monitoring. The <strong>Ocean Observatories Initiative’s Regional Cabled Array</strong> provides live video feeds from deep-sea environments.</p>
-<figure class="align-default" id="underwater-camera">
-<img alt="../_images/image.png" src="../_images/image.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">A digital still camera capturing methane seep activity. Credit: UW/NSF-OOI/WHOI</span><a class="headerlink" href="#underwater-camera" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p><strong>Advantages of Fixed Cameras</strong>:</p>
-<ul class="simple">
-<li><p>Ideal for long-term ecological studies.</p></li>
-<li><p>High-definition video and still imagery.</p></li>
-</ul>
-<p><strong>Drawbacks of Fixed Cameras</strong>:</p>
-<ul class="simple">
-<li><p>Limited to specific, small areas.</p></li>
-</ul>
-</section>
-</section>
-<section id="satellite-imagery">
-<h3><span class="section-number">1.2.2. </span>Satellite Imagery<a class="headerlink" href="#satellite-imagery" title="Link to this heading">#</a></h3>
-<p>Satellites offer broad coverage for observing large-scale oceanographic phenomena, such as <strong>phytoplankton blooms</strong> and <strong>sea surface temperature</strong>.</p>
-<figure class="align-default" id="id1">
-<img alt="../_images/image-2.png" src="../_images/image-2.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Satellite imagery showing a phytoplankton bloom. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p><strong>Advantages of Satellite Imagery</strong>:</p>
-<ul class="simple">
-<li><p>Global coverage and ability to monitor seasonal changes.</p></li>
-</ul>
-<p><strong>Drawbacks of Satellite Imagery</strong>:</p>
-<ul class="simple">
-<li><p>Lower resolution compared to underwater systems, making it less ideal for studying small-scale features.</p></li>
-</ul>
-</section>
-<section id="aerial-imagery">
-<h3><span class="section-number">1.2.3. </span>Aerial Imagery<a class="headerlink" href="#aerial-imagery" title="Link to this heading">#</a></h3>
-<p>Aerially mounted cameras on drones, planes and helicopters can produce high quality often georeferenced imagery of nearshore sites or areas that are hard to get to by other means of transport like sea ice.</p>
-<figure class="align-default" id="seal-population">
-<img alt="../_images/image-4.png" src="../_images/image-4.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Seals on Arctic sea ice captured with an aerial camera, annotated with a CV model. Credit: A. Carter, NOAA National Marine Mammal Laboratory</span><a class="headerlink" href="#seal-population" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p><strong>Advantages of Aerial Imagery</strong>:</p>
-<ul class="simple">
-<li><p>Large georeferenced imagery can be obtained in relatively quick transects.</p></li>
-</ul>
-<p><strong>Drawbacks of Aerial Imagery</strong>:</p>
-<ul class="simple">
-<li><p>Aerial imagery doesn’t capture underwater information, and can be very expensive to operate.</p></li>
-</ul>
-</section>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="exploring-image-data-with-imshow">
+<h1><span class="section-number">8. </span>Exploring Image Data With ImShow<a class="headerlink" href="#exploring-image-data-with-imshow" title="Link to this heading">#</a></h1>
+<p>Plotly is a powerful graphing and imagery library widely used for data visualization. Unlike many other libraries, Plotly focuses on creating interactive plots, allowing you to build dynamic visualizations that offer deeper insights into your data.</p>
+<p>One essential feature in Plotly for working with image data is the imshow() function. This function enables the visualization of 2D arrays or image-like data, making it a valuable tool for exploring and understanding image datasets. Whether you’re working with scientific images or any form of visual data, Plotly’s interactive capabilities can provide an edge in scientific communication.</p>
+<p>In this guide, we’ll explore how to use imshow() to work with image data in Plotly, creating visuals that not only communicate your findings but also enhance your understanding of the data itself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">img_rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">]],</span>
+                    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+                   <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;https://oceancv.org/_images/WormTower.jpg&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="c1">#fig.update_layout(coloraxis_showscale=False)</span>
+<span class="c1">#fig.update_xaxes(showticklabels=False)</span>
+<span class="c1">#fig.update_yaxes(showticklabels=False)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Credit: UW/NSF-OOI/WHOI; J2-1666, V24.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;https://oceancv.org/_images/OctopusCrawling.jpg&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Contour</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">showscale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                         <span class="n">contours</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span> <span class="n">coloring</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">),</span>
+                         <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">230</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Credit: UW/NSF-OOI/WHOI; J2-1609; V24.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;https://oceancv.org/_images/SeapigParty.jpg&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">img</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">channel</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">img</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">channel</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                               <span class="n">marker_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> channel&#39;</span> <span class="o">%</span><span class="n">color</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -603,20 +574,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="LA4.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to Computer Vision Across the Marine Sciences</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Understanding CV Metrics and Graphs</p>
       </div>
     </a>
     <a class="right-next"
-       href="LA1.5.html"
+       href="LA5.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Survey Results</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Image Classification with Keras</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -626,35 +597,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">1.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">1.1.1. Learning Objectives</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-and-tools-for-capturing-ocean-image-data">1.2. Types and Tools for Capturing Ocean Image Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underwater-imagery">1.2.1. Underwater Imagery</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rovs-remotely-operated-vehicles">1.2.1.1. ROVs (Remotely Operated Vehicles)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#auvs-autonomous-underwater-vehicles">1.2.1.2. AUVs (Autonomous Underwater Vehicles)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-underwater-cameras">1.2.1.3. Fixed Underwater Cameras</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-imagery">1.2.2. Satellite Imagery</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aerial-imagery">1.2.3. Aerial Imagery</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
