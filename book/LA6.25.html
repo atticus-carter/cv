@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>15. Object Detection with YOLO &#8212; Computer Vision Across Oceanography</title>
+    <title>9. Object Detection with YOLOv8 &#8212; Computer Vision Across Oceanography</title>
   
   
   
@@ -62,8 +62,8 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16. Localizing Fathomnet to a new dataset with YOLO" href="LA6.26.html" />
-    <link rel="prev" title="9. Object Detection with TensorFlow API" href="LA6.html" />
+    <link rel="next" title="10. Localizing Fathomnet to a new dataset with YOLO" href="LA6.26.html" />
+    <link rel="prev" title="8. Image Classification with Keras" href="LA5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,31 +186,25 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="LA5.html">8. Image Classification with Keras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA6.html">9. Object Detection with TensorFlow API</a></li>
-
-
-
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Object Detection with YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA6.26.html">16. Localizing Fathomnet to a new dataset with YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA6.27.html">17. Pulling Data from Fathomverse</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA7.html">18. Instance Segmentation with Detectron2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA8.html">19. Keypoint Detection with MediaPipe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA9.html">20. Object and Multi-Object Tracking with SAM 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA10.html">21. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA11.html">22. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA12.html">23. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA13.html">24. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Object Detection with YOLOv8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA6.26.html">10. Localizing Fathomnet to a new dataset with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA6.27.html">11. Pulling Data from Fathomverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA7.html">12. Instance Segmentation with Detectron2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA8.html">13. Keypoint Detection with MediaPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA9.html">14. Object and Multi-Object Tracking with SAM 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA10.html">15. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA11.html">16. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA12.html">17. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA13.html">18. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Synthesis Project</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="LA14.html">25. Dataset Preparation and Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA15.html">26. Model Selection and Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA16.html">27. Training and Evaluation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA17.html">28. Data Visualization and Figure Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA18.html">29. Usecase Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LA19.html">30. Tying it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA14.html">19. Dataset Preparation and Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA15.html">20. Model Selection and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA16.html">21. Training and Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA17.html">22. Data Visualization and Figure Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA18.html">23. Usecase Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA19.html">24. Tying it all together</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -453,7 +447,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -464,11 +460,28 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Object Detection with YOLO</h1>
+    <h1>Object Detection with YOLOv8</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">9.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-dataset">9.3. Downloading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-environment">9.4. Preparing the Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-dataset">9.5. Loading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-augmentations-and-parameters">9.6. Customizing Augmentations and Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-yolov8-model">9.7. Training the YOLOv8 Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model">9.8. Evaluating the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-results">9.9. Visualizing Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-reflecting-on-results">9.10. Activity: Reflecting on Results</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -478,8 +491,129 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="object-detection-with-yolo">
-<span id="lesson-10"></span><h1><span class="section-number">15. </span>Object Detection with YOLO<a class="headerlink" href="#object-detection-with-yolo" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="object-detection-with-yolov8">
+<span id="lesson-11"></span><h1><span class="section-number">9. </span>Object Detection with YOLOv8<a class="headerlink" href="#object-detection-with-yolov8" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2><span class="section-number">9.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lesson, we will train an Object Detection model using YOLOv8. You’ll be able to choose specific augmentations, batch size, resolution, and other parameters based on your system’s capabilities and runtime. The dataset is already provided in YOLO format and will be used to train and evaluate the model.</p>
+</section>
+<section id="learning-objectives">
+<h2><span class="section-number">9.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this section, you will:</p>
+<ul class="simple">
+<li><p>Understand the YOLO format and how to train a custom object detection model using YOLOv8.</p></li>
+<li><p>Experiment with different augmentations and hyperparameters for object detection.</p></li>
+<li><p>Evaluate the model’s performance and visualize the results.</p></li>
+</ul>
+</section>
+<section id="downloading-the-dataset">
+<h2><span class="section-number">9.3. </span>Downloading the Dataset<a class="headerlink" href="#downloading-the-dataset" title="Link to this heading">#</a></h2>
+<p>The dataset for this lesson is already formatted in YOLO format. You can load it directly for training and evaluation. Ensure you have the dataset uploaded before proceeding.</p>
+</section>
+<section id="preparing-the-environment">
+<h2><span class="section-number">9.4. </span>Preparing the Environment<a class="headerlink" href="#preparing-the-environment" title="Link to this heading">#</a></h2>
+<p>Let’s first install the required libraries and set up the environment to train our YOLOv8 model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the required dependencies</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">ultralytics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import required libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-the-dataset">
+<h2><span class="section-number">9.5. </span>Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">#</a></h2>
+<p>You can either load your dataset with or without augmentations. The dataset is in YOLO format, which includes images and annotation files with bounding box information.</p>
+<p>If you have chosen a different dataset or format, ensure it follows YOLO formatting. For this lesson, we assume that the dataset is organized in <code class="docutils literal notranslate"><span class="pre">train/</span></code>, <code class="docutils literal notranslate"><span class="pre">val/</span></code>, and <code class="docutils literal notranslate"><span class="pre">test/</span></code> directories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set paths to the dataset</span>
+<span class="n">dataset_path</span> <span class="o">=</span> <span class="s1">&#39;/content/PlasticinWater/&#39;</span>  <span class="c1"># Change this if your dataset is in a different location</span>
+<span class="n">train_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="s1">&#39;train/&#39;</span><span class="p">)</span>
+<span class="n">val_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="s1">&#39;val/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="customizing-augmentations-and-parameters">
+<h2><span class="section-number">9.6. </span>Customizing Augmentations and Parameters<a class="headerlink" href="#customizing-augmentations-and-parameters" title="Link to this heading">#</a></h2>
+<p>With YOLOv8, you can apply different augmentations during training. You will be able to choose your augmentations, batch size, image resolution, and more parameters to fine-tune the model. For example, augmentations can include flipping, scaling, brightness adjustments, and other transformations that can make your model more robust.</p>
+<p>Here, we will allow you to customize those values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define custom parameters</span>
+<span class="n">augmentations</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Choose augmentations (e.g., flip, scale, brightness): &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter batch size: &#39;</span><span class="p">))</span>
+<span class="n">img_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter image resolution (e.g., 640): &#39;</span><span class="p">))</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter number of training epochs: &#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="training-the-yolov8-model">
+<h2><span class="section-number">9.7. </span>Training the YOLOv8 Model<a class="headerlink" href="#training-the-yolov8-model" title="Link to this heading">#</a></h2>
+<p>Now that the environment is set up, and you have selected your augmentations and other parameters, we will proceed with training the YOLOv8 model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the YOLOv8 model (pretrained on COCO dataset)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">&#39;yolov8n.pt&#39;</span><span class="p">)</span>  <span class="c1"># You can change this to another YOLOv8 model if needed (e.g., &#39;yolov8s.pt&#39; for a smaller model)</span>
+
+<span class="c1"># Train the model with the selected augmentations and parameters</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset_path</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">img_size</span><span class="o">=</span><span class="n">img_size</span><span class="p">,</span> <span class="n">augmentations</span><span class="o">=</span><span class="n">augmentations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is important to note that parameters do not have to be passed from a variable and can be directly loaded in during your training script. Similarly, when choosing your model, you can use a checkpoint to resume training.</p>
+</section>
+<section id="evaluating-the-model">
+<h2><span class="section-number">9.8. </span>Evaluating the Model<a class="headerlink" href="#evaluating-the-model" title="Link to this heading">#</a></h2>
+<p>After training, we will evaluate the model performance using validation data and calculate metrics such as mean Average Precision (mAP).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate the model on the validation dataset</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">val_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">metrics</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-results">
+<h2><span class="section-number">9.9. </span>Visualizing Results<a class="headerlink" href="#visualizing-results" title="Link to this heading">#</a></h2>
+<p>It is essential to visualize the results on some test images to check how well the model is performing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize predictions on test images</span>
+<span class="n">test_img</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="s1">&#39;test/&#39;</span><span class="p">,</span> <span class="s1">&#39;test_image.jpg&#39;</span><span class="p">)</span>  <span class="c1"># Specify a test image</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">test_img</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="activity-reflecting-on-results">
+<h2><span class="section-number">9.10. </span>Activity: Reflecting on Results<a class="headerlink" href="#activity-reflecting-on-results" title="Link to this heading">#</a></h2>
+<p>Now that you’ve trained and evaluated your model, reflect on the following questions:</p>
+<ul class="simple">
+<li><p>How did the augmentations and parameters affect the model’s performance?</p></li>
+<li><p>Were there any significant differences in the mAP metrics for different classes?</p></li>
+<li><p>What visual observations can you make from the test results?</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -513,12 +647,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="LA6.html"
+       href="LA5.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Object Detection with TensorFlow API</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Image Classification with Keras</p>
       </div>
     </a>
     <a class="right-next"
@@ -526,7 +660,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Localizing Fathomnet to a new dataset with YOLO</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Localizing Fathomnet to a new dataset with YOLO</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -536,6 +670,30 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">9.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-dataset">9.3. Downloading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-environment">9.4. Preparing the Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-dataset">9.5. Loading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-augmentations-and-parameters">9.6. Customizing Augmentations and Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-yolov8-model">9.7. Training the YOLOv8 Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model">9.8. Evaluating the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-results">9.9. Visualizing Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-reflecting-on-results">9.10. Activity: Reflecting on Results</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
