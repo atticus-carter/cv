@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>28. Action Recognition and Event Detection in Videos using I3D Networks &#8212; Computer Vision Across Oceanography</title>
+    <title>9. Training YOLO Models: A Guide to Understanding Tasks and Modes &#8212; Computer Vision Across Oceanography</title>
   
   
   
@@ -57,13 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/LA12';</script>
-    <link rel="canonical" href="https://atticus-carter.github.io/cv/book/LA12.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/yolorealprime';</script>
+    <link rel="canonical" href="https://atticus-carter.github.io/cv/book/yolorealprime.html" />
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="29. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow" href="LA13.html" />
-    <link rel="prev" title="27. Self-Supervised Learning for Image Classification with SimCLR in PyTorch" href="LA11.html" />
+    <link rel="next" title="20. Object Detection with YOLOv8" href="LA6.25.html" />
+    <link rel="prev" title="8. Image Classification with Keras" href="LA5.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,7 +186,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="LA5.html">8. Image Classification with Keras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="yolorealprime.html">9. Training YOLO Models: A Guide to Understanding Tasks and Modes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Training YOLO Models: A Guide to Understanding Tasks and Modes</a></li>
 
 
 
@@ -205,7 +205,7 @@
 <li class="toctree-l1"><a class="reference internal" href="LA9.html">25. Object and Multi-Object Tracking with SAM 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA10.html">26. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA11.html">27. Self-Supervised Learning for Image Classification with SimCLR in PyTorch</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">28. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA12.html">28. Action Recognition and Event Detection in Videos using I3D Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LA13.html">29. Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Synthesis Project</span></p>
@@ -274,7 +274,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/atticus-carter/cv/master?urlpath=tree/book/LA12.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/atticus-carter/cv/master?urlpath=tree/book/yolorealprime.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,7 +292,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/atticus-carter/cv/blob/master/book/LA12.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/atticus-carter/cv/blob/master/book/yolorealprime.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -340,7 +340,7 @@
       
       
       
-      <li><a href="https://github.com/atticus-carter/cv/edit/main/book/LA12.ipynb" target="_blank"
+      <li><a href="https://github.com/atticus-carter/cv/edit/main/book/yolorealprime.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -357,7 +357,7 @@
       
       
       
-      <li><a href="https://github.com/atticus-carter/cv/issues/new?title=Issue%20on%20page%20%2Fbook/LA12.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/atticus-carter/cv/issues/new?title=Issue%20on%20page%20%2Fbook/yolorealprime.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +387,7 @@
       
       
       
-      <li><a href="../_sources/book/LA12.ipynb" target="_blank"
+      <li><a href="../_sources/book/yolorealprime.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -458,7 +458,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -469,11 +471,30 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Action Recognition and Event Detection in Videos using I3D Networks</h1>
+    <h1>Training YOLO Models: A Guide to Understanding Tasks and Modes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9. Training YOLO Models: A Guide to Understanding Tasks and Modes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-yolo-models">10. Introduction to YOLO Models</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#yolo-tasks">11. YOLO Tasks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#yolo-modes">12. YOLO Modes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-training-settings">13. Key Training Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-settings">14. Inference Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-settings">15. Validation Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#export-settings">16. Export Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#augmentation-settings">17. Augmentation Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-checkpoints-and-plotting-settings">18. Logging, Checkpoints, and Plotting Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">19. Next Steps</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -483,20 +504,72 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="action-recognition-and-event-detection-in-videos-using-i3d-networks">
-<span id="lesson-18"></span><h1><span class="section-number">28. </span>Action Recognition and Event Detection in Videos using I3D Networks<a class="headerlink" href="#action-recognition-and-event-detection-in-videos-using-i3d-networks" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;this is a test&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is a test
-</pre></div>
-</div>
-</div>
-</div>
+  <section id="training-yolo-models-a-guide-to-understanding-tasks-and-modes">
+<h1><span class="section-number">9. </span>Training YOLO Models: A Guide to Understanding Tasks and Modes<a class="headerlink" href="#training-yolo-models-a-guide-to-understanding-tasks-and-modes" title="Link to this heading">#</a></h1>
+</section>
+<section id="introduction-to-yolo-models">
+<h1><span class="section-number">10. </span>Introduction to YOLO Models<a class="headerlink" href="#introduction-to-yolo-models" title="Link to this heading">#</a></h1>
+<p>YOLO (You Only Look Once) models are incredibly versatile and can be applied to various tasks in computer vision, including detection, segmentation, classification, and pose estimation. These models can also handle oriented bounding boxes (OBB), which is particularly useful for specialized tasks like satellite or medical imagery. In marine science, YOLO models can help analyze underwater images and videos both in real time or after the fact, detecting and classifying marine organisms, shipwrecks, or plastic debris. Their ability to work on real-time video streams can also be leveraged in autonomous underwater vehicles (AUVs) for monitoring and exploration tasks. This efficiency is crucial in remote marine environments where computational resources are limited. A note about YOLO, as of now the only “Official” distributions of YOLO via Ultralytics are YOLOv5,v8 and now v11. Other distributions exist however they are often less open source and are usually very well tuned for a few large benchmark datasets but not large scale differences for our purposes. For this reason you may see YOLO imports be in any of the official distributions, I have done my best to choose the most stable and easiest to use version for each task, but the skills should be easily tranferable.</p>
+</section>
+<section id="yolo-tasks">
+<h1><span class="section-number">11. </span>YOLO Tasks<a class="headerlink" href="#yolo-tasks" title="Link to this heading">#</a></h1>
+<p>YOLO models can perform the following tasks:</p>
+<ul class="simple">
+<li><p><strong>Detect</strong>: Identify and localize objects in images or videos.</p></li>
+<li><p><strong>Segment</strong>: Divide images or videos into regions corresponding to different objects.</p></li>
+<li><p><strong>Classify</strong>: Predict the class label of an image.</p></li>
+<li><p><strong>Pose</strong>: Estimate key points for objects in an image.</p></li>
+<li><p><strong>OBB</strong>: Use oriented bounding boxes for specific imagery applications.</p></li>
+</ul>
+<p>In marine research, detection can be used to identify different fish species or coral structures in video footage, while segmentation could help distinguish between different types of habitats, such as coral reefs and sea grass beds. Classification tasks can assist in labeling different faunal species, and pose estimation can be useful when tracking movement patterns in marine animals. Oriented bounding boxes are valuable in aerial or satellite imagery analysis, where objects like ships or coastal structures need to be tracked in varying orientations.</p>
+</section>
+<section id="yolo-modes">
+<h1><span class="section-number">12. </span>YOLO Modes<a class="headerlink" href="#yolo-modes" title="Link to this heading">#</a></h1>
+<p>The model can be used in different modes, depending on the objective:</p>
+<ul class="simple">
+<li><p><strong>Train</strong>: Train a YOLO model on a custom dataset.</p></li>
+<li><p><strong>Val</strong>: Validate the model after training.</p></li>
+<li><p><strong>Predict</strong>: Make predictions on new data.</p></li>
+<li><p><strong>Export</strong>: Export the model for deployment.</p></li>
+<li><p><strong>Track</strong>: Track objects in real-time.</p></li>
+<li><p><strong>Benchmark</strong>: Evaluate model speed and accuracy after export.</p></li>
+</ul>
+<p>In marine applications, training and validating a model is often done with custom datasets collected from ROVs or AUVs during underwater surveys. Prediction and tracking modes can be employed in live deployments to identify and monitor marine fauna in real-time, providing valuable data for fisheries management or ecological monitoring. Benchmarking can ensure that these models perform well in different environments, whether for deep-sea monitoring or coastal surveillance.</p>
+</section>
+<section id="key-training-settings">
+<h1><span class="section-number">13. </span>Key Training Settings<a class="headerlink" href="#key-training-settings" title="Link to this heading">#</a></h1>
+<p>Training settings affect model performance, speed, and accuracy. Important settings include batch size, learning rate, image size, and device selection. For a complete understanding of each parameter, explore the official <a class="reference external" href="https://docs.ultralytics.com/usage/cfg/#train-settings">Train Settings</a> on the Ultralytics documentation.</p>
+<p>In marine contexts, training settings must be carefully tuned due to the challenges posed by underwater environments, such as varying light conditions, occlusion, and the presence of marine snow. Optimizing batch sizes and learning rates helps ensure models are robust enough to handle these inconsistencies and perform accurately in diverse settings like coral reefs, hydrothermal vents, or the open ocean.</p>
+</section>
+<section id="inference-settings">
+<h1><span class="section-number">14. </span>Inference Settings<a class="headerlink" href="#inference-settings" title="Link to this heading">#</a></h1>
+<p>Inference settings allow for model predictions on new data. Key parameters include confidence threshold, image size, and device. Adjusting these settings helps fine-tune the model’s predictions to your specific needs. Learn more in the <a class="reference external" href="https://docs.ultralytics.com/usage/cfg/#predict-settings">Predict Settings</a>.</p>
+<p>In marine research, inference is typically done after field surveys, where large datasets are processed to identify species or objects of interest. Adjusting inference settings can reduce false positives and ensure accurate detections of marine animals like whales or seals, especially when analyzing aerial or underwater images. For marine biologists, proper tuning of these settings can make the difference between accurate monitoring and misleading results.</p>
+</section>
+<section id="validation-settings">
+<h1><span class="section-number">15. </span>Validation Settings<a class="headerlink" href="#validation-settings" title="Link to this heading">#</a></h1>
+<p>The validation settings guide how to assess the model’s performance during training. You can explore these parameters in the <a class="reference external" href="https://docs.ultralytics.com/usage/cfg/#validation-settings">Validation Settings</a> section.</p>
+<p>Validation is critical when using models in marine science, as ocean environments are highly variable, and incorrect model validation can lead to false conclusions. For example, if you’re monitoring coral bleaching events, validation ensures that the model accurately differentiates between healthy and bleached coral, which directly impacts conservation efforts.</p>
+</section>
+<section id="export-settings">
+<h1><span class="section-number">16. </span>Export Settings<a class="headerlink" href="#export-settings" title="Link to this heading">#</a></h1>
+<p>Exporting a model for deployment involves adjusting settings like the target format (ONNX, TorchScript, etc.). Find detailed instructions in the <a class="reference external" href="https://docs.ultralytics.com/usage/cfg/#export-settings">Export Settings</a>.</p>
+<p>Exporting trained YOLO models in a marine context allows for their integration into field tools like AUVs or drones. By deploying models directly onto these devices, researchers can conduct in-situ analyses of underwater ecosystems, automatically identifying species or mapping features without needing constant human input. This is essential for remote, long-term monitoring projects.</p>
+</section>
+<section id="augmentation-settings">
+<h1><span class="section-number">17. </span>Augmentation Settings<a class="headerlink" href="#augmentation-settings" title="Link to this heading">#</a></h1>
+<p>Augmentation techniques introduce variability into training data to help the model generalize better. Learn how to apply these techniques in the <a class="reference external" href="https://docs.ultralytics.com/usage/cfg/#augmentation-settings">Augmentation Settings</a>.</p>
+<p>Marine environments are highly variable, with changes in water clarity, light, and object appearance. Augmentation techniques, like flipping or changing brightness, simulate these variations, allowing YOLO models to perform well under different conditions. For example, augmenting images of fish in low-light conditions can help the model generalize better when deployed in deep-sea environments.</p>
+</section>
+<section id="logging-checkpoints-and-plotting-settings">
+<h1><span class="section-number">18. </span>Logging, Checkpoints, and Plotting Settings<a class="headerlink" href="#logging-checkpoints-and-plotting-settings" title="Link to this heading">#</a></h1>
+<p>Proper logging, checkpointing, and plotting are crucial for tracking your model’s progress. Details on how to implement these are available in the <a class="reference external" href="https://docs.ultralytics.com/usage/cfg/#logging-checkpoints-and-plotting-settings">Logging, Checkpoints, and Plotting Settings</a>.</p>
+<p>In marine research, monitoring the progress of your model during training is essential, especially when working with datasets collected in extreme conditions like the deep sea. Logging ensures that researchers can keep track of where models perform well or need improvement, while checkpointing allows training to resume if interrupted. Visual plots can help compare results across different environmental conditions, providing insights into model performance across multiple marine ecosystems.</p>
+</section>
+<section id="next-steps">
+<h1><span class="section-number">19. </span>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h1>
+<p>The next lessons will make heavy use of these parameters. It’s important to know them well to optimize training and inference performance. Bookmark the <a class="reference external" href="https://docs.ultralytics.com/usage/cfg/">Ultralytics YOLO documentation</a> to stay updated on new features and default values.</p>
+<p>In marine science, understanding these settings can significantly enhance your ability to build accurate, deployable models. Whether you’re studying marine life in shallow coastal areas or monitoring deep-sea ecosystems, mastery of these YOLO parameters ensures your model can handle the complexities of underwater environments.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -530,20 +603,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="LA11.html"
+       href="LA5.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">27. </span>Self-Supervised Learning for Image Classification with SimCLR in PyTorch</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Image Classification with Keras</p>
       </div>
     </a>
     <a class="right-next"
-       href="LA13.html"
+       href="LA6.25.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">29. </span>Anomaly Detection in Images and Videos using Autoencoders and TensorFlow</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Object Detection with YOLOv8</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -553,6 +626,32 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9. Training YOLO Models: A Guide to Understanding Tasks and Modes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-yolo-models">10. Introduction to YOLO Models</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#yolo-tasks">11. YOLO Tasks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#yolo-modes">12. YOLO Modes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#key-training-settings">13. Key Training Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inference-settings">14. Inference Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-settings">15. Validation Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#export-settings">16. Export Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#augmentation-settings">17. Augmentation Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-checkpoints-and-plotting-settings">18. Logging, Checkpoints, and Plotting Settings</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">19. Next Steps</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
