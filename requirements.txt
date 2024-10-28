@@ -3,3 +3,6 @@ jupytext
 matplotlib
 numpy
 ghp-import
+plotly.express
+jupyterquiz
+from jupyterquiz import display_quiz
