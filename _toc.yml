@@ -22,6 +22,7 @@ parts:
       - file: book/LA6.26.ipynb
       - file: book/LA6.27.ipynb
       - file: book/LA7.ipynb
+      - file: book/clusterlesson.ipynb
       - file: book/LA8.ipynb
       - file: book/LA9.ipynb
       - file: book/LA10.ipynb
