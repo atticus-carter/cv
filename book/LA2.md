@@ -13,7 +13,7 @@ By the end of this section, you will:
 
 ---
 
-## Classes and Annotaion
+## Classes and Annotation
 
 When training models using imagery data, it is crucial to provide the algorithm with properly **annotated** training data. This allows the model to learn what to look for and where to find it within an image. Imagine, for a moment, that you are a computer tasked with identifying every rockfish in an image, but the image is completely unannotated, and you have no prior knowledge or context of what a rockfish looks like. You would likely have a (very) hard time piecing together what that request even means. In the context of computer vision, image annotation serves as a vital guide, providing the labels and boundaries necessary for the model to understand its task. Without annotations, the model would be left guessing, unable to differentiate between objects or recognize key features.
 
