@@ -14,7 +14,7 @@ parts:
   - caption: "Chapter 2 - Computer Vision Development"
     numbered: true
     chapters:  
-      - file: book/LA5.ipynb
+      - file: book/Classification_Keras.ipynb
       - file: book/introduction_YOLO.ipynb
       - file: book/TrainandDeployObj_YOLO.ipynb
       - file: book/Classification_YOLO.ipynb
