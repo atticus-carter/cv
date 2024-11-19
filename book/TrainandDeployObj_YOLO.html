@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>8. Training and Deploying Object Detection with YOLO &#8212; Computer Vision Across Oceanography</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/TrainandDeployObj_YOLO';</script>
+    <link rel="canonical" href="https://atticus-carter.github.io/cv/book/TrainandDeployObj_YOLO.html" />
+    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Training and Deploying Many Class Classification with YOLO" href="Classification_YOLO.html" />
+    <link rel="prev" title="7. Image Classification with Keras" href="Classification_Keras.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Computer Vision Across Oceanography - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Computer Vision Across Oceanography - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LA1.html">1. Introduction to Ocean Image Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA2.html">2. Image Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA2.5.html">3. Image Manipulation in Python with PIL and OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA2.75.html">4. Creating and Augmenting Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA3.html">5. The Math Behind Convolutional Neural Networks (CNNs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA4.html">6. Understanding CV Metrics and Graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Classification_Keras.html">7. Image Classification with Keras</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Training and Deploying Object Detection with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Classification_YOLO.html">9. Training and Deploying Many Class Classification with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetIntroduction_YOLO.html">10. Using Fathomnet Models on a ROV Transect with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetPullingData_YOLO.html">11. Pulling Data from Fathomnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetObjTracking_YOLO.html">12. Object and Multi-Object Tracking with Fathomnet and YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetObjInZone_YOLO.html">13. Object in Zone Detection with Fathomnet and YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keypoint_YOLO.html">14. Keypoint Detection With YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstanceSegmentation_YOLO.html">15. Instance Segmentation with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ClusterSegmentation_Kmeans.html">16. K-means Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SRGAN_Tensorflow.html">17. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Synthesis Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="LA14.html">18. Dataset Preparation and Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA15.html">19. Model Selection and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA16.html">20. Training and Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA17.html">21. Data Visualization and Figure Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA18.html">22. Usecase Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LA19.html">23. Tying it all together</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/atticus-carter/cv/master?urlpath=tree/book/TrainandDeployObj_YOLO.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/atticus-carter/cv/blob/master/book/TrainandDeployObj_YOLO.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv/edit/main/book/TrainandDeployObj_YOLO.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv/issues/new?title=Issue%20on%20page%20%2Fbook/TrainandDeployObj_YOLO.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/book/TrainandDeployObj_YOLO.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Training and Deploying Object Detection with YOLO</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">8.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-dataset">8.3. Downloading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-environment">8.4. Preparing the Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-dataset">8.5. Loading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-dataset-configuration-file">8.6. Create Dataset Configuration File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-augmentations-and-parameters">8.7. Customizing Augmentations and Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-yolov8-model">8.8. Training the YOLOv8 Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model">8.9. Evaluating the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-model-performance">8.10. Review Model performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-reflecting-on-results">8.11. Activity: Reflecting on Results</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="training-and-deploying-object-detection-with-yolo">
+<span id="lesson-11"></span><h1><span class="section-number">8. </span>Training and Deploying Object Detection with YOLO<a class="headerlink" href="#training-and-deploying-object-detection-with-yolo" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2><span class="section-number">8.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this lesson, we will train an Object Detection model using YOLOv8. You’ll be able to choose specific augmentations, batch size, resolution, and other parameters based on your system’s capabilities and runtime. The dataset is already provided in YOLO format and will be used to train and evaluate the model.</p>
+</section>
+<section id="learning-objectives">
+<h2><span class="section-number">8.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this section, you will:</p>
+<ul class="simple">
+<li><p>Understand the YOLO format and how to train a custom object detection model using YOLOv8.</p></li>
+<li><p>Experiment with different augmentations and hyperparameters for object detection.</p></li>
+<li><p>Evaluate the model’s performance and visualize the results.</p></li>
+</ul>
+</section>
+<section id="downloading-the-dataset">
+<h2><span class="section-number">8.3. </span>Downloading the Dataset<a class="headerlink" href="#downloading-the-dataset" title="Link to this heading">#</a></h2>
+<p>The dataset for this lesson is already formatted in YOLO format. You can load it directly for training and evaluation. Ensure you have the dataset uploaded before proceeding.</p>
+</section>
+<section id="preparing-the-environment">
+<h2><span class="section-number">8.4. </span>Preparing the Environment<a class="headerlink" href="#preparing-the-environment" title="Link to this heading">#</a></h2>
+<p>Let’s first install the required libraries and set up the environment to train our YOLOv8 model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the required dependencies</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">ultralytics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import required libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-the-dataset">
+<h2><span class="section-number">8.5. </span>Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">#</a></h2>
+<p>You can either load your dataset with or without augmentations. The dataset is in YOLO format, which includes images and annotation files with bounding box information.</p>
+<p>If you have chosen a different dataset or format, ensure it follows YOLO formatting. For this lesson, we assume that the dataset is organized in <code class="docutils literal notranslate"><span class="pre">train/</span></code>, <code class="docutils literal notranslate"><span class="pre">val/</span></code>, and <code class="docutils literal notranslate"><span class="pre">test/</span></code> directories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set paths to the dataset</span>
+<span class="n">zip_file_path</span> <span class="o">=</span> <span class="s1">&#39;/content/TeachingTankPlastic.zip&#39;</span>
+
+<span class="c1"># Unzip the file</span>
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+    <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;/content/TeachingTankPlastic&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the dataset path</span>
+<span class="n">dataset_path</span> <span class="o">=</span> <span class="s1">&#39;/content/TeachingTankPlastic&#39;</span>
+
+<span class="c1"># Verify the dataset path</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset path is set to: </span><span class="si">{</span><span class="n">dataset_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Files in dataset path: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set train and val paths</span>
+<span class="n">train_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="s1">&#39;train/&#39;</span><span class="p">)</span>
+<span class="n">val_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="s1">&#39;val/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-dataset-configuration-file">
+<h2><span class="section-number">8.6. </span>Create Dataset Configuration File<a class="headerlink" href="#create-dataset-configuration-file" title="Link to this heading">#</a></h2>
+<p>Copy the code cell below to create a configuration file (<code class="docutils literal notranslate"><span class="pre">teaching_tank_data.yaml</span></code>) for your dataset. This configuration file is essential for training YOLO models because it provides a structured way for YOLO to understand the paths to your training, validation, and (optionally) test datasets, as well as the class information. The configuration file tells YOLO where to find the data it needs and how many classes it should expect, which ensures that the training process runs smoothly.</p>
+<p>Without a properly configured YAML file, YOLO would not know where the datasets are located or how to interpret the classes, leading to errors or failed training. Most of the time this will be generated with your annotation software, however it is important to double check and understand how this file works.</p>
+<p>The configuration file includes:</p>
+<ul class="simple">
+<li><p>Paths to <strong>training</strong>, <strong>validation</strong>, and optionally <strong>test</strong> datasets.</p></li>
+<li><p><strong>Number of classes (<code class="docutils literal notranslate"><span class="pre">nc</span></code>)</strong>: This tells YOLO how many unique classes there are to predict.</p></li>
+<li><p><strong>Class names (<code class="docutils literal notranslate"><span class="pre">names</span></code>)</strong>: A list of class labels to ensure correct mapping during training and evaluation.</p></li>
+</ul>
+<p>Below, you can find the cell to generate the configuration file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">:</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">TeachingTankPlastic</span><span class="o">/</span><span class="n">train</span><span class="o">/</span><span class="n">images</span> 
+<span class="n">val</span><span class="p">:</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">TeachingTankPlastic</span><span class="o">/</span><span class="n">valid</span><span class="o">/</span><span class="n">images</span>    
+<span class="n">test</span><span class="p">:</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">TeachingTankPlastic</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">images</span>    
+<span class="n">nc</span><span class="p">:</span> <span class="mi">15</span>  <span class="c1"># Number of classes</span>
+
+<span class="n">names</span><span class="p">:</span> 
+  <span class="o">-</span> <span class="s1">&#39;Black Plastic Cap&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Blue Nitrile Glove&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Blue Plastic Cap&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Brown Multilayer Plastic&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Green Plastic Cap&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Orange Plastic Cap&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Plastic Bottle&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Purple Insulation Foam&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Purple Multilayer Plastic Bag&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Red - Orange BOPP Bag&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Red Cap&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Red Netting&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Red Plastic Straw&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Yellow Foam&#39;</span>
+  <span class="o">-</span> <span class="s1">&#39;Yellow Rope&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="customizing-augmentations-and-parameters">
+<h2><span class="section-number">8.7. </span>Customizing Augmentations and Parameters<a class="headerlink" href="#customizing-augmentations-and-parameters" title="Link to this heading">#</a></h2>
+<p>With YOLOv8, applying augmentations during both dataset creation and training is highly beneficial. During the dataset creation phase, some augmentations are universal and should be applied regardless of what the model will be used for. For instance, basic transformations like random flips, rotations, and brightness adjustments help ensure the model can handle general variations found in real-world data. These augmentations provide a strong foundation by improving the model’s ability to generalize and reduce the risk of overfitting.</p>
+<p>However, during the training phase, more specific augmentations can be customized to anticipate particular challenges. For example, if your model is going to be deployed using a new AUV camera system that captures images at an oblique angle, or if it needs to perform well in a survey area with particularly dark conditions, adding targeted augmentations during training will make the model more robust to these conditions. By simulating real-world variability, the model becomes more resilient and adaptable to different scenarios.</p>
+<p>In addition to augmentations, there are many parameters and arguments that you can pass to your model during training to further refine its performance. These include aspects like learning rate, batch size, optimizer, and more. The ability to customize these parameters allows you to tailor the training process to fit the specific requirements and challenges of your dataset. Ultimately, applying both general and scenario-specific augmentations, along with thoughtful parameter tuning, can significantly enhance your model’s adaptability and performance in real-world situations.</p>
+</section>
+<section id="training-the-yolov8-model">
+<h2><span class="section-number">8.8. </span>Training the YOLOv8 Model<a class="headerlink" href="#training-the-yolov8-model" title="Link to this heading">#</a></h2>
+<p>Now that the environment is set up, and you have selected your augmentations and other parameters, we will proceed with training the YOLOv8 model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+
+<span class="c1"># Load the YOLOv8 model (pretrained on COCO dataset)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">&#39;yolov8n.pt&#39;</span><span class="p">)</span>  <span class="c1"># You can change this to another YOLOv8 model if needed</span>
+
+<span class="c1"># Path to the dataset configuration YAML file</span>
+<span class="n">dataset_config</span> <span class="o">=</span> <span class="s1">&#39;/content/TeachingTankPlastic/teaching_tank_data.yaml&#39;</span>  <span class="c1"># Path to the YAML file, not the directory</span>
+
+<span class="c1"># Train the model</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">dataset_config</span><span class="p">,</span>  <span class="c1"># Pass the path to the YAML file</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span>
+    <span class="n">plots</span><span class="o">=</span><span class="kc">True</span>
+
+    <span class="c1"># Add more augmentations and parameters here! </span>
+    <span class="c1"># Check out the Ultralytics documentation to see </span>
+    <span class="c1"># what is available.</span>
+    
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is important to note that parameters do not have to be passed from a variable and can be directly loaded in during your training script. I purposely set up the dataset_config here so we can check out its contents. Similarly, when choosing your model, you can use a checkpoint to resume training.</p>
+</section>
+<section id="evaluating-the-model">
+<h2><span class="section-number">8.9. </span>Evaluating the Model<a class="headerlink" href="#evaluating-the-model" title="Link to this heading">#</a></h2>
+<p>After training, we will evaluate the model performance using validation data and calculate metrics such as mean Average Precision (mAP).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Evaluate the model on the validation dataset</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+
+<span class="c1"># Assuming &#39;dataset_config&#39; is the path to your YAML file</span>
+<span class="c1"># from your training step (ipython-input-4-61cf6bd464aa):</span>
+<span class="n">dataset_config</span> <span class="o">=</span> <span class="s1">&#39;/content/TeachingTankPlastic/teaching_tank_data.yaml&#39;</span>
+
+<span class="c1"># Evaluate the model using the dataset configuration YAML</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset_config</span><span class="p">)</span>  <span class="c1"># Use the YAML file, not the directory</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">metrics_dict</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="review-model-performance">
+<h2><span class="section-number">8.10. </span>Review Model performance<a class="headerlink" href="#review-model-performance" title="Link to this heading">#</a></h2>
+<p><img alt="image.png" src="book/attachment:image.png" /></p>
+</section>
+<section id="activity-reflecting-on-results">
+<h2><span class="section-number">8.11. </span>Activity: Reflecting on Results<a class="headerlink" href="#activity-reflecting-on-results" title="Link to this heading">#</a></h2>
+<p>Now that you’ve trained and evaluated your model, reflect on the following questions:</p>
+<ul class="simple">
+<li><p>How did the augmentations and parameters affect the model’s performance?</p></li>
+<li><p>Were there any significant differences in the mAP metrics for different classes?</p></li>
+<li><p>What visual observations can you make from the test results?</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Classification_Keras.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Image Classification with Keras</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Classification_YOLO.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Training and Deploying Many Class Classification with YOLO</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">8.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.2. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-dataset">8.3. Downloading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-environment">8.4. Preparing the Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-dataset">8.5. Loading the Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-dataset-configuration-file">8.6. Create Dataset Configuration File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-augmentations-and-parameters">8.7. Customizing Augmentations and Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-yolov8-model">8.8. Training the YOLOv8 Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-model">8.9. Evaluating the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-model-performance">8.10. Review Model performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-reflecting-on-results">8.11. Activity: Reflecting on Results</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Atticus Carter
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
