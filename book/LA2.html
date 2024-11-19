@@ -409,7 +409,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-annotaion">3.2. Classes and Annotaion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-annotation">3.2. Classes and Annotation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bounding-boxes">3.3. Bounding Boxes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-in-pytorch">3.3.1. Format in PyTorch</a></li>
 </ul>
@@ -451,8 +451,8 @@
 </section>
 </section>
 <hr class="docutils" />
-<section id="classes-and-annotaion">
-<h2><span class="section-number">3.2. </span>Classes and Annotaion<a class="headerlink" href="#classes-and-annotaion" title="Link to this heading">#</a></h2>
+<section id="classes-and-annotation">
+<h2><span class="section-number">3.2. </span>Classes and Annotation<a class="headerlink" href="#classes-and-annotation" title="Link to this heading">#</a></h2>
 <p>When training models using imagery data, it is crucial to provide the algorithm with properly <strong>annotated</strong> training data. This allows the model to learn what to look for and where to find it within an image. Imagine, for a moment, that you are a computer tasked with identifying every rockfish in an image, but the image is completely unannotated, and you have no prior knowledge or context of what a rockfish looks like. You would likely have a (very) hard time piecing together what that request even means. In the context of computer vision, image annotation serves as a vital guide, providing the labels and boundaries necessary for the model to understand its task. Without annotations, the model would be left guessing, unable to differentiate between objects or recognize key features.</p>
 <p>A critical part of annotation is defining classes. <strong>In computer vision, a class refers to a category or label that is assigned to a specific object or feature within an image.</strong> Classes are essential for helping the model understand what it’s looking at. Without clear class definitions, the model wouldn’t know how to distinguish between objects like a fish and a rock or identify whether a certain object should be labeled as pollution or marine life. Classes can be very specific, such as labeling an organism down to the species level, like “rockfish,” or more generalized, such as labeling a broader group like “fish” or “jelly.”</p>
 <p>In the context of marine imagery, classes can vary widely. Sometimes, annotations are done at a species level for detailed ecological studies, while other times, they may simply label a broader morphotype like “fish” or “jelly.” Classes are not limited to biological organisms; they can also represent other features such as geological formations (“ice,” “cobble,” “vent”) or indicators of human impact, such as “plastic debris” or “fishing gear.” The way you define classes has a significant effect on how the model learns to interpret the data. For instance, a class like “plastic” might be used to train a model that detects marine pollution, while a class like “coral” would be used in studies focusing on habitat mapping.</p>
@@ -613,7 +613,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-annotaion">3.2. Classes and Annotaion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-annotation">3.2. Classes and Annotation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bounding-boxes">3.3. Bounding Boxes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-in-pytorch">3.3.1. Format in PyTorch</a></li>
 </ul>
