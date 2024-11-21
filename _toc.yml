@@ -4,20 +4,23 @@ parts:
   - caption: "Chapter 1 - Introduction"
     numbered: true
     chapters:
-      - file: book/LA1.md
-      - file: book/LA2.md
-      - file: book/LA2.5.ipynb
-      - file: book/LA2.75.ipynb
-      - file: book/LA3.ipynb
-      - file: book/LA4.ipynb
+      - file: book/Introduction_MarineImaging.md
+      - file: book/Introduction_AI.md
+      - file: book/ImageTypes.md
+      - file: book/ImageAnnotation.md
+      - file: book/Augmentation_Manual.ipynb
+      - file: book/Augmentation_Albumentation.ipynb
+      - file: book/Introduction_CNN.ipynb
+      - file: book/Introduction_Metrics.ipynb
 
   - caption: "Chapter 2 - Computer Vision Development"
     numbered: true
     chapters:  
       - file: book/Classification_Keras.ipynb
-      - file: book/introduction_YOLO.ipynb
+      - file: book/Introduction_YOLO.ipynb
       - file: book/TrainandDeployObj_YOLO.ipynb
       - file: book/Classification_YOLO.ipynb
+      - file: book/Introduction_Fathomnet.md
       - file: book/FathomnetIntroduction_YOLO.ipynb
       - file: book/FathomnetPullingData_YOLO.ipynb
       - file: book/FathomnetObjTracking_YOLO.ipynb
@@ -30,14 +33,15 @@ parts:
   - caption: "Chapter 3 - Synthesis Project"
     numbered: true
     chapters:  
-      - file: book/LA14.ipynb
-      - file: book/LA15.ipynb
-      - file: book/LA16.ipynb
-      - file: book/LA17.ipynb
-      - file: book/LA18.ipynb
-      - file: book/LA19.ipynb
+      - file: book/Final_DataPrep.ipynb
+      - file: book/Final_ModelSelection.ipynb
+      - file: book/Final_TrainEval.ipynb
+      - file: book/Final_DataViz.ipynb
+      - file: book/Final_Usecase.ipynb
+      - file: book/Final_TyingItAllTogether.ipynb
 
   - caption: "Appendices"
     numbered: false
     chapters:
       - file: book/bibliography
+      - file: book/PreMIWSurvey.md
