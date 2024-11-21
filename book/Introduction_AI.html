@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Introduction to Artificial Intelligence in Marine Science &#8212; Computer Vision Across Oceanography</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/Introduction_AI';</script>
+    <link rel="canonical" href="https://atticus-carter.github.io/cv/book/Introduction_AI.html" />
+    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Introduction to Ocean Image Data" href="ImageTypes.html" />
+    <link rel="prev" title="1. Introduction to Marine Imaging" href="Introduction_MarineImaging.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Computer Vision Across Oceanography - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Computer Vision Across Oceanography - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Introduction_MarineImaging.html">1. Introduction to Marine Imaging</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Introduction to Artificial Intelligence in Marine Science</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="ImageTypes.html">5. Introduction to Ocean Image Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Augmentation_Manual.html">6. Image Manipulation in Python with PIL and OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Augmentation_Albumentation.html">7. Creating and Augmenting Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_CNN.html">8. The Math Behind Convolutional Neural Networks (CNNs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_Metrics.html">9. Understanding CV Metrics and Graphs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Classification_Keras.html">10. Image Classification with Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_YOLO.html">11. Training YOLO Models: A Guide to Understanding Tasks and Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TrainandDeployObj_YOLO.html">12. Training and Deploying Object Detection with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Classification_YOLO.html">13. Training and Deploying Many Class Classification with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_Fathomnet.html">14. Introduction to FathomNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetIntroduction_YOLO.html">15. Using Fathomnet Models on a ROV Transect with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetPullingData_YOLO.html">16. Pulling Data from Fathomnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetObjTracking_YOLO.html">17. Object and Multi-Object Tracking with Fathomnet and YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetObjInZone_YOLO.html">18. Object in Zone Detection with Fathomnet and YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keypoint_YOLO.html">19. Keypoint Detection With YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstanceSegmentation_YOLO.html">20. Instance Segmentation with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ClusterSegmentation_Kmeans.html">21. K-means Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SRGAN_Tensorflow.html">22. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Synthesis Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Final_DataPrep.html">23. Dataset Preparation and Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_ModelSelection.html">24. Model Selection and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_TrainEval.html">25. Training and Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_DataViz.html">26. Data Visualization and Figure Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_Usecase.html">27. Usecase Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_TyingItAllTogether.html">28. Tying it all together</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PreMIWSurvey.html">Survey Results</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv/edit/main/book/Introduction_AI.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/atticus-carter/cv/issues/new?title=Issue%20on%20page%20%2Fbook/Introduction_AI.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/book/Introduction_AI.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Artificial Intelligence in Marine Science</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Introduction to Artificial Intelligence in Marine Science</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">2.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">2.1.1. Learning Objectives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-non-comprehensive-review-of-ai">3. A non-comprehensive review of AI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-artificial-intelligence-ai">3.1. What is Artificial Intelligence (AI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning-ml">3.2. What is Machine Learning (ML)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">3.2.1. Supervised vs Unsupervised Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-deep-learning-and-neural-networks">3.2.2. What is Deep Learning and Neural Networks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-computer-vision-cv">3.2.3. What is Computer Vision (CV)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-ai-in-marine-sciences">4. Uses of AI in Marine Sciences</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-artificial-intelligence-in-marine-science">
+<h1><span class="section-number">2. </span>Introduction to Artificial Intelligence in Marine Science<a class="headerlink" href="#introduction-to-artificial-intelligence-in-marine-science" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2><span class="section-number">2.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In this section
+***Context for AI in marine science, with a focus on how CV fits within ML and AI more broadly, examples of other marine science problems that use AI, examples of ML that students may have encountered already)</p>
+<section id="learning-objectives">
+<h3><span class="section-number">2.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<p>By the end of this section, you will:</p>
+<ul class="simple">
+<li><p>Understand the difference between artificial intelligence terms that are often used interchangeably</p></li>
+<li><p>Identify marine science problems suitable for AI</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="a-non-comprehensive-review-of-ai">
+<h1><span class="section-number">3. </span>A non-comprehensive review of AI<a class="headerlink" href="#a-non-comprehensive-review-of-ai" title="Link to this heading">#</a></h1>
+<section id="what-is-artificial-intelligence-ai">
+<h2><span class="section-number">3.1. </span>What is Artificial Intelligence (AI)<a class="headerlink" href="#what-is-artificial-intelligence-ai" title="Link to this heading">#</a></h2>
+<p>Artificial Intelligence (AI) is a broad field with the goal of developing computers and robots that can mimic and go beyond human capabilities. Some examples of these capabilities include recognizing objects or sound, understanding natural language, and solving complex problems. AI is often used interchangeably with the term machine learning (ML) and many AI advancements are underpinned by ML, but ML is one of several subdomains. Examples of other subdomains include deep learning, robotics, neural networks, and natural language processing. These subdomains are not mutually exclusive and can be used in combination with one another or even in some cases be considered subfields of one another. For example deep learning is a subfield of machine learning.</p>
+<p>***Graph of AI, ML, DL subdomain here</p>
+</section>
+<section id="what-is-machine-learning-ml">
+<h2><span class="section-number">3.2. </span>What is Machine Learning (ML)<a class="headerlink" href="#what-is-machine-learning-ml" title="Link to this heading">#</a></h2>
+<p>Machine learning (ML) is a subset of AI where an algorithm or a set of algorithms learn from the environment. Instead of being explicitly programmed for a task, the algorithm or model is able to learn to solve a task by analyzing data, learning from experience, and making inferences. Ideally, ML algorithms improve over time as they are exposed to more data, however the quality of the data and the objective of the model can impact the overall quality even when large quantities of data are available.</p>
+<p>***Discuss the math? relatively simple but lots and lots of it</p>
+<p>***Include examples of classic ML? Like SVM and decision tree?</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>If you are interested in learning more about Machine Learning check out….</p>
+</div>
+<section id="supervised-vs-unsupervised-learning">
+<h3><span class="section-number">3.2.1. </span>Supervised vs Unsupervised Learning<a class="headerlink" href="#supervised-vs-unsupervised-learning" title="Link to this heading">#</a></h3>
+<p>Machine learning can often be divided between supervised and unsupervised approaches. Supervised systems are given input data and their corresponding output (measurements or labels assigned by experts; the “correct” answer). These systems learn and map connections between the input and the output (correct answers) until they are able to apply these connections to unseen data. Unsupervised systems are only given input data and search for patterns, the goal for these systems is to identify meaningful patterns. A common use of unsupervised methods is to cluster data points or conversely identify outliers.</p>
+<p>This course will primarily focus on supervised methods.</p>
+</section>
+<section id="what-is-deep-learning-and-neural-networks">
+<h3><span class="section-number">3.2.2. </span>What is Deep Learning and Neural Networks<a class="headerlink" href="#what-is-deep-learning-and-neural-networks" title="Link to this heading">#</a></h3>
+<p>Deep learning (DL) is a subfield of machine learning. The difference between deep learning and traditional machine learning is the structure of the underlying neural network. Traditional ML models have simple neural networks with one or two computational layers, while DL models have more than the three layers and as many as hundreds of thousands of layers. Neural networks are designed to mimic the human brain. An example of these are convolution neural networks (CNNS) which are primarily used in computer vision and will be the focus of this course.</p>
+<p>Some challenges of deep learning and neural networks is that they need lots of data and computing power. They are also often “black boxes” making them harder to understand and causing issues with transferring between use cases.</p>
+</section>
+<section id="what-is-computer-vision-cv">
+<h3><span class="section-number">3.2.3. </span>What is Computer Vision (CV)<a class="headerlink" href="#what-is-computer-vision-cv" title="Link to this heading">#</a></h3>
+<p>Computer vision (CV) is a subfield of machine learning that focuses on machines being able to interpret visual data (images and video), such as identifying and classifying objects.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="uses-of-ai-in-marine-sciences">
+<h1><span class="section-number">4. </span>Uses of AI in Marine Sciences<a class="headerlink" href="#uses-of-ai-in-marine-sciences" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Introduction_MarineImaging.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to Marine Imaging</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ImageTypes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Introduction to Ocean Image Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Introduction to Artificial Intelligence in Marine Science</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">2.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">2.1.1. Learning Objectives</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-non-comprehensive-review-of-ai">3. A non-comprehensive review of AI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-artificial-intelligence-ai">3.1. What is Artificial Intelligence (AI)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning-ml">3.2. What is Machine Learning (ML)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">3.2.1. Supervised vs Unsupervised Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-deep-learning-and-neural-networks">3.2.2. What is Deep Learning and Neural Networks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-computer-vision-cv">3.2.3. What is Computer Vision (CV)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-ai-in-marine-sciences">4. Uses of AI in Marine Sciences</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Atticus Carter
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
