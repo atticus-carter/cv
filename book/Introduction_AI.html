@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -65,7 +65,7 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Introduction to Ocean Image Data" href="ImageTypes.html" />
+    <link rel="next" title="3. Introduction to Ocean Image Data" href="ImageTypes.html" />
     <link rel="prev" title="1. Introduction to Marine Imaging" href="Introduction_MarineImaging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -166,38 +166,37 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction_MarineImaging.html">1. Introduction to Marine Imaging</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Introduction to Artificial Intelligence in Marine Science</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="ImageTypes.html">5. Introduction to Ocean Image Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Augmentation_Manual.html">6. Image Manipulation in Python with PIL and OpenCV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Augmentation_Albumentation.html">7. Creating and Augmenting Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Introduction_CNN.html">8. The Math Behind Convolutional Neural Networks (CNNs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Introduction_Metrics.html">9. Understanding CV Metrics and Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ImageTypes.html">3. Introduction to Ocean Image Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image_Annotation.html">4. Image Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Augmentation_Manual.html">5. Image Manipulation in Python with PIL and OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Augmentation_Albumentation.html">6. Creating and Augmenting Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_CNN.html">7. The Math Behind Convolutional Neural Networks (CNNs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_Metrics.html">8. Understanding CV Metrics and Graphs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Computer Vision Development</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Classification_Keras.html">10. Image Classification with Keras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Introduction_YOLO.html">11. Training YOLO Models: A Guide to Understanding Tasks and Modes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TrainandDeployObj_YOLO.html">12. Training and Deploying Object Detection with YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Classification_YOLO.html">13. Training and Deploying Many Class Classification with YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Introduction_Fathomnet.html">14. Introduction to FathomNet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FathomnetIntroduction_YOLO.html">15. Using Fathomnet Models on a ROV Transect with YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FathomnetPullingData_YOLO.html">16. Pulling Data from Fathomnet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FathomnetObjTracking_YOLO.html">17. Object and Multi-Object Tracking with Fathomnet and YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FathomnetObjInZone_YOLO.html">18. Object in Zone Detection with Fathomnet and YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Keypoint_YOLO.html">19. Keypoint Detection With YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="InstanceSegmentation_YOLO.html">20. Instance Segmentation with YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ClusterSegmentation_Kmeans.html">21. K-means Segmentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SRGAN_Tensorflow.html">22. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Classification_Keras.html">9. Image Classification with Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_YOLO.html">10. Training YOLO Models: A Guide to Understanding Tasks and Modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TrainandDeployObj_YOLO.html">11. Training and Deploying Object Detection with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Classification_YOLO.html">12. Training and Deploying Many Class Classification with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_Fathomnet.html">13. Introduction to FathomNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetIntroduction_YOLO.html">14. Using Fathomnet Models on a ROV Transect with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetPullingData_YOLO.html">15. Pulling Data from Fathomnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetObjTracking_YOLO.html">16. Object and Multi-Object Tracking with Fathomnet and YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetObjInZone_YOLO.html">17. Object in Zone Detection with Fathomnet and YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keypoint_YOLO.html">18. Keypoint Detection With YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstanceSegmentation_YOLO.html">19. Instance Segmentation with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ClusterSegmentation_Kmeans.html">20. K-means Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SRGAN_Tensorflow.html">21. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Synthesis Project</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Final_DataPrep.html">23. Dataset Preparation and Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_ModelSelection.html">24. Model Selection and Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_TrainEval.html">25. Training and Evaluation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_DataViz.html">26. Data Visualization and Figure Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_Usecase.html">27. Usecase Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_TyingItAllTogether.html">28. Tying it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_DataPrep.html">22. Dataset Preparation and Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_ModelSelection.html">23. Model Selection and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_TrainEval.html">24. Training and Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_DataViz.html">25. Data Visualization and Figure Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_Usecase.html">26. Usecase Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_TyingItAllTogether.html">27. Tying it all together</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -211,9 +210,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -407,26 +411,22 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Introduction to Artificial Intelligence in Marine Science</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">2.1. Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">2.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-non-comprehensive-review-of-ai">3. A non-comprehensive review of AI</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-artificial-intelligence-ai">3.1. What is Artificial Intelligence (AI)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning-ml">3.2. What is Machine Learning (ML)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">3.2.1. Supervised vs Unsupervised Learning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-deep-learning-and-neural-networks">3.2.2. What is Deep Learning and Neural Networks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-computer-vision-cv">3.2.3. What is Computer Vision (CV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-non-comprehensive-review-of-ai">2.2. A non-comprehensive review of AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-artificial-intelligence-ai">2.2.1. What is Artificial Intelligence (AI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning-ml">2.2.2. What is Machine Learning (ML)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">2.2.2.1. Supervised vs Unsupervised Learning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-deep-learning-and-neural-networks">2.2.2.2. What is Deep Learning and Neural Networks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-computer-vision-cv">2.2.2.3. What is Computer Vision (CV)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-ai-in-marine-sciences">4. Uses of AI in Marine Sciences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-ai-in-marine-sciences">2.3. Uses of AI in Marine Sciences</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -441,8 +441,7 @@
 <h1><span class="section-number">2. </span>Introduction to Artificial Intelligence in Marine Science<a class="headerlink" href="#introduction-to-artificial-intelligence-in-marine-science" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2><span class="section-number">2.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>In this section
-***Context for AI in marine science, with a focus on how CV fits within ML and AI more broadly, examples of other marine science problems that use AI, examples of ML that students may have encountered already)</p>
+<p>In this section we will explore artificial intelligence and its use in the marine sciences. We will discuss how computer vision fits within machine learning and artificial intelligence more broadly as these terms are often used interchangeably. We will also explore examples of other marine science problems that use AI beyond computer vision.</p>
 <section id="learning-objectives">
 <h3><span class="section-number">2.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
@@ -452,42 +451,45 @@
 </ul>
 </section>
 </section>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="a-non-comprehensive-review-of-ai">
-<h1><span class="section-number">3. </span>A non-comprehensive review of AI<a class="headerlink" href="#a-non-comprehensive-review-of-ai" title="Link to this heading">#</a></h1>
+<section id="a-non-comprehensive-review-of-ai">
+<h2><span class="section-number">2.2. </span>A non-comprehensive review of AI<a class="headerlink" href="#a-non-comprehensive-review-of-ai" title="Link to this heading">#</a></h2>
 <section id="what-is-artificial-intelligence-ai">
-<h2><span class="section-number">3.1. </span>What is Artificial Intelligence (AI)<a class="headerlink" href="#what-is-artificial-intelligence-ai" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.2.1. </span>What is Artificial Intelligence (AI)<a class="headerlink" href="#what-is-artificial-intelligence-ai" title="Link to this heading">#</a></h3>
 <p>Artificial Intelligence (AI) is a broad field with the goal of developing computers and robots that can mimic and go beyond human capabilities. Some examples of these capabilities include recognizing objects or sound, understanding natural language, and solving complex problems. AI is often used interchangeably with the term machine learning (ML) and many AI advancements are underpinned by ML, but ML is one of several subdomains. Examples of other subdomains include deep learning, robotics, neural networks, and natural language processing. These subdomains are not mutually exclusive and can be used in combination with one another or even in some cases be considered subfields of one another. For example deep learning is a subfield of machine learning.</p>
 <p>***Graph of AI, ML, DL subdomain here</p>
 </section>
 <section id="what-is-machine-learning-ml">
-<h2><span class="section-number">3.2. </span>What is Machine Learning (ML)<a class="headerlink" href="#what-is-machine-learning-ml" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">2.2.2. </span>What is Machine Learning (ML)<a class="headerlink" href="#what-is-machine-learning-ml" title="Link to this heading">#</a></h3>
 <p>Machine learning (ML) is a subset of AI where an algorithm or a set of algorithms learn from the environment. Instead of being explicitly programmed for a task, the algorithm or model is able to learn to solve a task by analyzing data, learning from experience, and making inferences. Ideally, ML algorithms improve over time as they are exposed to more data, however the quality of the data and the objective of the model can impact the overall quality even when large quantities of data are available.</p>
-<p>***Discuss the math? relatively simple but lots and lots of it</p>
-<p>***Include examples of classic ML? Like SVM and decision tree?</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>If you are interested in learning more about Machine Learning check out….</p>
+<p>If you are interested in learning more about Machine Learning, Google provides several foundational and advance courses as well as guides and a glossary that are a good starting point <a class="reference external" href="https://developers.google.com/machine-learning/foundational-courses">https://developers.google.com/machine-learning/foundational-courses</a></p>
 </div>
 <section id="supervised-vs-unsupervised-learning">
-<h3><span class="section-number">3.2.1. </span>Supervised vs Unsupervised Learning<a class="headerlink" href="#supervised-vs-unsupervised-learning" title="Link to this heading">#</a></h3>
+<h4><span class="section-number">2.2.2.1. </span>Supervised vs Unsupervised Learning<a class="headerlink" href="#supervised-vs-unsupervised-learning" title="Link to this heading">#</a></h4>
 <p>Machine learning can often be divided between supervised and unsupervised approaches. Supervised systems are given input data and their corresponding output (measurements or labels assigned by experts; the “correct” answer). These systems learn and map connections between the input and the output (correct answers) until they are able to apply these connections to unseen data. Unsupervised systems are only given input data and search for patterns, the goal for these systems is to identify meaningful patterns. A common use of unsupervised methods is to cluster data points or conversely identify outliers.</p>
 <p>This course will primarily focus on supervised methods.</p>
 </section>
 <section id="what-is-deep-learning-and-neural-networks">
-<h3><span class="section-number">3.2.2. </span>What is Deep Learning and Neural Networks<a class="headerlink" href="#what-is-deep-learning-and-neural-networks" title="Link to this heading">#</a></h3>
-<p>Deep learning (DL) is a subfield of machine learning. The difference between deep learning and traditional machine learning is the structure of the underlying neural network. Traditional ML models have simple neural networks with one or two computational layers, while DL models have more than the three layers and as many as hundreds of thousands of layers. Neural networks are designed to mimic the human brain. An example of these are convolution neural networks (CNNS) which are primarily used in computer vision and will be the focus of this course.</p>
+<h4><span class="section-number">2.2.2.2. </span>What is Deep Learning and Neural Networks<a class="headerlink" href="#what-is-deep-learning-and-neural-networks" title="Link to this heading">#</a></h4>
+<p>Deep learning (DL) is a subfield of machine learning. The difference between deep learning and traditional machine learning is the structure of the underlying neural network. Traditional ML models have simple neural networks with one or two computational layers, while DL models have more than the three layers and as many as hundreds of thousands of layers. Neural networks are designed to mimic the human brain. An example of these are convolution neural networks (CNNs) which are primarily used in computer vision and will be the focus of this course.</p>
 <p>Some challenges of deep learning and neural networks is that they need lots of data and computing power. They are also often “black boxes” making them harder to understand and causing issues with transferring between use cases.</p>
 </section>
 <section id="what-is-computer-vision-cv">
-<h3><span class="section-number">3.2.3. </span>What is Computer Vision (CV)<a class="headerlink" href="#what-is-computer-vision-cv" title="Link to this heading">#</a></h3>
-<p>Computer vision (CV) is a subfield of machine learning that focuses on machines being able to interpret visual data (images and video), such as identifying and classifying objects.</p>
+<h4><span class="section-number">2.2.2.3. </span>What is Computer Vision (CV)<a class="headerlink" href="#what-is-computer-vision-cv" title="Link to this heading">#</a></h4>
+<p>Computer vision (CV) is a subfield of machine learning that focuses on machines being able to interpret visual data (images and video), such as identifying and classifying objects. There are traditional machine learning methods for computer vision such as support vector machine (SVM) and deep learning methods such as convolution neural networks (CNNs).</p>
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="uses-of-ai-in-marine-sciences">
-<h1><span class="section-number">4. </span>Uses of AI in Marine Sciences<a class="headerlink" href="#uses-of-ai-in-marine-sciences" title="Link to this heading">#</a></h1>
+<section id="uses-of-ai-in-marine-sciences">
+<h2><span class="section-number">2.3. </span>Uses of AI in Marine Sciences<a class="headerlink" href="#uses-of-ai-in-marine-sciences" title="Link to this heading">#</a></h2>
+<p>While AI in the form of computer vision is a powerful tool for processing marine imagery it is not the only field where AI is being used in the Marine Sciences. While not the focus of this course some examples of this include studying internal waves (Pan et al., 2018; Zheng et al., 2021), heatwaves (Jung et al., 2020; Asadollah et al., 2022), ENSO (Ham et al., 2019; Ye et al., 2021), sea ice distribution (Gao et al., 2019; Panchi et al., 2021), earthquakes, whale calls, and other acoustic signals (Gomeze and Kadri, 2021; Ibrahim et al., 2021; Wang et al., 2024). The general understanding of machine learning gained in this course can be applied to any of these problems and some of the specific techniques explored in this course, such as CNNs, can be directly transferred to other marine science problems.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>If you are interested in learning more about uses of artificial intelligence in marine science the review by Song et al. (2023) and the themed article set in the ICES Journal of Marine Science - introduced by Beyan and Browman, 2020 are good starting points.</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -534,7 +536,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Introduction to Ocean Image Data</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Introduction to Ocean Image Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -555,26 +557,22 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Introduction to Artificial Intelligence in Marine Science</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">2.1. Overview</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">2.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-non-comprehensive-review-of-ai">3. A non-comprehensive review of AI</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-artificial-intelligence-ai">3.1. What is Artificial Intelligence (AI)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning-ml">3.2. What is Machine Learning (ML)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">3.2.1. Supervised vs Unsupervised Learning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-deep-learning-and-neural-networks">3.2.2. What is Deep Learning and Neural Networks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-computer-vision-cv">3.2.3. What is Computer Vision (CV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-non-comprehensive-review-of-ai">2.2. A non-comprehensive review of AI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-artificial-intelligence-ai">2.2.1. What is Artificial Intelligence (AI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning-ml">2.2.2. What is Machine Learning (ML)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">2.2.2.1. Supervised vs Unsupervised Learning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-deep-learning-and-neural-networks">2.2.2.2. What is Deep Learning and Neural Networks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-computer-vision-cv">2.2.2.3. What is Computer Vision (CV)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-ai-in-marine-sciences">4. Uses of AI in Marine Sciences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-ai-in-marine-sciences">2.3. Uses of AI in Marine Sciences</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
@@ -622,8 +620,8 @@ By Atticus Carter
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
