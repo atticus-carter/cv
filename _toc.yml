@@ -7,7 +7,7 @@ parts:
       - file: book/Introduction_MarineImaging.md
       - file: book/Introduction_AI.md
       - file: book/ImageTypes.md
-      - file: book/ImageAnnotation.md
+      - file: book/Image_Annotation.md
       - file: book/Augmentation_Manual.ipynb
       - file: book/Augmentation_Albumentation.ipynb
       - file: book/Introduction_CNN.ipynb
