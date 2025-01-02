@@ -21,8 +21,8 @@ parts:
 
 
   - caption: "Chapter 2 - Introduction to Computer Vision"
-      numbered: true
-      chapters: 
+    numbered: true
+    chapters: 
       - file: book/Image_Annotation.md
       - file: book/Augmentation_Manual.ipynb
       - file: book/Augmentation_Albumentation.ipynb
