@@ -146,7 +146,7 @@ AUV Sentry at the surface after a deep dive. Credit: WHOI
 - Short deployment times compared to ROVs
 
 ```{seealso}
-If you are interested in learning more about methods of underwater marine imaging there are several good reviews on the topic including Jamieson et al., 2013, Mallet and Pelletier 2014, and {cite}"Durden2016".
+If you are interested in learning more about methods of underwater marine imaging there are several good reviews on the topic including Jamieson et al., 2013, Mallet and Pelletier 2014, and {cite}'Durden2016'.
 ```
 
 ### Satellite Imagery

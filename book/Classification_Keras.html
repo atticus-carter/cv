@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>9. Image Classification with Keras &#8212; Computer Vision Across Oceanography</title>
   
@@ -16,60 +17,57 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/Classification_Keras';</script>
     <link rel="canonical" href="https://atticus-carter.github.io/cv/book/Classification_Keras.html" />
-    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="shortcut icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Training YOLO Models: A Guide to Understanding Tasks and Modes" href="Introduction_YOLO.html" />
     <link rel="prev" title="8. Understanding CV Metrics and Graphs" href="Introduction_Metrics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +83,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -94,6 +103,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +111,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +128,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +158,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="Computer Vision Across Oceanography - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Computer Vision Across Oceanography - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Computer Vision Across Oceanography - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
@@ -210,14 +223,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -427,16 +435,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -512,13 +528,13 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="image-classification-with-keras">
-<span id="lesson-8"></span><h1><span class="section-number">9. </span>Image Classification with Keras<a class="headerlink" href="#image-classification-with-keras" title="Link to this heading">#</a></h1>
+<span id="lesson-8"></span><h1><span class="section-number">9. </span>Image Classification with Keras<a class="headerlink" href="#image-classification-with-keras" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">9.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In this lesson, we will explore image classification using a <strong>Convolutional Neural Network (CNN)</strong> in <strong>Keras</strong> with <strong>TensorFlow</strong>. Keras is a high-level API built on top of TensorFlow, designed to simplify the process of building and training neural networks. TensorFlow, on the other hand, is a comprehensive open-source machine learning framework that provides powerful tools for building and deploying deep learning models, including neural networks.</p>
 <p>We will use a dataset of benthic animals to classify images of <strong>crabs</strong> and <strong>rockfish</strong>, which were captured in 2011 by the <strong>ROV ROPOS</strong> at <strong>Southern Hydrate Ridge</strong>, as part of the <strong>Ocean Observatories Initiative Regional Cabled Array</strong> operated by the University of Washington and funded by the National Science Foundation (NSF).</p>
 <section id="learning-objectives">
-<h3><span class="section-number">9.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
 <li><p>Understand how to load, preprocess, and split image datasets for training a neural network.</p></li>
@@ -529,7 +545,7 @@
 </section>
 <hr class="docutils" />
 <section id="object-detection-vs-image-classification">
-<h3><span class="section-number">9.1.2. </span>Object Detection vs. Image Classification<a class="headerlink" href="#object-detection-vs-image-classification" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.1.2. </span>Object Detection vs. Image Classification<a class="headerlink" href="#object-detection-vs-image-classification" title="Permalink to this heading">#</a></h3>
 <p>There are two common tasks in computer vision: <strong>object detection</strong> and <strong>image classification</strong>.</p>
 <ul class="simple">
 <li><p><strong>Image classification</strong> involves categorizing an entire image into a single class. In this case, we are classifying each image as either a “crab” or a “rockfish.”</p></li>
@@ -545,7 +561,7 @@
 </section>
 <hr class="docutils" />
 <section id="libraries-overview">
-<h2><span class="section-number">9.2. </span>Libraries Overview<a class="headerlink" href="#libraries-overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Libraries Overview<a class="headerlink" href="#libraries-overview" title="Permalink to this heading">#</a></h2>
 <p>Here’s a quick overview of the libraries used in this activity:</p>
 <ul class="simple">
 <li><p><strong>matplotlib.pyplot</strong>: A plotting library used to visualize data. In this lesson, it helps display images and graphs of model performance.</p></li>
@@ -579,7 +595,7 @@
 </div>
 </section>
 <section id="dataset-description">
-<h2><span class="section-number">9.3. </span>Dataset Description<a class="headerlink" href="#dataset-description" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Dataset Description<a class="headerlink" href="#dataset-description" title="Permalink to this heading">#</a></h2>
 <p>This tutorial uses a dataset of <strong>800 photos</strong> of benthic animals, consisting of two classes:</p>
 <ul class="simple">
 <li><p><strong>crab</strong></p></li>
@@ -665,7 +681,7 @@
 </div>
 </section>
 <section id="understanding-dataset-parameters">
-<h2><span class="section-number">9.4. </span>Understanding Dataset Parameters<a class="headerlink" href="#understanding-dataset-parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>Understanding Dataset Parameters<a class="headerlink" href="#understanding-dataset-parameters" title="Permalink to this heading">#</a></h2>
 <p>Here, we set key parameters for handling the dataset:</p>
 <ul class="simple">
 <li><p><strong>batch_size = 32</strong>: This defines how many images will be processed in one pass through the model. Using a batch size of 32 means that during training, the model will look at 32 images before updating its internal parameters. A batch size of 32 is commonly used for balancing memory efficiency and training speed.</p></li>
@@ -684,7 +700,7 @@
 </div>
 </section>
 <section id="loading-the-dataset">
-<h2><span class="section-number">9.5. </span>Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.5. </span>Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Permalink to this heading">#</a></h2>
 <p>We use the <code class="docutils literal notranslate"><span class="pre">tf.keras.utils.image_dataset_from_directory</span></code> function to load and preprocess the dataset. Here’s what each argument does:</p>
 <ul class="simple">
 <li><p><strong>data_dir</strong>: This points to the directory where the dataset is stored (the root folder containing the <code class="docutils literal notranslate"><span class="pre">crab</span></code> and <code class="docutils literal notranslate"><span class="pre">rockfish</span></code> subdirectories).</p></li>
@@ -730,7 +746,7 @@
 </div>
 </section>
 <section id="visualizing-the-data">
-<h2><span class="section-number">9.6. </span>Visualizing the Data<a class="headerlink" href="#visualizing-the-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.6. </span>Visualizing the Data<a class="headerlink" href="#visualizing-the-data" title="Permalink to this heading">#</a></h2>
 <p>This block of code is used to visualize a sample of images from the training dataset. Here’s what each part does:</p>
 <ul class="simple">
 <li><p><strong>plt.figure(figsize=(10, 10))</strong>: This sets up the figure size for displaying the images. The size <code class="docutils literal notranslate"><span class="pre">(10,</span> <span class="pre">10)</span></code> ensures a large enough grid to comfortably view multiple images.</p></li>
@@ -761,14 +777,14 @@
 </div>
 </section>
 <section id="verifying-dataset-structure">
-<h2><span class="section-number">9.7. </span>Verifying Dataset Structure<a class="headerlink" href="#verifying-dataset-structure" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.7. </span>Verifying Dataset Structure<a class="headerlink" href="#verifying-dataset-structure" title="Permalink to this heading">#</a></h2>
 <p>In this block of code, we inspect the structure of the dataset by printing the shape of a batch of images and their corresponding labels. Before diving into the code, let’s briefly discuss <strong>tensors</strong>.</p>
 <section id="what-are-tensors">
-<h3><span class="section-number">9.7.1. </span>What Are Tensors?<a class="headerlink" href="#what-are-tensors" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.7.1. </span>What Are Tensors?<a class="headerlink" href="#what-are-tensors" title="Permalink to this heading">#</a></h3>
 <p>A <strong>tensor</strong> is a multi-dimensional array that generalizes matrices to higher dimensions. Tensors are the basic data structure in deep learning and are used to represent inputs, weights, and outputs of models. In our case, each image is represented as a 3D tensor (height, width, color channels), and the dataset is organized into batches of these tensors. The labels are 1D tensors representing the class of each image.</p>
 </section>
 <section id="code-breakdown">
-<h3><span class="section-number">9.7.2. </span>Code Breakdown:<a class="headerlink" href="#code-breakdown" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.7.2. </span>Code Breakdown:<a class="headerlink" href="#code-breakdown" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>for image_batch, labels_batch in train_ds</strong>: This loop retrieves a single batch of images and labels from the training dataset. Since our <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> is 32, the batch will contain 32 images and their corresponding labels.</p></li>
 <li><p><strong>print(image_batch.shape)</strong>: This prints the shape of the <code class="docutils literal notranslate"><span class="pre">image_batch</span></code>, which should be <code class="docutils literal notranslate"><span class="pre">(32,</span> <span class="pre">180,</span> <span class="pre">180,</span> <span class="pre">3)</span></code>:</p>
@@ -783,7 +799,7 @@
 </ul>
 </section>
 <section id="purpose">
-<h3><span class="section-number">9.7.3. </span>Purpose:<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.7.3. </span>Purpose:<a class="headerlink" href="#purpose" title="Permalink to this heading">#</a></h3>
 <p>This step is important to confirm that the dataset is loaded correctly and the images and labels are properly batched and shaped, making them ready for input into the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -800,42 +816,42 @@
 </section>
 </section>
 <section id="a-basic-keras-model">
-<h2><span class="section-number">9.8. </span>A Basic Keras Model<a class="headerlink" href="#a-basic-keras-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.8. </span>A Basic Keras Model<a class="headerlink" href="#a-basic-keras-model" title="Permalink to this heading">#</a></h2>
 <p>In this section, we define the <strong>Convolutional Neural Network (CNN)</strong> architecture for image classification. Unlike the previous lesson where we used a single layer with an <strong>edge detection kernel</strong>, here we employ a deeper network with multiple layers. Each layer plays a crucial role in feature extraction and learning from the dataset. Let’s go through each part of this code in detail.</p>
 <section id="dataset-preparation-for-efficient-processing">
-<h3><span class="section-number">9.8.1. </span>Dataset Preparation for Efficient Processing<a class="headerlink" href="#dataset-preparation-for-efficient-processing" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.8.1. </span>Dataset Preparation for Efficient Processing<a class="headerlink" href="#dataset-preparation-for-efficient-processing" title="Permalink to this heading">#</a></h3>
 <p>We use <code class="docutils literal notranslate"><span class="pre">AUTOTUNE</span></code> to optimize the data loading and processing, and we configure the training and validation datasets for efficient shuffling, caching, and prefetching.</p>
 </section>
 <section id="normalization-layer">
-<h3><span class="section-number">9.8.2. </span>Normalization Layer<a class="headerlink" href="#normalization-layer" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.8.2. </span>Normalization Layer<a class="headerlink" href="#normalization-layer" title="Permalink to this heading">#</a></h3>
 <p>The normalization layer rescales pixel values from the range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">255]</span></code> to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>. Normalizing the input helps the model converge faster during training by ensuring that the pixel values are small and consistent.</p>
 </section>
 <section id="model-structure-sequential-api">
-<h3><span class="section-number">9.8.3. </span>Model Structure: Sequential API<a class="headerlink" href="#model-structure-sequential-api" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.8.3. </span>Model Structure: Sequential API<a class="headerlink" href="#model-structure-sequential-api" title="Permalink to this heading">#</a></h3>
 <p>The <strong>Sequential API</strong> allows us to stack layers in a linear fashion to define a basic CNN architecture.</p>
 <section id="input-layer">
-<h4><span class="section-number">9.8.3.1. </span>Input Layer<a class="headerlink" href="#input-layer" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.8.3.1. </span>Input Layer<a class="headerlink" href="#input-layer" title="Permalink to this heading">#</a></h4>
 <p>The input layer first rescales the images and specifies that each input image has dimensions <code class="docutils literal notranslate"><span class="pre">180x180</span></code> and 3 color channels (RGB).</p>
 </section>
 <section id="first-convolutional-block">
-<h4><span class="section-number">9.8.3.2. </span>First Convolutional Block<a class="headerlink" href="#first-convolutional-block" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.8.3.2. </span>First Convolutional Block<a class="headerlink" href="#first-convolutional-block" title="Permalink to this heading">#</a></h4>
 <p>The first block consists of a <strong>Conv2D layer</strong> with 16 filters (or kernels) followed by <strong>MaxPooling</strong>. The convolutional layer applies filters to the input image to extract low-level features (like edges), while the pooling layer reduces the spatial dimensions of the feature maps, making the model less sensitive to small changes and reducing the computational cost.</p>
 </section>
 <section id="second-convolutional-block">
-<h4><span class="section-number">9.8.3.3. </span>Second Convolutional Block<a class="headerlink" href="#second-convolutional-block" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.8.3.3. </span>Second Convolutional Block<a class="headerlink" href="#second-convolutional-block" title="Permalink to this heading">#</a></h4>
 <p>The second block has 32 filters, allowing the network to learn more complex features like textures and patterns. Max pooling again reduces the dimensions of the output.</p>
 </section>
 <section id="third-convolutional-block">
-<h4><span class="section-number">9.8.3.4. </span>Third Convolutional Block<a class="headerlink" href="#third-convolutional-block" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.8.3.4. </span>Third Convolutional Block<a class="headerlink" href="#third-convolutional-block" title="Permalink to this heading">#</a></h4>
 <p>In the third block, 64 filters are applied, allowing the model to detect higher-level features. The deeper we go into the network, the more abstract the features become, allowing the model to make more complex distinctions between classes.</p>
 </section>
 <section id="flattening-and-dense-layers">
-<h4><span class="section-number">9.8.3.5. </span>Flattening and Dense Layers<a class="headerlink" href="#flattening-and-dense-layers" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">9.8.3.5. </span>Flattening and Dense Layers<a class="headerlink" href="#flattening-and-dense-layers" title="Permalink to this heading">#</a></h4>
 <p>The <strong>Flatten</strong> layer converts the 2D feature maps into a 1D vector that is fed into the dense layers. The <strong>Dense(128)</strong> layer learns to combine the features detected in the convolutional layers. The final <strong>Dense(num_classes)</strong> layer outputs the classification logits for the <code class="docutils literal notranslate"><span class="pre">crab</span></code> and <code class="docutils literal notranslate"><span class="pre">rockfish</span></code> classes.</p>
 </section>
 </section>
 <section id="layer-importance">
-<h3><span class="section-number">9.8.4. </span>Layer Importance<a class="headerlink" href="#layer-importance" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.8.4. </span>Layer Importance<a class="headerlink" href="#layer-importance" title="Permalink to this heading">#</a></h3>
 <p>In the previous lesson, we used a single <strong>edge detection kernel</strong>, which was a manual, handcrafted filter. Here, the CNN automatically learns the best filters (or features) from the data. The layer structure is key to CNNs because each layer extracts more complex features, allowing the network to progressively understand the image in a more detailed and abstract way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -869,21 +885,21 @@
 </section>
 </section>
 <section id="compiling-the-model">
-<h2><span class="section-number">9.9. </span>Compiling the Model<a class="headerlink" href="#compiling-the-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.9. </span>Compiling the Model<a class="headerlink" href="#compiling-the-model" title="Permalink to this heading">#</a></h2>
 <p>After defining the architecture of the CNN, the next step is to <strong>compile</strong> the model. Compiling involves specifying three key elements: the <strong>optimizer</strong>, the <strong>loss function</strong>, and the <strong>metrics</strong> used to evaluate the model’s performance.</p>
 <section id="optimizer-adam">
-<h3><span class="section-number">9.9.1. </span>Optimizer: Adam<a class="headerlink" href="#optimizer-adam" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.9.1. </span>Optimizer: Adam<a class="headerlink" href="#optimizer-adam" title="Permalink to this heading">#</a></h3>
 <p><strong>Adam (Adaptive Moment Estimation)</strong> is a popular optimizer that combines the advantages of two other methods: <strong>AdaGrad</strong> (which works well with sparse gradients) and <strong>RMSProp</strong> (which adapts the learning rate based on recent gradients). Adam adapts the learning rate throughout training, making it a good default choice for most models.</p>
 </section>
 <section id="loss-function-sparse-categorical-crossentropy">
-<h3><span class="section-number">9.9.2. </span>Loss Function: Sparse Categorical Crossentropy<a class="headerlink" href="#loss-function-sparse-categorical-crossentropy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.9.2. </span>Loss Function: Sparse Categorical Crossentropy<a class="headerlink" href="#loss-function-sparse-categorical-crossentropy" title="Permalink to this heading">#</a></h3>
 <p><strong>Sparse Categorical Crossentropy</strong> is the loss function used when we have multiple classes (in this case, <code class="docutils literal notranslate"><span class="pre">crab</span></code> and <code class="docutils literal notranslate"><span class="pre">rockfish</span></code>), and the labels are integer values. It measures how far the predicted probabilities are from the actual labels.</p>
 <ul class="simple">
 <li><p><strong>from_logits=True</strong>: This indicates that the output of the final layer is raw scores (logits) rather than probabilities. Since we haven’t applied a softmax activation in the final layer, logits will be converted to probabilities during the loss calculation.</p></li>
 </ul>
 </section>
 <section id="metrics-accuracy">
-<h3><span class="section-number">9.9.3. </span>Metrics: Accuracy<a class="headerlink" href="#metrics-accuracy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.9.3. </span>Metrics: Accuracy<a class="headerlink" href="#metrics-accuracy" title="Permalink to this heading">#</a></h3>
 <p><strong>Accuracy</strong> calculates the percentage of correct predictions made by the model. During training, both <strong>training accuracy</strong> and <strong>validation accuracy</strong> will be tracked to monitor how well the model is learning and generalizing.</p>
 <p>By compiling the model, we set the stage for training, specifying how the model will optimize its weights, calculate loss, and measure success.</p>
 <div class="cell docutils container">
@@ -900,7 +916,7 @@
 </section>
 </section>
 <section id="model-summary">
-<h2><span class="section-number">9.10. </span>Model Summary<a class="headerlink" href="#model-summary" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.10. </span>Model Summary<a class="headerlink" href="#model-summary" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">model.summary()</span></code> function provides a concise overview of the model’s architecture. It displays the layer types, output shapes, and the number of parameters in each layer, giving you a quick understanding of the model’s structure and complexity.</p>
 <p>This is useful to verify that the model is constructed as intended and to check the total number of trainable parameters.</p>
 <div class="cell docutils container">
@@ -914,7 +930,7 @@
 </div>
 </section>
 <section id="training-the-model">
-<h2><span class="section-number">9.11. </span>Training the Model<a class="headerlink" href="#training-the-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.11. </span>Training the Model<a class="headerlink" href="#training-the-model" title="Permalink to this heading">#</a></h2>
 <p>In this step, we train the model using the <code class="docutils literal notranslate"><span class="pre">model.fit()</span></code> function.</p>
 <ul class="simple">
 <li><p><strong>epochs=10</strong>: This specifies that the model will go through the entire dataset 10 times (or 10 training cycles). Each epoch allows the model to learn more patterns and improve its predictions.</p></li>
@@ -936,7 +952,7 @@
 </div>
 </section>
 <section id="visualizing-training-results">
-<h2><span class="section-number">9.12. </span>Visualizing Training Results<a class="headerlink" href="#visualizing-training-results" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.12. </span>Visualizing Training Results<a class="headerlink" href="#visualizing-training-results" title="Permalink to this heading">#</a></h2>
 <p>This block of code visualizes the model’s <strong>training and validation accuracy</strong> and <strong>loss</strong> over the training epochs. These plots are crucial for understanding how well the model is learning and generalizing.</p>
 <ul class="simple">
 <li><p><strong>Training Accuracy and Validation Accuracy</strong>: These graphs show how the model’s accuracy improves during training and how well it performs on unseen validation data.</p></li>
@@ -974,7 +990,7 @@
 </div>
 </section>
 <section id="making-predictions-on-a-new-image">
-<h2><span class="section-number">9.13. </span>Making Predictions on a New Image<a class="headerlink" href="#making-predictions-on-a-new-image" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.13. </span>Making Predictions on a New Image<a class="headerlink" href="#making-predictions-on-a-new-image" title="Permalink to this heading">#</a></h2>
 <p>After training the model, we can use it to make predictions on new, unseen images. In this example, we load a new image called <strong>“mystery.png”</strong>, preprocess it, and let the model predict whether it belongs to the “crab” or “rockfish” class.</p>
 <p>Here’s a breakdown:</p>
 <ul class="simple">
@@ -1071,8 +1087,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1169,8 +1184,8 @@ By Atticus Carter
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

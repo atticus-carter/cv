@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>11. Training and Deploying Object Detection with YOLO &#8212; Computer Vision Across Oceanography</title>
   
@@ -16,60 +17,57 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/TrainandDeployObj_YOLO';</script>
     <link rel="canonical" href="https://atticus-carter.github.io/cv/book/TrainandDeployObj_YOLO.html" />
-    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="shortcut icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12. Training and Deploying Many Class Classification with YOLO" href="Classification_YOLO.html" />
     <link rel="prev" title="10. Training YOLO Models: A Guide to Understanding Tasks and Modes" href="Introduction_YOLO.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +83,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -94,6 +103,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +111,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +128,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +158,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="Computer Vision Across Oceanography - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Computer Vision Across Oceanography - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Computer Vision Across Oceanography - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
@@ -210,14 +223,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -427,16 +435,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -483,13 +499,13 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="training-and-deploying-object-detection-with-yolo">
-<span id="lesson-11"></span><h1><span class="section-number">11. </span>Training and Deploying Object Detection with YOLO<a class="headerlink" href="#training-and-deploying-object-detection-with-yolo" title="Link to this heading">#</a></h1>
+<span id="lesson-11"></span><h1><span class="section-number">11. </span>Training and Deploying Object Detection with YOLO<a class="headerlink" href="#training-and-deploying-object-detection-with-yolo" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">11.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In this lesson, we will train an Object Detection model using YOLOv8. You’ll be able to choose specific augmentations, batch size, resolution, and other parameters based on your system’s capabilities and runtime. The dataset is already provided in YOLO format and will be used to train and evaluate the model.</p>
 </section>
 <section id="learning-objectives">
-<h2><span class="section-number">11.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h2>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
 <li><p>Understand the YOLO format and how to train a custom object detection model using YOLOv8.</p></li>
@@ -498,16 +514,16 @@
 </ul>
 </section>
 <section id="downloading-the-dataset">
-<h2><span class="section-number">11.3. </span>Downloading the Dataset<a class="headerlink" href="#downloading-the-dataset" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Downloading the Dataset<a class="headerlink" href="#downloading-the-dataset" title="Permalink to this heading">#</a></h2>
 <p>The dataset for this lesson is already formatted in YOLO format. You can load it directly for training and evaluation. Ensure you have the dataset uploaded before proceeding.</p>
 </section>
 <section id="preparing-the-environment">
-<h2><span class="section-number">11.4. </span>Preparing the Environment<a class="headerlink" href="#preparing-the-environment" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Preparing the Environment<a class="headerlink" href="#preparing-the-environment" title="Permalink to this heading">#</a></h2>
 <p>Let’s first install the required libraries and set up the environment to train our YOLOv8 model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the required dependencies</span>
-<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">ultralytics</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Install the required dependencies
+!pip install ultralytics
 </pre></div>
 </div>
 </div>
@@ -526,7 +542,7 @@
 </div>
 </section>
 <section id="loading-the-dataset">
-<h2><span class="section-number">11.5. </span>Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.5. </span>Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Permalink to this heading">#</a></h2>
 <p>You can either load your dataset with or without augmentations. The dataset is in YOLO format, which includes images and annotation files with bounding box information.</p>
 <p>If you have chosen a different dataset or format, ensure it follows YOLO formatting. For this lesson, we assume that the dataset is organized in <code class="docutils literal notranslate"><span class="pre">train/</span></code>, <code class="docutils literal notranslate"><span class="pre">val/</span></code>, and <code class="docutils literal notranslate"><span class="pre">test/</span></code> directories.</p>
 <div class="cell docutils container">
@@ -554,7 +570,7 @@
 </div>
 </section>
 <section id="create-dataset-configuration-file">
-<h2><span class="section-number">11.6. </span>Create Dataset Configuration File<a class="headerlink" href="#create-dataset-configuration-file" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.6. </span>Create Dataset Configuration File<a class="headerlink" href="#create-dataset-configuration-file" title="Permalink to this heading">#</a></h2>
 <p>Copy the code cell below to create a configuration file (<code class="docutils literal notranslate"><span class="pre">teaching_tank_data.yaml</span></code>) for your dataset. This configuration file is essential for training YOLO models because it provides a structured way for YOLO to understand the paths to your training, validation, and (optionally) test datasets, as well as the class information. The configuration file tells YOLO where to find the data it needs and how many classes it should expect, which ensures that the training process runs smoothly.</p>
 <p>Without a properly configured YAML file, YOLO would not know where the datasets are located or how to interpret the classes, leading to errors or failed training. Most of the time this will be generated with your annotation software, however it is important to double check and understand how this file works.</p>
 <p>The configuration file includes:</p>
@@ -593,13 +609,13 @@
 </div>
 </section>
 <section id="customizing-augmentations-and-parameters">
-<h2><span class="section-number">11.7. </span>Customizing Augmentations and Parameters<a class="headerlink" href="#customizing-augmentations-and-parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.7. </span>Customizing Augmentations and Parameters<a class="headerlink" href="#customizing-augmentations-and-parameters" title="Permalink to this heading">#</a></h2>
 <p>With YOLOv8, applying augmentations during both dataset creation and training is highly beneficial. During the dataset creation phase, some augmentations are universal and should be applied regardless of what the model will be used for. For instance, basic transformations like random flips, rotations, and brightness adjustments help ensure the model can handle general variations found in real-world data. These augmentations provide a strong foundation by improving the model’s ability to generalize and reduce the risk of overfitting.</p>
 <p>However, during the training phase, more specific augmentations can be customized to anticipate particular challenges. For example, if your model is going to be deployed using a new AUV camera system that captures images at an oblique angle, or if it needs to perform well in a survey area with particularly dark conditions, adding targeted augmentations during training will make the model more robust to these conditions. By simulating real-world variability, the model becomes more resilient and adaptable to different scenarios.</p>
 <p>In addition to augmentations, there are many parameters and arguments that you can pass to your model during training to further refine its performance. These include aspects like learning rate, batch size, optimizer, and more. The ability to customize these parameters allows you to tailor the training process to fit the specific requirements and challenges of your dataset. Ultimately, applying both general and scenario-specific augmentations, along with thoughtful parameter tuning, can significantly enhance your model’s adaptability and performance in real-world situations.</p>
 </section>
 <section id="training-the-yolov8-model">
-<h2><span class="section-number">11.8. </span>Training the YOLOv8 Model<a class="headerlink" href="#training-the-yolov8-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.8. </span>Training the YOLOv8 Model<a class="headerlink" href="#training-the-yolov8-model" title="Permalink to this heading">#</a></h2>
 <p>Now that the environment is set up, and you have selected your augmentations and other parameters, we will proceed with training the YOLOv8 model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,7 +647,7 @@
 <p>It is important to note that parameters do not have to be passed from a variable and can be directly loaded in during your training script. I purposely set up the dataset_config here so we can check out its contents. Similarly, when choosing your model, you can use a checkpoint to resume training.</p>
 </section>
 <section id="evaluating-the-model">
-<h2><span class="section-number">11.9. </span>Evaluating the Model<a class="headerlink" href="#evaluating-the-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.9. </span>Evaluating the Model<a class="headerlink" href="#evaluating-the-model" title="Permalink to this heading">#</a></h2>
 <p>After training, we will evaluate the model performance using validation data and calculate metrics such as mean Average Precision (mAP).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -654,11 +670,11 @@
 </div>
 </section>
 <section id="review-model-performance">
-<h2><span class="section-number">11.10. </span>Review Model performance<a class="headerlink" href="#review-model-performance" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.10. </span>Review Model performance<a class="headerlink" href="#review-model-performance" title="Permalink to this heading">#</a></h2>
 <p><img alt="image.png" src="book/attachment:image.png" /></p>
 </section>
 <section id="activity-reflecting-on-results">
-<h2><span class="section-number">11.11. </span>Activity: Reflecting on Results<a class="headerlink" href="#activity-reflecting-on-results" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.11. </span>Activity: Reflecting on Results<a class="headerlink" href="#activity-reflecting-on-results" title="Permalink to this heading">#</a></h2>
 <p>Now that you’ve trained and evaluated your model, reflect on the following questions:</p>
 <ul class="simple">
 <li><p>How did the augmentations and parameters affect the model’s performance?</p></li>
@@ -723,8 +739,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -792,8 +807,8 @@ By Atticus Carter
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

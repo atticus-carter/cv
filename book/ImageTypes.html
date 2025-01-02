@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>3. Introduction to Ocean Image Data &#8212; Computer Vision Across Oceanography</title>
   
@@ -16,60 +17,57 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/ImageTypes';</script>
     <link rel="canonical" href="https://atticus-carter.github.io/cv/book/ImageTypes.html" />
-    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="shortcut icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Image Annotation" href="Image_Annotation.html" />
     <link rel="prev" title="2. Introduction to Artificial Intelligence in Marine Science" href="Introduction_AI.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +83,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -94,6 +103,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +111,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +128,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +158,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="Computer Vision Across Oceanography - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Computer Vision Across Oceanography - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Computer Vision Across Oceanography - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
@@ -210,14 +223,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -378,16 +386,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -455,12 +471,12 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-ocean-image-data">
-<span id="lesson-1"></span><h1><span class="section-number">3. </span>Introduction to Ocean Image Data<a class="headerlink" href="#introduction-to-ocean-image-data" title="Link to this heading">#</a></h1>
+<span id="lesson-1"></span><h1><span class="section-number">3. </span>Introduction to Ocean Image Data<a class="headerlink" href="#introduction-to-ocean-image-data" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">3.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In this lesson, we will explore <strong>marine photographic and videographic data</strong>. We will also discuss the tools used to capture these images and videos, such as <strong>underwater cameras</strong>, <strong>drones</strong>, and <strong>satellite imagery</strong>. Understanding the types of imagery available is the first step toward understanding what questions can be answered with <strong>Marine Imagery</strong> and <strong>Computer Vision (CV)</strong> techniques.</p>
 <section id="learning-objectives">
-<h3><span class="section-number">3.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
 <li><p>Understand the different types of ocean image data.</p></li>
@@ -470,29 +486,29 @@
 </section>
 <hr class="docutils" />
 <section id="fundamental-image-types">
-<h2><span class="section-number">3.2. </span>Fundamental image types<a class="headerlink" href="#fundamental-image-types" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Fundamental image types<a class="headerlink" href="#fundamental-image-types" title="Permalink to this heading">#</a></h2>
 <section id="video-and-still-images">
-<h3><span class="section-number">3.2.1. </span>Video and still images<a class="headerlink" href="#video-and-still-images" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.1. </span>Video and still images<a class="headerlink" href="#video-and-still-images" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="monocular-stereo-and-omnidirectional-photography">
-<h3><span class="section-number">3.2.2. </span>Monocular, stereo, and omnidirectional photography<a class="headerlink" href="#monocular-stereo-and-omnidirectional-photography" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.2. </span>Monocular, stereo, and omnidirectional photography<a class="headerlink" href="#monocular-stereo-and-omnidirectional-photography" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="color-and-monochrome-photography">
-<h3><span class="section-number">3.2.3. </span>Color and monochrome photography<a class="headerlink" href="#color-and-monochrome-photography" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3. </span>Color and monochrome photography<a class="headerlink" href="#color-and-monochrome-photography" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="non-conventional-photography">
-<h3><span class="section-number">3.2.4. </span>Non-conventional photography<a class="headerlink" href="#non-conventional-photography" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.2.4. </span>Non-conventional photography<a class="headerlink" href="#non-conventional-photography" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
 <section id="tools-for-capturing-ocean-image-data">
-<h2><span class="section-number">3.3. </span>Tools for Capturing Ocean Image Data<a class="headerlink" href="#tools-for-capturing-ocean-image-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.3. </span>Tools for Capturing Ocean Image Data<a class="headerlink" href="#tools-for-capturing-ocean-image-data" title="Permalink to this heading">#</a></h2>
 <p>Ocean image data comes from a variety of sources, each with unique strengths and limitations. Let’s explore different types of ocean image data and the tools used to capture them.</p>
 <section id="underwater-imagery">
-<h3><span class="section-number">3.3.1. </span>Underwater Imagery<a class="headerlink" href="#underwater-imagery" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.1. </span>Underwater Imagery<a class="headerlink" href="#underwater-imagery" title="Permalink to this heading">#</a></h3>
 <p>Underwater imagery capture is nearly as diverse as the environments that make up the oceans. Each capture type has different advantages and disadvantages, understanding these are key to knowing what questions can be answered by a particular set of images. Some studies utilize multiple image capture types and imagery can be captured to complement other sampling types.</p>
 <p>Underwater imagery capture broadly falls into several categories including <strong>diver-held cameras</strong>, <strong>simple camera platforms</strong>,  and <strong>underwater vehicles</strong>.</p>
 <section id="diver-held-cameras">
-<h4><span class="section-number">3.3.1.1. </span>Diver-Held Cameras<a class="headerlink" href="#diver-held-cameras" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">3.3.1.1. </span>Diver-Held Cameras<a class="headerlink" href="#diver-held-cameras" title="Permalink to this heading">#</a></h4>
 <p>In shallow waters underwater imagery collection can be as simple as outfitting a diver with a camera. These divers can be free swimming or towed by a small craft.</p>
 <p><strong>Advantages of Diver-Held Cameras</strong>:</p>
 <ul class="simple">
@@ -505,9 +521,9 @@
 </ul>
 </section>
 <section id="simple-camera-platforms">
-<h4><span class="section-number">3.3.1.2. </span>Simple Camera Platforms<a class="headerlink" href="#simple-camera-platforms" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">3.3.1.2. </span>Simple Camera Platforms<a class="headerlink" href="#simple-camera-platforms" title="Permalink to this heading">#</a></h4>
 <section id="drop-cameras">
-<h5><span class="section-number">3.3.1.2.1. </span>Drop Cameras<a class="headerlink" href="#drop-cameras" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">3.3.1.2.1. </span>Drop Cameras<a class="headerlink" href="#drop-cameras" title="Permalink to this heading">#</a></h5>
 <p>Drop cameras are used to collect images of the seafloor at a point location. They were used to collect some of the earliest images of the seafloor. The cameras can collect video and digital still imagery. They are commonly used in habitat mapping as a method of ground truthing either acoustically collected data or model predictions.</p>
 <p><strong>Advantages of Drop Cameras</strong>:</p>
 <ul class="simple">
@@ -519,7 +535,7 @@
 </ul>
 </section>
 <section id="towed-camera-systems">
-<h5><span class="section-number">3.3.1.2.2. </span>Towed Camera Systems<a class="headerlink" href="#towed-camera-systems" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">3.3.1.2.2. </span>Towed Camera Systems<a class="headerlink" href="#towed-camera-systems" title="Permalink to this heading">#</a></h5>
 <p>Towed camera systems can capture images or video transects at the seafloor or in the midwater. They are towed behind a ship and control of the platform comes from a winch and wire. Depending on the system they may or may not stream live data back to the ship via their wire. They are generally considered to be “simple mobile platforms” in contrast to the higher mobility of underwater vehicles. Towed cameras can be part of their own sled or integrated into other sampling equipment such as epibenthic sledges, plankton nets, and coring systems.</p>
 <p><strong>Advantages of Towed Camera Systems</strong>:</p>
 <ul class="simple">
@@ -533,7 +549,7 @@
 </ul>
 </section>
 <section id="fixed-underwater-cameras">
-<h5><span class="section-number">3.3.1.2.3. </span>Fixed Underwater Cameras<a class="headerlink" href="#fixed-underwater-cameras" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">3.3.1.2.3. </span>Fixed Underwater Cameras<a class="headerlink" href="#fixed-underwater-cameras" title="Permalink to this heading">#</a></h5>
 <p>There is a lot of variety in fixed underwater camera platforms.</p>
 <p>Generally, these cameras are positioned on the seafloor or on a mooring at a fixed depth for long-term monitoring. They can be placed by an underwater vehicle, lowered into position via a wire, or allowed to free fall from a ship. Fixed cameras on the seafloor are often deployed on tripods or benthic landers. These systems can be used to monitor the natural environment or focused on an experimental setup, such as settlement plates and whale bone colonization (Segal et al., 2012; Smith et al., 2024).</p>
 <p>A common type of fixed camera are baited remote underwater video systems (BRUVS). These are used to sample fish or other fauna assemblages, gather data on relative abundances, and body size structure. They are considered to be a cost-effective and non-invasive method. Further information on BRUVS can be found in Harvey et al., 2013, Whitmarsh et al., 2017, and Langlois et al., 2020.</p>
@@ -541,7 +557,7 @@
 <figure class="align-default" id="underwater-camera">
 <img alt="../_images/image.png" src="../_images/image.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A digital still camera capturing methane seep activity. Credit: UW/NSF-OOI/WHOI</span><a class="headerlink" href="#underwater-camera" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A digital still camera capturing methane seep activity. Credit: UW/NSF-OOI/WHOI</span><a class="headerlink" href="#underwater-camera" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Advantages of Fixed Cameras</strong>:</p>
@@ -557,9 +573,9 @@
 </section>
 </section>
 <section id="underwater-vehicles">
-<h4><span class="section-number">3.3.1.3. </span>Underwater Vehicles<a class="headerlink" href="#underwater-vehicles" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">3.3.1.3. </span>Underwater Vehicles<a class="headerlink" href="#underwater-vehicles" title="Permalink to this heading">#</a></h4>
 <section id="hovs-human-operated-vehicles">
-<h5><span class="section-number">3.3.1.3.1. </span>HOVs (Human Operated Vehicles)<a class="headerlink" href="#hovs-human-operated-vehicles" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">3.3.1.3.1. </span>HOVs (Human Operated Vehicles)<a class="headerlink" href="#hovs-human-operated-vehicles" title="Permalink to this heading">#</a></h5>
 <p>HOVs are crewed submersibles, they typically carry one pilot, a copilot, and one or two scientists. They are highly flexible in the operations they can undertake including collecting real-time video and still imagery and physical sampling. In 2013, there were ten large manned submersibles used by scientific institutions (Smith and Ruhmohr 2013). Notable examples are:</p>
 <ul class="simple">
 <li><p><strong>Alvin</strong>:</p></li>
@@ -577,7 +593,7 @@
 </ul>
 </section>
 <section id="rovs-remotely-operated-vehicles">
-<h5><span class="section-number">3.3.1.3.2. </span>ROVs (Remotely Operated Vehicles)<a class="headerlink" href="#rovs-remotely-operated-vehicles" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">3.3.1.3.2. </span>ROVs (Remotely Operated Vehicles)<a class="headerlink" href="#rovs-remotely-operated-vehicles" title="Permalink to this heading">#</a></h5>
 <p>ROVs are uncrewed submersibles controlled from the surface. They are connected to a surface vessel via an umbilical or tether. The tether provides control signals, power, and live feedback from video and other sensors. Due to their connection to the ship, there are no limitations on the length of time an ROV can stay in the water. They provide real-time video and still imagery, often equipped with sampling tools. ROVs can range in size from small to very large and are used at depths between 30 and 6500 m. Notable examples are:</p>
 <ul class="simple">
 <li><p><strong>Jason</strong>: Capable of deep-sea exploration, reaching depths of up to 6,500 meters. Operated by WHOI, it includes high-definition video and robotic arms for sample collection.</p></li>
@@ -586,7 +602,7 @@
 <figure class="align-default" id="rov-jason">
 <img alt="../_images/image-1.png" src="../_images/image-1.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">The ROV Jason Equipped with 4k video cameras. Credit: M. Elend, University of Washington</span><a class="headerlink" href="#rov-jason" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">The ROV Jason Equipped with 4k video cameras. Credit: M. Elend, University of Washington</span><a class="headerlink" href="#rov-jason" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Advantages of ROVs</strong>:</p>
@@ -602,12 +618,12 @@
 </ul>
 </section>
 <section id="auvs-autonomous-underwater-vehicles">
-<h5><span class="section-number">3.3.1.3.3. </span>AUVs (Autonomous Underwater Vehicles)<a class="headerlink" href="#auvs-autonomous-underwater-vehicles" title="Link to this heading">#</a></h5>
+<h5><span class="section-number">3.3.1.3.3. </span>AUVs (Autonomous Underwater Vehicles)<a class="headerlink" href="#auvs-autonomous-underwater-vehicles" title="Permalink to this heading">#</a></h5>
 <p>AUVs are pre-programmed to follow missions autonomously, capturing imagery without human intervention. A prime example is <strong>Sentry</strong>, which collects data at depths of up to 6,000 meters. AUVs deployments are only limited by the size of their onboard batteries which now commonly can operate for up to 24 hours at time.</p>
 <figure class="align-default" id="auv-sentry">
 <img alt="../_images/image-3.png" src="../_images/image-3.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">AUV Sentry at the surface after a deep dive. Credit: WHOI</span><a class="headerlink" href="#auv-sentry" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">AUV Sentry at the surface after a deep dive. Credit: WHOI</span><a class="headerlink" href="#auv-sentry" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Advantages of AUVs</strong>:</p>
@@ -624,18 +640,18 @@
 </ul>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>If you are interested in learning more about methods of underwater marine imaging there are several good reviews on the topic including Jamieson et al., 2013, Mallet and Pelletier 2014, and {cite}”Durden2016”.</p>
+<p>If you are interested in learning more about methods of underwater marine imaging there are several good reviews on the topic including Jamieson et al., 2013, Mallet and Pelletier 2014, and {cite}’Durden2016’.</p>
 </div>
 </section>
 </section>
 </section>
 <section id="satellite-imagery">
-<h3><span class="section-number">3.3.2. </span>Satellite Imagery<a class="headerlink" href="#satellite-imagery" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.2. </span>Satellite Imagery<a class="headerlink" href="#satellite-imagery" title="Permalink to this heading">#</a></h3>
 <p>Satellites offer broad coverage for observing large-scale oceanographic phenomena, such as <strong>phytoplankton blooms</strong> and <strong>sea surface temperature</strong>.</p>
 <figure class="align-default" id="id1">
 <img alt="../_images/image-2.png" src="../_images/image-2.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Satellite imagery showing a phytoplankton bloom. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Satellite imagery showing a phytoplankton bloom. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Advantages of Satellite Imagery</strong>:</p>
@@ -648,12 +664,12 @@
 </ul>
 </section>
 <section id="aerial-imagery">
-<h3><span class="section-number">3.3.3. </span>Aerial Imagery<a class="headerlink" href="#aerial-imagery" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.3.3. </span>Aerial Imagery<a class="headerlink" href="#aerial-imagery" title="Permalink to this heading">#</a></h3>
 <p>Aerially mounted cameras on drones, planes and helicopters can produce high quality often georeferenced imagery of nearshore sites or areas that are hard to get to by other means of transport like sea ice.</p>
 <figure class="align-default" id="seal-population">
 <img alt="../_images/image-4.png" src="../_images/image-4.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Seals on Arctic sea ice captured with an aerial camera, annotated with a CV model. Credit: A. Carter, NOAA National Marine Mammal Laboratory</span><a class="headerlink" href="#seal-population" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Seals on Arctic sea ice captured with an aerial camera, annotated with a CV model. Credit: A. Carter, NOAA National Marine Mammal Laboratory</span><a class="headerlink" href="#seal-population" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Advantages of Aerial Imagery</strong>:</p>
@@ -724,8 +740,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -814,8 +829,8 @@ By Atticus Carter
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

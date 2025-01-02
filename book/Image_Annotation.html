@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>4. Image Annotation &#8212; Computer Vision Across Oceanography</title>
   
@@ -16,60 +17,57 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/Image_Annotation';</script>
     <link rel="canonical" href="https://atticus-carter.github.io/cv/book/Image_Annotation.html" />
-    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="shortcut icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Image Manipulation in Python with PIL and OpenCV" href="Augmentation_Manual.html" />
     <link rel="prev" title="3. Introduction to Ocean Image Data" href="ImageTypes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +83,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -94,6 +103,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +111,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +128,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +158,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="Computer Vision Across Oceanography - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Computer Vision Across Oceanography - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Computer Vision Across Oceanography - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
@@ -210,14 +223,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -378,16 +386,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -442,12 +458,12 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="image-annotation">
-<span id="lesson-3"></span><h1><span class="section-number">4. </span>Image Annotation<a class="headerlink" href="#image-annotation" title="Link to this heading">#</a></h1>
+<span id="lesson-3"></span><h1><span class="section-number">4. </span>Image Annotation<a class="headerlink" href="#image-annotation" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">4.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In this lesson, we will explore image annotation techniques and their importance in training computer vision models. We will also discuss the different types of annotations—<strong>bounding boxes</strong>, <strong>segmentation</strong>, and <strong>keypoint annotation</strong>—and how they are applied in marine imagery to improve model accuracy and reliability.</p>
 <section id="learning-objectives">
-<h3><span class="section-number">4.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
 <li><p>Understand the importance of image annotation in computer vision, explaining why annotated training data is critical for models to accurately recognize and differentiate objects in imagery data, particularly in marine environments.</p></li>
@@ -458,7 +474,7 @@
 </section>
 <hr class="docutils" />
 <section id="classes-and-annotation">
-<h2><span class="section-number">4.2. </span>Classes and Annotation<a class="headerlink" href="#classes-and-annotation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Classes and Annotation<a class="headerlink" href="#classes-and-annotation" title="Permalink to this heading">#</a></h2>
 <p>When training models using imagery data, it is crucial to provide the algorithm with properly <strong>annotated</strong> training data. This allows the model to learn what to look for and where to find it within an image. Imagine, for a moment, that you are a computer tasked with identifying every rockfish in an image, but the image is completely unannotated, and you have no prior knowledge or context of what a rockfish looks like. You would likely have a (very) hard time piecing together what that request even means. In the context of computer vision, image annotation serves as a vital guide, providing the labels and boundaries necessary for the model to understand its task. Without annotations, the model would be left guessing, unable to differentiate between objects or recognize key features.</p>
 <p>A critical part of annotation is defining classes. <strong>In computer vision, a class refers to a category or label that is assigned to a specific object or feature within an image.</strong> Classes are essential for helping the model understand what it’s looking at. Without clear class definitions, the model wouldn’t know how to distinguish between objects like a fish and a rock or identify whether a certain object should be labeled as pollution or marine life. Classes can be very specific, such as labeling an organism down to the species level, like “rockfish,” or more generalized, such as labeling a broader group like “fish” or “jelly.”</p>
 <p>In the context of marine imagery, classes can vary widely. Sometimes, annotations are done at a species level for detailed ecological studies, while other times, they may simply label a broader morphotype like “fish” or “jelly.” Classes are not limited to biological organisms; they can also represent other features such as geological formations (“ice,” “cobble,” “vent”) or indicators of human impact, such as “plastic debris” or “fishing gear.” The way you define classes has a significant effect on how the model learns to interpret the data. For instance, a class like “plastic” might be used to train a model that detects marine pollution, while a class like “coral” would be used in studies focusing on habitat mapping.</p>
@@ -472,16 +488,16 @@
 <p>These annotation types are essential for different computer vision tasks, such as object detection, segmentation, and pose estimation.</p>
 </section>
 <section id="bounding-boxes">
-<h2><span class="section-number">4.3. </span>Bounding Boxes<a class="headerlink" href="#bounding-boxes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Bounding Boxes<a class="headerlink" href="#bounding-boxes" title="Permalink to this heading">#</a></h2>
 <p>Bounding boxes are one of the simplest and most widely used types of annotations. They involve drawing a square rectangle around an object of interest in the image and noting the pixel coordinates of each corner as well as the class it is defining.</p>
 <figure class="align-default" id="bboxes-example">
 <img alt="../_images/poralia.png" src="../_images/poralia.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Multiple Organisms are annotated using bounding boxes. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#bboxes-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.1 </span><span class="caption-text">Multiple Organisms are annotated using bounding boxes. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#bboxes-example" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="format-in-pytorch">
-<h3><span class="section-number">4.3.1. </span>Format in PyTorch<a class="headerlink" href="#format-in-pytorch" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.3.1. </span>Format in PyTorch<a class="headerlink" href="#format-in-pytorch" title="Permalink to this heading">#</a></h3>
 <p>In PyTorch, the bounding box format is typically represented as <code class="docutils literal notranslate"><span class="pre">[x_min,</span> <span class="pre">y_min,</span> <span class="pre">x_max,</span> <span class="pre">y_max]</span></code>, where:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x_min</span></code>, <code class="docutils literal notranslate"><span class="pre">y_min</span></code>: Coordinates of the top-left corner of the box.</p></li>
@@ -493,33 +509,33 @@
 </section>
 </section>
 <section id="segmentation">
-<h2><span class="section-number">4.4. </span>Segmentation<a class="headerlink" href="#segmentation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Segmentation<a class="headerlink" href="#segmentation" title="Permalink to this heading">#</a></h2>
 <p>Segmentation is a more detailed annotation technique where each pixel in the object is labeled. This differs from bounding boxes, which only define the region around an object. With <strong>instance segmentation</strong>, each object instance has its own mask, allowing the model to distinguish between individual occurrences of an object within the same image. For example, if there are multiple fish in an image, instance segmentation ensures that each fish is labeled as a distinct object, even if they overlap.</p>
 <p>In contrast, <strong>semantic segmentation</strong> assigns a label to every pixel based on the category it belongs to, without differentiating between different instances of the same object. In this case, all pixels belonging to the “fish” class, for instance, would be labeled as “fish,” but the model wouldn’t differentiate between individual fish. This approach is useful for tasks where understanding the overall composition of an image is important, such as habitat mapping or identifying general patterns in environmental features.</p>
 <figure class="align-default" id="segment-example">
 <img alt="../_images/segment.png" src="../_images/segment.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Multiple cod are annotated using image segmentation. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#segment-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Multiple cod are annotated using image segmentation. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#segment-example" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="id1">
-<h3><span class="section-number">4.4.1. </span>Format in PyTorch<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.4.1. </span>Format in PyTorch<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>In PyTorch, instance segmentation masks are represented as binary masks (same size as the image), where each pixel is marked as either belonging to the object (1) or the background (0).</p>
 <p>Example PyTorch annotation for instance segmentation:</p>
 <p><code class="docutils literal notranslate"><span class="pre">'masks':</span> <span class="pre">torch.tensor([[[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">1],</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]],</span> <span class="pre">[[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]]]),</span> <span class="pre">'labels':</span> <span class="pre">torch.tensor([1,</span> <span class="pre">2])</span></code></p>
 </section>
 </section>
 <section id="keypoint-annotation">
-<h2><span class="section-number">4.5. </span>Keypoint Annotation<a class="headerlink" href="#keypoint-annotation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>Keypoint Annotation<a class="headerlink" href="#keypoint-annotation" title="Permalink to this heading">#</a></h2>
 <p>Keypoint annotation involves identifying specific points of interest on an object, like the head and tail of a fish. Each keypoint is represented by its x, y coordinates, and a visibility flag indicating if the keypoint is visible or not. This method is particularly useful in tasks like pose estimation, where the relationship between keypoints can help the model understand the orientation or movement of an object. In marine imagery, keypoint annotation can be applied to track the movement or behavior of animals by marking specific features, such as the fins of a fish or the tentacles of a jellyfish. Additionally, keypoints can be used to measure physical properties, such as the length of an organism, by placing points at key anatomical landmarks. This level of precision enables detailed analysis in both behavioral studies and environmental monitoring.</p>
 <figure class="align-default" id="keypoint-example">
 <img alt="../_images/keypoint.png" src="../_images/keypoint.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">A rockfishes length is estimated via 2 keypoint annotations. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#keypoint-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">A rockfishes length is estimated via 2 keypoint annotations. Credit: A.Carter, OOI-NSF</span><a class="headerlink" href="#keypoint-example" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="id2">
-<h3><span class="section-number">4.5.1. </span>Format in PyTorch<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">4.5.1. </span>Format in PyTorch<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>In PyTorch, keypoints are represented as <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">visibility]</span></code>, where:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>: Coordinates of the keypoint.</p></li>
@@ -531,20 +547,20 @@
 </section>
 </section>
 <section id="pytorch-annotation-workflow">
-<h2><span class="section-number">4.6. </span>PyTorch Annotation Workflow<a class="headerlink" href="#pytorch-annotation-workflow" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.6. </span>PyTorch Annotation Workflow<a class="headerlink" href="#pytorch-annotation-workflow" title="Permalink to this heading">#</a></h2>
 <p>In a typical PyTorch workflow, annotations are stored in a dataset, where each image has a corresponding annotation that contains bounding boxes, masks, or keypoints. The dataset can then be used to train a model, such as <strong>Faster R-CNN (for object detection)</strong>, <strong>Mask R-CNN (for segmentation)</strong>, or <strong>HRNet (for pose estimation)</strong>.</p>
 <p>Here’s a sample structure for an annotated image in PyTorch:</p>
 <p><code class="docutils literal notranslate"><span class="pre">'image':</span> <span class="pre">image,</span> <span class="pre">'annotations':</span> <span class="pre">{'boxes':</span> <span class="pre">torch.tensor([[10,</span> <span class="pre">20,</span> <span class="pre">200,</span> <span class="pre">400]]),</span> <span class="pre">'labels':</span> <span class="pre">torch.tensor([1]),</span> <span class="pre">'masks':</span> <span class="pre">torch.tensor([[[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">1],</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]]]),</span> <span class="pre">'keypoints':</span> <span class="pre">torch.tensor([[[150,</span> <span class="pre">200,</span> <span class="pre">1]]])}</span></code></p>
 <p>By leveraging these annotations, we can effectively train models for object detection, segmentation, and pose estimation in PyTorch.</p>
 </section>
 <section id="quality-of-annotations">
-<h2><span class="section-number">4.7. </span>Quality of Annotations<a class="headerlink" href="#quality-of-annotations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.7. </span>Quality of Annotations<a class="headerlink" href="#quality-of-annotations" title="Permalink to this heading">#</a></h2>
 <p>Not all annotations are created equal, and poor-quality annotations can significantly impact the performance and reliability of a model. Annotations produced by hasty annotators or automated processes can result in inaccuracies that may mislead the model, leading to faulty predictions or misclassifications. Incomplete, imprecise, or inconsistent labeling can introduce noise into the training data, ultimately reducing the model’s accuracy and effectiveness. These bad annotations can disrupt workflows, causing models to learn incorrect patterns, confuse similar objects, or fail to generalize well to new data. Additionally, poor annotations may lead to an increased likelihood of overfitting, where the model memorizes incorrect relationships rather than learning meaningful patterns. This can be particularly damaging when scaling the model to larger datasets or applying it to real-world scenarios.</p>
 <p>For instance, if bounding boxes are poorly drawn—either too tightly cropped (underfitting), too loosely drawn (overfitting), or missing the object entirely— the model may struggle to focus on the object or be misled by irrelevant background. Inconsistent use of class labels across images can also confuse the model, reducing its performance. To better understand how different types of poor annotations can affect model training, the figure below demonstrates three common examples of bad bounding box annotations: overfitting, underfitting, and misidentification.</p>
 <figure class="align-default" id="bad-bbox-example">
 <img alt="../_images/bad_annotations.png" src="../_images/bad_annotations.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Examples of bad bounding box annotations: overfitting, underfitting, and misidentification. Credit: A.Carter, OOI-NS</span><a class="headerlink" href="#bad-bbox-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Examples of bad bounding box annotations: overfitting, underfitting, and misidentification. Credit: A.Carter, OOI-NS</span><a class="headerlink" href="#bad-bbox-example" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -605,8 +621,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -682,8 +697,8 @@ By Atticus Carter
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

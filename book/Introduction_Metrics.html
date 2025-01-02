@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>8. Understanding CV Metrics and Graphs &#8212; Computer Vision Across Oceanography</title>
   
@@ -16,60 +17,57 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/Introduction_Metrics';</script>
     <link rel="canonical" href="https://atticus-carter.github.io/cv/book/Introduction_Metrics.html" />
-    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="shortcut icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Image Classification with Keras" href="Classification_Keras.html" />
     <link rel="prev" title="7. The Math Behind Convolutional Neural Networks (CNNs)" href="Introduction_CNN.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +83,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -94,6 +103,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +111,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +128,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +158,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="Computer Vision Across Oceanography - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Computer Vision Across Oceanography - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Computer Vision Across Oceanography - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
@@ -210,14 +223,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -427,16 +435,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -533,12 +549,12 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="understanding-cv-metrics-and-graphs">
-<span id="lesson-7"></span><h1><span class="section-number">8. </span>Understanding CV Metrics and Graphs<a class="headerlink" href="#understanding-cv-metrics-and-graphs" title="Link to this heading">#</a></h1>
+<span id="lesson-7"></span><h1><span class="section-number">8. </span>Understanding CV Metrics and Graphs<a class="headerlink" href="#understanding-cv-metrics-and-graphs" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">8.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
 <p>In this lesson, we will dive deep into the essential <strong>metrics and graphs</strong> used to evaluate computer vision models during training and after deployment. Understanding these metrics is crucial for diagnosing issues like overfitting and underfitting, as well as improving model performance. We will cover key metrics such as <strong>accuracy</strong>, <strong>precision</strong>, <strong>mAP (mean Average Precision)</strong>, and discuss important concepts like <strong>training loss</strong> and <strong>validation loss</strong>, and their associated graphs.</p>
 <section id="learning-objectives">
-<h3><span class="section-number">8.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
 <li><p>Understand the importance of key metrics such as <strong>accuracy</strong>, <strong>precision</strong>, <strong>mAP</strong>, and <strong>F1 score</strong> for evaluating model performance.</p></li>
@@ -550,13 +566,13 @@
 </section>
 <hr class="docutils" />
 <section id="key-metrics-in-computer-vision">
-<h2><span class="section-number">8.2. </span>Key Metrics in Computer Vision<a class="headerlink" href="#key-metrics-in-computer-vision" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.2. </span>Key Metrics in Computer Vision<a class="headerlink" href="#key-metrics-in-computer-vision" title="Permalink to this heading">#</a></h2>
 <p>Computer vision models are evaluated using several metrics that provide insight into how well the model is performing on both training and unseen data. Here, we break down some of the most important metrics used in image classification, object detection, and segmentation tasks.</p>
 <section id="accuracy">
-<h3><span class="section-number">8.2.1. </span>Accuracy<a class="headerlink" href="#accuracy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.2.1. </span>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this heading">#</a></h3>
 <p><strong>Accuracy</strong> measures the percentage of correct predictions out of the total predictions made by the model.</p>
 <section id="formula">
-<h4><span class="section-number">8.2.1.1. </span>Formula:<a class="headerlink" href="#formula" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.2.1.1. </span>Formula:<a class="headerlink" href="#formula" title="Permalink to this heading">#</a></h4>
 <p>[
 \text{Accuracy} = \frac{\text{Correct Predictions}}{\text{Total Predictions}} \times 100
 ]</p>
@@ -565,10 +581,10 @@
 </section>
 <hr class="docutils" />
 <section id="precision">
-<h3><span class="section-number">8.2.2. </span>Precision<a class="headerlink" href="#precision" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.2.2. </span>Precision<a class="headerlink" href="#precision" title="Permalink to this heading">#</a></h3>
 <p><strong>Precision</strong> measures how many of the predicted positive instances (e.g., correctly classified images) are actually correct.</p>
 <section id="id1">
-<h4><span class="section-number">8.2.2.1. </span>Formula:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.2.2.1. </span>Formula:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <p>[
 \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
 ]</p>
@@ -578,10 +594,10 @@
 </section>
 <hr class="docutils" />
 <section id="recall">
-<h3><span class="section-number">8.2.3. </span>Recall<a class="headerlink" href="#recall" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.2.3. </span>Recall<a class="headerlink" href="#recall" title="Permalink to this heading">#</a></h3>
 <p><strong>Recall</strong> measures how many of the actual positive instances were correctly identified by the model.</p>
 <section id="id2">
-<h4><span class="section-number">8.2.3.1. </span>Formula:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.2.3.1. </span>Formula:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
 <p>[
 \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
 ]</p>
@@ -590,10 +606,10 @@
 </section>
 <hr class="docutils" />
 <section id="f1-score">
-<h3><span class="section-number">8.2.4. </span>F1 Score<a class="headerlink" href="#f1-score" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.2.4. </span>F1 Score<a class="headerlink" href="#f1-score" title="Permalink to this heading">#</a></h3>
 <p>The <strong>F1 Score</strong> is the harmonic mean of precision and recall. It balances the trade-off between the two metrics, especially when dealing with imbalanced datasets.</p>
 <section id="id3">
-<h4><span class="section-number">8.2.4.1. </span>Formula:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.2.4.1. </span>Formula:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <p>[
 F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
 ]</p>
@@ -602,10 +618,10 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </section>
 <hr class="docutils" />
 <section id="mean-average-precision-map">
-<h3><span class="section-number">8.2.5. </span>Mean Average Precision (mAP)<a class="headerlink" href="#mean-average-precision-map" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.2.5. </span>Mean Average Precision (mAP)<a class="headerlink" href="#mean-average-precision-map" title="Permalink to this heading">#</a></h3>
 <p>In object detection tasks, the <strong>mean Average Precision (mAP)</strong> is a widely used metric that evaluates how well the model predicts the bounding boxes for multiple classes.</p>
 <section id="id4">
-<h4><span class="section-number">8.2.5.1. </span>Formula:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.2.5.1. </span>Formula:<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <p>mAP is calculated by averaging the <strong>Average Precision (AP)</strong> across all classes:
 [
 \text{mAP} = \frac{1}{n} \sum_{i=1}^{n} AP_i
@@ -620,12 +636,12 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </section>
 <hr class="docutils" />
 <section id="training-and-validation-loss">
-<h2><span class="section-number">8.3. </span>Training and Validation Loss<a class="headerlink" href="#training-and-validation-loss" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.3. </span>Training and Validation Loss<a class="headerlink" href="#training-and-validation-loss" title="Permalink to this heading">#</a></h2>
 <section id="training-loss">
-<h3><span class="section-number">8.3.1. </span>Training Loss<a class="headerlink" href="#training-loss" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.3.1. </span>Training Loss<a class="headerlink" href="#training-loss" title="Permalink to this heading">#</a></h3>
 <p><strong>Training loss</strong> measures how well the model is performing on the training data. It is calculated by comparing the model’s predictions to the actual labels and computing a loss function (e.g., <strong>categorical cross-entropy</strong> for classification tasks).</p>
 <section id="interpretation">
-<h4><span class="section-number">8.3.1.1. </span>Interpretation:<a class="headerlink" href="#interpretation" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.3.1.1. </span>Interpretation:<a class="headerlink" href="#interpretation" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Decreasing Training Loss</strong>: A decreasing training loss indicates that the model is learning from the data.</p></li>
 <li><p><strong>Low Training Loss</strong>: If the training loss is too low while the validation loss is high, the model may be <strong>overfitting</strong> to the training data.</p></li>
@@ -634,10 +650,10 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </section>
 <hr class="docutils" />
 <section id="validation-loss">
-<h3><span class="section-number">8.3.2. </span>Validation Loss<a class="headerlink" href="#validation-loss" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.3.2. </span>Validation Loss<a class="headerlink" href="#validation-loss" title="Permalink to this heading">#</a></h3>
 <p><strong>Validation loss</strong> measures how well the model is performing on the validation dataset, which is not seen by the model during training. It is crucial for evaluating the model’s ability to generalize to new data.</p>
 <section id="id5">
-<h4><span class="section-number">8.3.2.1. </span>Interpretation:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.3.2.1. </span>Interpretation:<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Increasing Validation Loss</strong>: If the validation loss increases while the training loss decreases, it suggests the model is overfitting.</p></li>
 <li><p><strong>Balanced Validation Loss</strong>: If the validation loss decreases and converges alongside the training loss, the model is likely generalizing well.</p></li>
@@ -646,9 +662,9 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </section>
 <hr class="docutils" />
 <section id="overfitting-and-underfitting">
-<h3><span class="section-number">8.3.3. </span>Overfitting and Underfitting<a class="headerlink" href="#overfitting-and-underfitting" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.3.3. </span>Overfitting and Underfitting<a class="headerlink" href="#overfitting-and-underfitting" title="Permalink to this heading">#</a></h3>
 <section id="overfitting">
-<h4><span class="section-number">8.3.3.1. </span>Overfitting<a class="headerlink" href="#overfitting" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.3.3.1. </span>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this heading">#</a></h4>
 <p><strong>Overfitting</strong> occurs when the model learns too much from the training data, capturing noise and patterns that do not generalize to unseen data. This results in:</p>
 <ul class="simple">
 <li><p><strong>Low training loss</strong> but <strong>high validation loss</strong>.</p></li>
@@ -656,7 +672,7 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </ul>
 </section>
 <section id="how-to-address-overfitting">
-<h4><span class="section-number">8.3.3.2. </span>How to Address Overfitting:<a class="headerlink" href="#how-to-address-overfitting" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.3.3.2. </span>How to Address Overfitting:<a class="headerlink" href="#how-to-address-overfitting" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Early stopping</strong>: Stop training when the validation loss starts increasing.</p></li>
 <li><p><strong>Data augmentation</strong>: Increase the variety of the training data by applying transformations like rotation, flipping, or scaling.</p></li>
@@ -665,7 +681,7 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </section>
 <hr class="docutils" />
 <section id="underfitting">
-<h4><span class="section-number">8.3.3.3. </span>Underfitting<a class="headerlink" href="#underfitting" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.3.3.3. </span>Underfitting<a class="headerlink" href="#underfitting" title="Permalink to this heading">#</a></h4>
 <p><strong>Underfitting</strong> occurs when the model is too simple and fails to learn the underlying patterns in the data. This results in:</p>
 <ul class="simple">
 <li><p><strong>High training loss</strong> and <strong>high validation loss</strong>.</p></li>
@@ -673,7 +689,7 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </ul>
 </section>
 <section id="how-to-address-underfitting">
-<h4><span class="section-number">8.3.3.4. </span>How to Address Underfitting:<a class="headerlink" href="#how-to-address-underfitting" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.3.3.4. </span>How to Address Underfitting:<a class="headerlink" href="#how-to-address-underfitting" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Increase model complexity</strong>: Add more layers or units to the model.</p></li>
 <li><p><strong>Train for more epochs</strong>: Ensure the model has enough time to learn from the data.</p></li>
@@ -684,12 +700,12 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </section>
 <hr class="docutils" />
 <section id="training-and-validation-accuracy">
-<h2><span class="section-number">8.4. </span>Training and Validation Accuracy<a class="headerlink" href="#training-and-validation-accuracy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.4. </span>Training and Validation Accuracy<a class="headerlink" href="#training-and-validation-accuracy" title="Permalink to this heading">#</a></h2>
 <section id="training-accuracy">
-<h3><span class="section-number">8.4.1. </span>Training Accuracy<a class="headerlink" href="#training-accuracy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.4.1. </span>Training Accuracy<a class="headerlink" href="#training-accuracy" title="Permalink to this heading">#</a></h3>
 <p><strong>Training accuracy</strong> refers to the model’s accuracy on the training dataset. A high training accuracy means that the model is able to correctly classify a large portion of the training data.</p>
 <section id="id6">
-<h4><span class="section-number">8.4.1.1. </span>Interpretation:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.4.1.1. </span>Interpretation:<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Increasing Training Accuracy</strong>: A steadily increasing training accuracy is a good sign that the model is learning.</p></li>
 <li><p><strong>Too High Training Accuracy</strong>: If training accuracy becomes very high, but validation accuracy is low, this could indicate <strong>overfitting</strong>.</p></li>
@@ -698,10 +714,10 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </section>
 <hr class="docutils" />
 <section id="validation-accuracy">
-<h3><span class="section-number">8.4.2. </span>Validation Accuracy<a class="headerlink" href="#validation-accuracy" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.4.2. </span>Validation Accuracy<a class="headerlink" href="#validation-accuracy" title="Permalink to this heading">#</a></h3>
 <p><strong>Validation accuracy</strong> is the model’s accuracy on the validation dataset, which represents its ability to generalize to new, unseen data.</p>
 <section id="id7">
-<h4><span class="section-number">8.4.2.1. </span>Interpretation:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">8.4.2.1. </span>Interpretation:<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Balanced Training and Validation Accuracy</strong>: If training and validation accuracy rise together, this indicates a well-performing model.</p></li>
 <li><p><strong>Validation Accuracy Drops</strong>: If validation accuracy decreases while training accuracy increases, this suggests <strong>overfitting</strong>.</p></li>
@@ -711,15 +727,15 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 </section>
 <hr class="docutils" />
 <section id="graphs-training-vs-validation-metrics">
-<h2><span class="section-number">8.5. </span>Graphs: Training vs Validation Metrics<a class="headerlink" href="#graphs-training-vs-validation-metrics" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.5. </span>Graphs: Training vs Validation Metrics<a class="headerlink" href="#graphs-training-vs-validation-metrics" title="Permalink to this heading">#</a></h2>
 <section id="loss-graphs">
-<h3><span class="section-number">8.5.1. </span>Loss Graphs<a class="headerlink" href="#loss-graphs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.5.1. </span>Loss Graphs<a class="headerlink" href="#loss-graphs" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Training Loss vs Validation Loss</strong>: A typical loss graph should show both training and validation loss decreasing over time. If validation loss starts to increase while training loss decreases, it indicates overfitting.</p></li>
 </ul>
 </section>
 <section id="accuracy-graphs">
-<h3><span class="section-number">8.5.2. </span>Accuracy Graphs<a class="headerlink" href="#accuracy-graphs" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.5.2. </span>Accuracy Graphs<a class="headerlink" href="#accuracy-graphs" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Training Accuracy vs Validation Accuracy</strong>: The accuracy graph should ideally show both training and validation accuracy increasing. If the gap between training and validation accuracy becomes too large, the model may be overfitting.</p></li>
 </ul>
@@ -783,8 +799,7 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -902,8 +917,8 @@ By Atticus Carter
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
