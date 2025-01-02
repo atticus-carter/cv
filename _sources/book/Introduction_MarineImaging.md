@@ -1,4 +1,4 @@
-# Introduction to Marine Imaging
+# Marine Imaging
 
 ## Overview
 

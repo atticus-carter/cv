@@ -1,4 +1,4 @@
-# Introduction to Artificial Intelligence in Marine Science
+# Artificial Intelligence in Marine Science
 
 ## Overview
 In this section we will explore artificial intelligence and its use in the marine sciences. We will discuss how computer vision fits within machine learning and artificial intelligence more broadly as these terms are often used interchangeably. We will also explore examples of other marine science problems that use AI beyond computer vision. 
