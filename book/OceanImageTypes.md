@@ -1,5 +1,4 @@
-(lesson-1)=
-# Introduction to Ocean Image Data
+# Ocean Image Data
 
 ## Overview
 
@@ -12,16 +11,6 @@ By the end of this section, you will:
 - Identify the tools and techniques used to capture marine imagery.
 
 ---
-
-## Fundamental image types
-
-### Video and still images
-
-### Monocular, stereo, and omnidirectional photography
- 
-### Color and monochrome photography
-
-### Non-conventional photography
 
 ## Tools for Capturing Ocean Image Data
 
