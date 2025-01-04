@@ -42,7 +42,7 @@ Marine biologists use photoquadrats to record species diversity and percent cora
 ##### Drop Cameras
 Drop cameras are used to collect images of the seafloor at a point location. They were used to collect some of the earliest images of the seafloor. The cameras can collect video and digital still imagery. They are commonly used in habitat mapping as a method of ground truthing either acoustically collected data or model predictions.  
 
-:::{figure} images/
+:::{figure} images/Drop-camera.jpg
 :name: drop_camera
 Drop camera used by the Commonwealth Scientific and Industrial Research Organisation (CSIRO) being put overboard. Credit: CSIRO
 :::
@@ -98,7 +98,7 @@ A digital still camera on the OOI Regional Cabled Array capturing methane seep a
 ##### HOVs (Human Operated Vehicles)
 HOVs are crewed submersibles, they typically carry one pilot, a copilot, and one or two scientists. They are highly flexible in the operations they can undertake including collecting real-time video and still imagery and physical sampling. In 2013, there were ten large manned submersibles used by scientific institutions (Smith and Ruhmohr 2013). Notable examples are:
 
-::{figure} images/Alvin.jpg
+:::{figure} images/Alvin.jpg
 :name: HOV_Alvin
 Human-occupied vehicle Alvin is recovered onboard after completing its final dive of the 2018 DEEP SEARCH expedition. Credit: DEEP SEARCH 2018 - BOEM, USGS, NOAA.
 :::

@@ -453,7 +453,8 @@ document.write(`
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#underwater-vehicles">3.2.1.3. Underwater Vehicles</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hovs-human-operated-vehicles">3.2.1.3.1. HOVs (Human Operated Vehicles)</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#auvs-autonomous-underwater-vehicles">3.2.1.3.2. AUVs (Autonomous Underwater Vehicles)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rovs-remotely-operated-vehicles">3.2.1.3.2. ROVs (Remotely Operated Vehicles)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#auvs-autonomous-underwater-vehicles">3.2.1.3.3. AUVs (Autonomous Underwater Vehicles)</a></li>
 </ul>
 </li>
 </ul>
@@ -520,7 +521,7 @@ document.write(`
 <h5><span class="section-number">3.2.1.2.1. </span>Drop Cameras<a class="headerlink" href="#drop-cameras" title="Permalink to this heading">#</a></h5>
 <p>Drop cameras are used to collect images of the seafloor at a point location. They were used to collect some of the earliest images of the seafloor. The cameras can collect video and digital still imagery. They are commonly used in habitat mapping as a method of ground truthing either acoustically collected data or model predictions.</p>
 <figure class="align-default" id="drop-camera">
-<img alt="../_images/images" src="../_images/images" />
+<img alt="book/images/Drop-camera.jpg" src="book/images/Drop-camera.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Drop camera used by the Commonwealth Scientific and Industrial Research Organisation (CSIRO) being put overboard. Credit: CSIRO</span><a class="headerlink" href="#drop-camera" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -583,10 +584,12 @@ document.write(`
 <section id="hovs-human-operated-vehicles">
 <h5><span class="section-number">3.2.1.3.1. </span>HOVs (Human Operated Vehicles)<a class="headerlink" href="#hovs-human-operated-vehicles" title="Permalink to this heading">#</a></h5>
 <p>HOVs are crewed submersibles, they typically carry one pilot, a copilot, and one or two scientists. They are highly flexible in the operations they can undertake including collecting real-time video and still imagery and physical sampling. In 2013, there were ten large manned submersibles used by scientific institutions (Smith and Ruhmohr 2013). Notable examples are:</p>
-<p>::{figure} images/Alvin.jpg
-:name: HOV_Alvin
-Human-occupied vehicle Alvin is recovered onboard after completing its final dive of the 2018 DEEP SEARCH expedition. Credit: DEEP SEARCH 2018 - BOEM, USGS, NOAA.</p>
-<div class="docutils">
+<figure class="align-default" id="hov-alvin">
+<img alt="../_images/Alvin.jpg" src="../_images/Alvin.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Human-occupied vehicle Alvin is recovered onboard after completing its final dive of the 2018 DEEP SEARCH expedition. Credit: DEEP SEARCH 2018 - BOEM, USGS, NOAA.</span><a class="headerlink" href="#hov-alvin" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p><strong>Alvin</strong>: 3-person research submersible operated by the National Deep Submergence Facility (NDSF) at WHOI. Depth rated to 6,500 meters, includes multiple 4K ultra-high definition cameras, able to support custom sensors and samplers.</p></li>
 <li><p><strong>Shinkai 6500</strong>: 3-person research submersible operated by the Japan Agency for Marine Earth Science and Technology (JAMSTEC). Depth rated to 6,500 meters, includes multiple HD video cameras and manipulators.</p></li>
@@ -602,7 +605,9 @@ Human-occupied vehicle Alvin is recovered onboard after completing its final div
 <li><p>Risk to human occupants.</p></li>
 <li><p>High cost - including significant maintenance infrastructure and trained personnel.</p></li>
 </ul>
-<h5 class="rubric" id="rovs-remotely-operated-vehicles">ROVs (Remotely Operated Vehicles)</h5>
+</section>
+<section id="rovs-remotely-operated-vehicles">
+<h5><span class="section-number">3.2.1.3.2. </span>ROVs (Remotely Operated Vehicles)<a class="headerlink" href="#rovs-remotely-operated-vehicles" title="Permalink to this heading">#</a></h5>
 <p>ROVs are uncrewed submersibles controlled from the surface. They are connected to a surface vessel via an umbilical or tether. The tether provides control signals, power, and live feedback from video and other sensors. Due to their connection to the ship, there are no limitations on the length of time an ROV can stay in the water. They provide real-time video and still imagery, often equipped with sampling tools. ROVs can range in size from small to very large and are used at depths between 30 and 6500 m. Notable examples are:</p>
 <ul class="simple">
 <li><p><strong>Jason</strong>: Capable of deep-sea exploration, reaching depths of up to 6,500 meters. Operated by the National Deep Submergence Facility (NDSF) at WHOI, it includes high-definition video and robotic arms for sample collection.</p></li>
@@ -611,10 +616,9 @@ Human-occupied vehicle Alvin is recovered onboard after completing its final div
 <figure class="align-default" id="rov-jason">
 <img alt="../_images/image-1.png" src="../_images/image-1.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">The ROV Jason Equipped with 4k video cameras. Credit: M. Elend, University of Washington</span><a class="headerlink" href="#rov-jason" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">The ROV Jason Equipped with 4k video cameras. Credit: M. Elend, University of Washington</span><a class="headerlink" href="#rov-jason" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-</div>
 <p><strong>Advantages of ROVs</strong>:</p>
 <ul class="simple">
 <li><p>Real-time control for targeted exploration.</p></li>
@@ -628,12 +632,12 @@ Human-occupied vehicle Alvin is recovered onboard after completing its final div
 </ul>
 </section>
 <section id="auvs-autonomous-underwater-vehicles">
-<h5><span class="section-number">3.2.1.3.2. </span>AUVs (Autonomous Underwater Vehicles)<a class="headerlink" href="#auvs-autonomous-underwater-vehicles" title="Permalink to this heading">#</a></h5>
+<h5><span class="section-number">3.2.1.3.3. </span>AUVs (Autonomous Underwater Vehicles)<a class="headerlink" href="#auvs-autonomous-underwater-vehicles" title="Permalink to this heading">#</a></h5>
 <p>AUVs are pre-programmed to follow missions autonomously, capturing imagery without human intervention. A prime example is <strong>Sentry</strong>, which collects data at depths of up to 6,000 meters. AUVs deployments are only limited by the size of their onboard batteries which now commonly can operate for up to 24 hours at time.</p>
 <figure class="align-default" id="auv-sentry">
 <img alt="../_images/image-3.png" src="../_images/image-3.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">AUV Sentry at the surface after a deep dive. Credit: WHOI</span><a class="headerlink" href="#auv-sentry" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">AUV Sentry at the surface after a deep dive. Credit: WHOI</span><a class="headerlink" href="#auv-sentry" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Advantages of AUVs</strong>:</p>
@@ -661,7 +665,7 @@ Human-occupied vehicle Alvin is recovered onboard after completing its final div
 <figure class="align-default" id="id4">
 <img alt="../_images/image-2.png" src="../_images/image-2.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Satellite imagery showing a phytoplankton bloom. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Satellite imagery showing a phytoplankton bloom. Credit: NASA Goddard Space Flight Center, Ocean Ecology Laboratory</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Advantages of Satellite Imagery</strong>:</p>
@@ -679,7 +683,7 @@ Human-occupied vehicle Alvin is recovered onboard after completing its final div
 <figure class="align-default" id="seal-population">
 <img alt="../_images/image-4.png" src="../_images/image-4.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Seals on Arctic sea ice captured with an aerial camera, annotated with a CV model. Credit: A. Carter, NOAA National Marine Mammal Laboratory</span><a class="headerlink" href="#seal-population" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Seals on Arctic sea ice captured with an aerial camera, annotated with a CV model. Credit: A. Carter, NOAA National Marine Mammal Laboratory</span><a class="headerlink" href="#seal-population" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Advantages of Aerial Imagery</strong>:</p>
@@ -774,7 +778,8 @@ Human-occupied vehicle Alvin is recovered onboard after completing its final div
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#underwater-vehicles">3.2.1.3. Underwater Vehicles</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#hovs-human-operated-vehicles">3.2.1.3.1. HOVs (Human Operated Vehicles)</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#auvs-autonomous-underwater-vehicles">3.2.1.3.2. AUVs (Autonomous Underwater Vehicles)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#rovs-remotely-operated-vehicles">3.2.1.3.2. ROVs (Remotely Operated Vehicles)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#auvs-autonomous-underwater-vehicles">3.2.1.3.3. AUVs (Autonomous Underwater Vehicles)</a></li>
 </ul>
 </li>
 </ul>
