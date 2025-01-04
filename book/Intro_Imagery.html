@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Ocean Image Data &#8212; Computer Vision Across Oceanography</title>
+    <title>2. Imagery Fundamentals &#8212; Computer Vision Across Oceanography</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="shortcut icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Ocean Image Data" href="OceanImageTypes.html" />
-    <link rel="prev" title="2. Artificial Intelligence in Marine Science" href="Introduction_AI.html" />
+    <link rel="next" title="3. Ocean Image Data" href="OceanImageTypes.html" />
+    <link rel="prev" title="1. Marine Imaging" href="Introduction_MarineImaging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,18 +181,17 @@
 <li class="toctree-l1"><a class="reference internal" href="Tools.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="License_Page.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Acknowledgements.html">Acknowledgements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Contributing_Page.html">Contributing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction to Marine Imaging</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Introduction_MarineImaging.html">1. Marine Imaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Introduction_AI.html">2. Artificial Intelligence in Marine Science</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Ocean Image Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OceanImageTypes.html">4. Ocean Image Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Imagery Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OceanImageTypes.html">3. Ocean Image Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction_AI.html">4. Artificial Intelligence in Marine Science</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Introduction to Computer Vision</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Image_Annotation.html">5. Image Annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image_Annotation_CV.html">5. Image Annotation for Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Augmentation_Manual.html">6. Image Manipulation in Python with PIL and OpenCV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Augmentation_Albumentation.html">7. Creating and Augmenting Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Introduction_Metrics.html">8. Understanding CV Metrics and Graphs</a></li>
@@ -429,7 +428,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ocean Image Data</h1>
+    <h1>Imagery Fundamentals</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -439,18 +438,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">3.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.1.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">2.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">2.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-image-types">3.2. Fundamental image types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-and-still-images">3.2.1. Video and still images</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monocular-stereo-and-omnidirectional-photography">3.2.2. Monocular, stereo, and omnidirectional photography</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-and-monochrome-photography">3.2.3. Color and monochrome photography</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-conventional-photography">3.2.4. Non-conventional photography</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-image">2.2. What is an image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-image-types">2.3. Fundamental image types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-and-still-images">2.3.1. Video and still images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monocular-stereo-and-omnidirectional-photography">2.3.2. Monocular, stereo, and omnidirectional photography</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-and-monochrome-photography">2.3.3. Color and monochrome photography</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-conventional-photography">2.3.4. Non-conventional photography</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-capturing-ocean-image-data">3.3. Tools for Capturing Ocean Image Data</a></li>
 </ul>
             </nav>
         </div>
@@ -462,13 +461,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ocean-image-data">
-<h1><span class="section-number">3. </span>Ocean Image Data<a class="headerlink" href="#ocean-image-data" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="imagery-fundamentals">
+<h1><span class="section-number">2. </span>Imagery Fundamentals<a class="headerlink" href="#imagery-fundamentals" title="Permalink to this heading">#</a></h1>
 <section id="overview">
-<h2><span class="section-number">3.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<p>In this lesson, we will explore <strong>marine photographic and videographic data</strong>. We will also discuss the tools used to capture these images and videos, such as <strong>underwater cameras</strong>, <strong>drones</strong>, and <strong>satellite imagery</strong>. Understanding the types of imagery available is the first step toward understanding what questions can be answered with <strong>Marine Imagery</strong> and <strong>Computer Vision (CV)</strong> techniques.</p>
+<h2><span class="section-number">2.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<p>In this lesson, we will explore some fundamentals of imagery. Understanding these basics will help with understanding <strong>Marine Imagery</strong> and <strong>Computer Vision (CV)</strong> techniques.</p>
 <section id="learning-objectives">
-<h3><span class="section-number">3.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
 <li><p>Understand the different types of ocean image data.</p></li>
@@ -477,23 +476,23 @@ document.write(`
 </section>
 </section>
 <hr class="docutils" />
+<section id="what-is-an-image">
+<h2><span class="section-number">2.2. </span>What is an image<a class="headerlink" href="#what-is-an-image" title="Permalink to this heading">#</a></h2>
+</section>
 <section id="fundamental-image-types">
-<h2><span class="section-number">3.2. </span>Fundamental image types<a class="headerlink" href="#fundamental-image-types" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Fundamental image types<a class="headerlink" href="#fundamental-image-types" title="Permalink to this heading">#</a></h2>
 <section id="video-and-still-images">
-<h3><span class="section-number">3.2.1. </span>Video and still images<a class="headerlink" href="#video-and-still-images" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.1. </span>Video and still images<a class="headerlink" href="#video-and-still-images" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="monocular-stereo-and-omnidirectional-photography">
-<h3><span class="section-number">3.2.2. </span>Monocular, stereo, and omnidirectional photography<a class="headerlink" href="#monocular-stereo-and-omnidirectional-photography" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2. </span>Monocular, stereo, and omnidirectional photography<a class="headerlink" href="#monocular-stereo-and-omnidirectional-photography" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="color-and-monochrome-photography">
-<h3><span class="section-number">3.2.3. </span>Color and monochrome photography<a class="headerlink" href="#color-and-monochrome-photography" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.3. </span>Color and monochrome photography<a class="headerlink" href="#color-and-monochrome-photography" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="non-conventional-photography">
-<h3><span class="section-number">3.2.4. </span>Non-conventional photography<a class="headerlink" href="#non-conventional-photography" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.3.4. </span>Non-conventional photography<a class="headerlink" href="#non-conventional-photography" title="Permalink to this heading">#</a></h3>
 </section>
-</section>
-<section id="tools-for-capturing-ocean-image-data">
-<h2><span class="section-number">3.3. </span>Tools for Capturing Ocean Image Data<a class="headerlink" href="#tools-for-capturing-ocean-image-data" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -528,12 +527,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Introduction_AI.html"
+       href="Introduction_MarineImaging.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Artificial Intelligence in Marine Science</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Marine Imaging</p>
       </div>
     </a>
     <a class="right-next"
@@ -541,7 +540,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Ocean Image Data</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Ocean Image Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -561,18 +560,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">3.1. Overview</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">3.1.1. Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">2.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">2.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-image-types">3.2. Fundamental image types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-and-still-images">3.2.1. Video and still images</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monocular-stereo-and-omnidirectional-photography">3.2.2. Monocular, stereo, and omnidirectional photography</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-and-monochrome-photography">3.2.3. Color and monochrome photography</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-conventional-photography">3.2.4. Non-conventional photography</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-image">2.2. What is an image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-image-types">2.3. Fundamental image types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-and-still-images">2.3.1. Video and still images</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monocular-stereo-and-omnidirectional-photography">2.3.2. Monocular, stereo, and omnidirectional photography</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-and-monochrome-photography">2.3.3. Color and monochrome photography</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-conventional-photography">2.3.4. Non-conventional photography</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-for-capturing-ocean-image-data">3.3. Tools for Capturing Ocean Image Data</a></li>
 </ul>
   </nav></div>
 
