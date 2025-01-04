@@ -1,8 +1,8 @@
-# Ocean Image Data
+# Imagery Fundamentals 
 
 ## Overview
 
-In this lesson, we will explore **marine photographic and videographic data**. We will also discuss the tools used to capture these images and videos, such as **underwater cameras**, **drones**, and **satellite imagery**. Understanding the types of imagery available is the first step toward understanding what questions can be answered with **Marine Imagery** and **Computer Vision (CV)** techniques.
+In this lesson, we will explore some fundamentals of imagery. Understanding these basics will help with understanding **Marine Imagery** and **Computer Vision (CV)** techniques.
 
 ### Learning Objectives
 
@@ -11,6 +11,8 @@ By the end of this section, you will:
 - Identify the tools and techniques used to capture marine imagery.
 
 ---
+
+## What is an image
 
 ## Fundamental image types
 
@@ -21,5 +23,3 @@ By the end of this section, you will:
 ### Color and monochrome photography
 
 ### Non-conventional photography
-
-## Tools for Capturing Ocean Image Data

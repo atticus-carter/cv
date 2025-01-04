@@ -8,22 +8,21 @@ parts:
       - file: book/Tools.md 
       - file: book/License_Page.md
       - file: book/Acknowledgements.md
-      - file: book/Contributing_Page.md
    
 
   - caption: "Chapter 1 - Introduction to Marine Imaging"
     numbered: true
     chapters:
       - file: book/Introduction_MarineImaging.md
-      - file: book/Introduction_AI.md
       - file: book/Intro_Imagery.md
       - file: book/OceanImageTypes.md
+      - file: book/Introduction_AI.md
 
 
   - caption: "Chapter 2 - Introduction to Computer Vision"
     numbered: true
     chapters: 
-      - file: book/Image_Annotation.md
+      - file: book/Image_Annotation_CV.md
       - file: book/Augmentation_Manual.ipynb
       - file: book/Augmentation_Albumentation.ipynb
       - file: book/Introduction_Metrics.ipynb

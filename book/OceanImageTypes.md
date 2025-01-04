@@ -25,6 +25,11 @@ Underwater imagery capture broadly falls into several categories including **div
 #### Diver-Held Cameras
 In shallow waters underwater imagery collection can be as simple as outfitting a diver with a camera. These divers can be free swimming or towed by a small craft. 
 
+:::{figure} images/SF9.1A-Papahanaumokuakea.jpg
+:name: diver_camera
+Marine biologists use photoquadrats to record species diversity and percent coral cover underwater at the Papahānaumokuākea Marine National Monument in Hawai‘i. Credit: National Oceanic and Atmospheric Administration (NOAA)
+:::
+
 **Advantages of Diver-Held Cameras**:
 - Highly responsive - human operator can adjust the image quality, field of view, positioning and lighting on the fly in response to water conditions and observations.
 
@@ -37,6 +42,11 @@ In shallow waters underwater imagery collection can be as simple as outfitting a
 ##### Drop Cameras
 Drop cameras are used to collect images of the seafloor at a point location. They were used to collect some of the earliest images of the seafloor. The cameras can collect video and digital still imagery. They are commonly used in habitat mapping as a method of ground truthing either acoustically collected data or model predictions.  
 
+:::{figure} images/
+:name: drop_camera
+Drop camera used by the Commonwealth Scientific and Industrial Research Organisation (CSIRO) being put overboard. Credit: CSIRO
+:::
+
 **Advantages of Drop Cameras**:
 - Low cost.
 
@@ -46,6 +56,11 @@ Drop cameras are used to collect images of the seafloor at a point location. The
 ##### Towed Camera Systems
 
 Towed camera systems can capture images or video transects at the seafloor or in the midwater. They are towed behind a ship and control of the platform comes from a winch and wire. Depending on the system they may or may not stream live data back to the ship via their wire. They are generally considered to be "simple mobile platforms" in contrast to the higher mobility of underwater vehicles. Towed cameras can be part of their own sled or integrated into other sampling equipment such as epibenthic sledges, plankton nets, and coring systems. 
+
+:::{figure} images/DTIS_NIWA.jpg
+:name: towed_camera
+The Deep Towed Imaging System (DTIS) being deployed from the RV <em>Tangaroa</em> in the Ross Sea, Antarctica. DTIS is owned and operated by the National Institute of Water and Atmospheric Research (NIWA) in New Zealand. Credit: Dave Bowden, NIWA
+:::
 
 **Advantages of Towed Camera Systems**:
 - Much lower cost in comparison to HOVs, ROVs, and AUVs
@@ -68,7 +83,7 @@ Fixed camera systems can be cabled and uncabled. Uncabled camera systems are lim
 
 :::{figure} images/image.png
 :name: underwater-camera
-A digital still camera capturing methane seep activity. Credit: UW/NSF-OOI/WHOI
+A digital still camera on the OOI Regional Cabled Array capturing methane seep activity. Credit: UW/NSF-OOI/WHOI
 :::
 
 **Advantages of Fixed Cameras**:
@@ -83,7 +98,13 @@ A digital still camera capturing methane seep activity. Credit: UW/NSF-OOI/WHOI
 ##### HOVs (Human Operated Vehicles)
 HOVs are crewed submersibles, they typically carry one pilot, a copilot, and one or two scientists. They are highly flexible in the operations they can undertake including collecting real-time video and still imagery and physical sampling. In 2013, there were ten large manned submersibles used by scientific institutions (Smith and Ruhmohr 2013). Notable examples are:
 
-- **Alvin**:  
+::{figure} images/Alvin.jpg
+:name: HOV_Alvin
+Human-occupied vehicle Alvin is recovered onboard after completing its final dive of the 2018 DEEP SEARCH expedition. Credit: DEEP SEARCH 2018 - BOEM, USGS, NOAA.
+:::
+
+- **Alvin**: 3-person research submersible operated by the National Deep Submergence Facility (NDSF) at WHOI. Depth rated to 6,500 meters, includes multiple 4K ultra-high definition cameras, able to support custom sensors and samplers.  
+- **Shinkai 6500**: 3-person research submersible operated by the Japan Agency for Marine Earth Science and Technology (JAMSTEC). Depth rated to 6,500 meters, includes multiple HD video cameras and manipulators.
 
 **Advantages of HOVs**:
 - Real-time control and response similar to that of scuba divers. 
@@ -98,8 +119,8 @@ HOVs are crewed submersibles, they typically carry one pilot, a copilot, and one
 
 ROVs are uncrewed submersibles controlled from the surface. They are connected to a surface vessel via an umbilical or tether. The tether provides control signals, power, and live feedback from video and other sensors. Due to their connection to the ship, there are no limitations on the length of time an ROV can stay in the water. They provide real-time video and still imagery, often equipped with sampling tools. ROVs can range in size from small to very large and are used at depths between 30 and 6500 m. Notable examples are:
 
-- **Jason**: Capable of deep-sea exploration, reaching depths of up to 6,500 meters. Operated by WHOI, it includes high-definition video and robotic arms for sample collection.
-- **ROPOS**: A Canadian ROV with similar capabilities as Jason, rated to depths of 5,000 meters. Operated by CSSF, it includes high-definition video and robotic arms for sample collection.
+- **Jason**: Capable of deep-sea exploration, reaching depths of up to 6,500 meters. Operated by the National Deep Submergence Facility (NDSF) at WHOI, it includes high-definition video and robotic arms for sample collection.
+- **ROPOS**: A Canadian ROV with similar capabilities as Jason, rated to depths of 5,000 meters. Operated by the Canadian Scientific Submersible Facility (CSSF), it includes high-definition video and robotic arms for sample collection.
 
 :::{figure} images/image-1.png
 :name: rov-jason

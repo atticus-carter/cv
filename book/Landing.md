@@ -31,8 +31,11 @@ Check out the content pages bundled with this book to dive into the details.
 
 The [Getting Started Page](./Tools.md) provides information on the common software and environments used in these lessons and setting up necessary accounts.
 
+## Contributing
+
+This book is currently under development, we welcome feedback, suggestions, and contributions. To provide any of these feel free to open an issue on the [GitHub repository](https://github.com/atticus-carter/cv).
+
 :::{note}
-For any feedback or suggestions, feel free to open an issue on the [GitHub repository](https://github.com/atticus-carter/cv).
 This text was created using jupyter book! :)
 :::
 

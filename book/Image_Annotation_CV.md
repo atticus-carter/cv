@@ -1,4 +1,4 @@
-# Image Annotation 
+# Image Annotation for Computer Vision
 
 ## Overview
 In this lesson, we will explore image annotation techniques and their importance in training computer vision models. We will also discuss the different types of annotations—**bounding boxes**, **segmentation**, and **keypoint annotation**—and how they are applied in marine imagery to improve model accuracy and reliability.
