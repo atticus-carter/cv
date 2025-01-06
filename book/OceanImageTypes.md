@@ -20,7 +20,7 @@ Ocean image data comes from a variety of sources, each with unique strengths and
 
 Underwater imagery capture is nearly as diverse as the environments that make up the oceans. Each capture type has different advantages and disadvantages, understanding these are key to knowing what questions can be answered by a particular set of images. Some studies utilize multiple image capture types and imagery can be captured to complement other sampling types.
 
-Underwater imagery capture broadly falls into several categories including **diver-held cameras**, **simple camera platforms**,  and **underwater vehicles**.
+Underwater imagery capture falls into several broad categories including **diver-held cameras**, **simple camera platforms**,  and **underwater vehicles**.
 
 #### Diver-Held Cameras
 In shallow waters underwater imagery collection can be as simple as outfitting a diver with a camera. These divers can be free swimming or towed by a small craft. 
