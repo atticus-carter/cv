@@ -595,7 +595,7 @@ document.write(`
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Albumemtations is often installed as A to avoid the long (and annoying to say) name</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">albumentations</span> <span class="k">as</span> <span class="nn">A</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
 </pre></div>
 </div>
 </div>
@@ -700,9 +700,9 @@ document.write(`
 <h3><span class="section-number">7.4.1. </span>Example: Splitting a Dataset with Associated Annotations<a class="headerlink" href="#example-splitting-a-dataset-with-associated-annotations" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="c1"># Directory paths</span>
 <span class="n">image_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/images&#39;</span>
@@ -719,7 +719,7 @@ document.write(`
 <span class="n">val_images</span><span class="p">,</span> <span class="n">test_images</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">val_test_images</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Move images and their annotations to respective folders</span>
-<span class="k">def</span> <span class="nf">move_files</span><span class="p">(</span><span class="n">image_list</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">move_files</span><span class="p">(</span><span class="n">image_list</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_list</span><span class="p">:</span>
         <span class="c1"># Move image</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_dir</span><span class="p">,</span> <span class="n">image</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="n">image</span><span class="p">))</span>
@@ -745,10 +745,10 @@ document.write(`
 <h3><span class="section-number">7.5.1. </span>Example: Batch Augmentations with Albumentations (OpenCV backend)<a class="headerlink" href="#example-batch-augmentations-with-albumentations-opencv-backend" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">albumentations</span> <span class="k">as</span> <span class="nn">A</span>
-<span class="kn">from</span> <span class="nn">albumentations.pytorch</span> <span class="kn">import</span> <span class="n">ToTensorV2</span>
-<span class="kn">import</span> <span class="nn">cv2</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">albumentations.pytorch</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToTensorV2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="c1"># Define augmentation pipeline</span>
 <span class="n">transform</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
@@ -765,7 +765,7 @@ document.write(`
 <span class="n">input_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/train/images&#39;</span>
 <span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/augmented/images&#39;</span>
 
-<span class="k">def</span> <span class="nf">augment_images</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">transform</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">augment_images</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">transform</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_dir</span><span class="p">):</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
     
@@ -918,17 +918,17 @@ document.write(`
 <h3><span class="section-number">7.9.1. </span>Extracting and Loading Images<a class="headerlink" href="#extracting-and-loading-images" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">zipfile</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">cv2</span>
-<span class="kn">import</span> <span class="nn">albumentations</span> <span class="k">as</span> <span class="nn">A</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
 
 <span class="c1"># Paths to the ZIP files</span>
 <span class="n">crab_zip</span> <span class="o">=</span> <span class="s1">&#39;randomcrab.zip&#39;</span>
 <span class="n">fish_zip</span> <span class="o">=</span> <span class="s1">&#39;randomfish.zip&#39;</span>
 
 <span class="c1"># Extract ZIP files</span>
-<span class="k">def</span> <span class="nf">extract_zip</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">extract_path</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_zip</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">extract_path</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
         <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">extract_path</span><span class="p">)</span>
 
@@ -961,7 +961,7 @@ document.write(`
 
 
 <span class="c1"># Function to apply augmentations and save images</span>
-<span class="k">def</span> <span class="nf">augment_and_save</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">augment_and_save</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">):</span>
     <span class="c1"># Read the image</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
     
