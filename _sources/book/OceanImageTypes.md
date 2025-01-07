@@ -42,7 +42,7 @@ Marine biologists use photoquadrats to record species diversity and percent cora
 ##### Drop Cameras
 Drop cameras are used to collect images of the seafloor at a point location. They were used to collect some of the earliest images of the seafloor. The cameras can collect video and digital still imagery. They are commonly used in habitat mapping as a method of ground truthing either acoustically collected data or model predictions.  
 
-:::{figure} images/Drop-camera.jpg
+:::{figure} images/Drop-camera.JPG
 :name: drop_camera
 Drop camera used by the Commonwealth Scientific and Industrial Research Organisation (CSIRO) being put overboard. Credit: CSIRO
 :::
