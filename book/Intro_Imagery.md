@@ -26,7 +26,7 @@ Images are composed of pixels. The word pixel comes from **pic**ture **el**ments
 
 :::{figure} images/pixel_lincoln.png
 :name: pixel_example
-Example of how images are displayed for human users versus how the image appears to the computer. This example comes from {cite}`Pixel` which provides additional examples as well as information about pixel color values and screen display fidelity. 
+Image of Abraham Lincoln as a matrix of pixel values. Example of how images are displayed for human users versus how the image appears to the computer. Credit: {cite}`Wevers2019`
 :::
 
 ## Fundamental image types
