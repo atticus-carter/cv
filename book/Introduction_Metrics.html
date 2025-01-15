@@ -557,7 +557,7 @@ document.write(`
 <h1><span class="section-number">8. </span>Understanding CV Metrics and Graphs<a class="headerlink" href="#understanding-cv-metrics-and-graphs" title="Permalink to this heading">#</a></h1>
 <section id="overview">
 <h2><span class="section-number">8.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<p>In this enhanced section, we will delve deeply into interpreting key <strong>metrics and graphs</strong> essential for evaluating computer vision models. Metrics like <strong>precision</strong>, <strong>recall</strong>, <strong>F1 score</strong>, and <strong>mAP</strong> give insights into model performance, while graphs provide a visual representation of the model’s learning process.</p>
+<p>In this section, we will look into interpreting key <strong>metrics and graphs</strong> essential for evaluating computer vision models. Metrics like <strong>precision</strong>, <strong>recall</strong>, <strong>F1 score</strong>, and <strong>mAP</strong> give insights into model performance, while graphs provide a visual representation of the model’s learning process. The graphs analyzed where produced from localizing a large object detection model (MBARIs Fathomnet) on imagery captured at a methane seep via a digital still camera. To learn more about this model check out its modelcard here: <a class="reference external" href="https://huggingface.co/spaces/FathomNet/RCA_Digital_Still_Cameras">https://huggingface.co/spaces/FathomNet/RCA_Digital_Still_Cameras</a></p>
 <section id="learning-objectives">
 <h3><span class="section-number">8.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
@@ -624,10 +624,11 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 <p>In object detection tasks, the <strong>mean Average Precision (mAP)</strong> evaluates how well the model predicts bounding boxes for multiple classes.</p>
 <section id="id4">
 <h4><span class="section-number">8.2.5.1. </span>Formula:<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
-<p>mAP is calculated by averaging the <strong>Average Precision (AP)</strong> across all classes:
-$<span class="math notranslate nohighlight">\(
+<div class="math notranslate nohighlight">
+\[
 \text{mAP} = \frac{1}{n} \sum_{i=1}^{n} AP_i
-\)</span>$</p>
+\]</div>
+<p>mAP is calculated by averaging the <strong>Average Precision (AP)</strong> across all classes.</p>
 </section>
 </section>
 </section>
