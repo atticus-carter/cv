@@ -59,6 +59,8 @@
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/Introduction_Metrics';</script>
     <link rel="canonical" href="https://atticus-carter.github.io/cv/book/Introduction_Metrics.html" />
     <link rel="shortcut icon" href="../_static/fav.ico"/>
@@ -491,63 +493,55 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics-in-computer-vision">8.2. Key Metrics in Computer Vision</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy">8.2.1. Accuracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics-and-how-they-are-calculated">8.2. Key Metrics and How They Are Calculated</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy">8.2.1. 1. Accuracy</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formula">8.2.1.1. Formula:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">8.2.2. Precision</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">8.2.2. 2. Precision</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.2.2.1. Formula:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall">8.2.3. Recall</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall">8.2.3. 3. Recall</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">8.2.3.1. Formula:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">8.2.4. F1 Score</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">8.2.4. 4. F1 Score</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">8.2.4.1. Formula:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-average-precision-map">8.2.5. Mean Average Precision (mAP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-average-precision-map">8.2.5. 5. Mean Average Precision (mAP)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">8.2.5.1. Formula:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-validation-loss">8.3. Training and Validation Loss</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-loss">8.3.1. Training Loss</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics-and-their-graphs">8.3. Key Metrics and Their Graphs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-confidence-curve">8.3.1. F1- Confidence Curve</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">8.3.1.1. Interpretation:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-loss">8.3.2. Validation Loss</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-recall-pr-curve">8.3.2. Precision-Recall (PR) Curve</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">8.3.2.1. Interpretation:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-and-underfitting">8.3.3. Overfitting and Underfitting</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">8.3.3.1. Overfitting</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-address-overfitting">8.3.3.2. How to Address Overfitting:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#underfitting">8.3.3.3. Underfitting</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-address-underfitting">8.3.3.4. How to Address Underfitting:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-confidence-r-curve">8.3.3. Recall-Confidence (R) Curve</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8.3.3.1. Interpretation:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-curve">8.3.4. Precision Curve</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8.3.4.1. Interpretation:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrices">8.3.5. Confusion Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-confusion-matrix">8.3.5.1. Standard Confusion Matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalized-confusion-matrix">8.3.5.2. Normalized Confusion Matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">8.3.5.3. Interpretation:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-validation-accuracy">8.4. Training and Validation Accuracy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-accuracy">8.4.1. Training Accuracy</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8.4.1.1. Interpretation:</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-accuracy">8.4.2. Validation Accuracy</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8.4.2.1. Interpretation:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs-training-vs-validation-metrics">8.5. Graphs: Training vs Validation Metrics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-graphs">8.5.1. Loss Graphs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-graphs">8.5.2. Accuracy Graphs</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">8.4. Putting It All Together</a></li>
 </ul>
             </nav>
         </div>
@@ -560,198 +554,229 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="understanding-cv-metrics-and-graphs">
-<span id="lesson-7"></span><h1><span class="section-number">8. </span>Understanding CV Metrics and Graphs<a class="headerlink" href="#understanding-cv-metrics-and-graphs" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">8. </span>Understanding CV Metrics and Graphs<a class="headerlink" href="#understanding-cv-metrics-and-graphs" title="Permalink to this heading">#</a></h1>
 <section id="overview">
 <h2><span class="section-number">8.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
-<p>In this lesson, we will dive deep into the essential <strong>metrics and graphs</strong> used to evaluate computer vision models during training and after deployment. Understanding these metrics is crucial for diagnosing issues like overfitting and underfitting, as well as improving model performance. We will cover key metrics such as <strong>accuracy</strong>, <strong>precision</strong>, <strong>mAP (mean Average Precision)</strong>, and discuss important concepts like <strong>training loss</strong> and <strong>validation loss</strong>, and their associated graphs.</p>
+<p>In this enhanced section, we will delve deeply into interpreting key <strong>metrics and graphs</strong> essential for evaluating computer vision models. Metrics like <strong>precision</strong>, <strong>recall</strong>, <strong>F1 score</strong>, and <strong>mAP</strong> give insights into model performance, while graphs provide a visual representation of the model’s learning process.</p>
 <section id="learning-objectives">
 <h3><span class="section-number">8.1.1. </span>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
 <p>By the end of this section, you will:</p>
 <ul class="simple">
-<li><p>Understand the importance of key metrics such as <strong>accuracy</strong>, <strong>precision</strong>, <strong>mAP</strong>, and <strong>F1 score</strong> for evaluating model performance.</p></li>
-<li><p>Learn how to interpret graphs for <strong>training loss</strong>, <strong>validation loss</strong>, and accuracy.</p></li>
-<li><p>Recognize the signs of <strong>overfitting</strong> and <strong>underfitting</strong>, and understand how to address these issues.</p></li>
-<li><p>Gain practical knowledge of how these metrics relate to model generalization and performance on unseen data.</p></li>
+<li><p>Understand key evaluation metrics.</p></li>
+<li><p>Interpret performance graphs effectively.</p></li>
+<li><p>Recognize and diagnose overfitting and underfitting.</p></li>
+<li><p>Use metrics and graphs to improve model performance.</p></li>
 </ul>
 </section>
 </section>
 <hr class="docutils" />
-<section id="key-metrics-in-computer-vision">
-<h2><span class="section-number">8.2. </span>Key Metrics in Computer Vision<a class="headerlink" href="#key-metrics-in-computer-vision" title="Permalink to this heading">#</a></h2>
-<p>Computer vision models are evaluated using several metrics that provide insight into how well the model is performing on both training and unseen data. Here, we break down some of the most important metrics used in image classification, object detection, and segmentation tasks.</p>
+<section id="key-metrics-and-how-they-are-calculated">
+<h2><span class="section-number">8.2. </span>Key Metrics and How They Are Calculated<a class="headerlink" href="#key-metrics-and-how-they-are-calculated" title="Permalink to this heading">#</a></h2>
 <section id="accuracy">
-<h3><span class="section-number">8.2.1. </span>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.1. </span>1. Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this heading">#</a></h3>
 <p><strong>Accuracy</strong> measures the percentage of correct predictions out of the total predictions made by the model.</p>
 <section id="formula">
 <h4><span class="section-number">8.2.1.1. </span>Formula:<a class="headerlink" href="#formula" title="Permalink to this heading">#</a></h4>
-<p>[
+<div class="math notranslate nohighlight">
+\[
 \text{Accuracy} = \frac{\text{Correct Predictions}}{\text{Total Predictions}} \times 100
-]</p>
-<p>While accuracy is a good metric when classes are balanced, it can be misleading in cases where the dataset is imbalanced. For example, in a marine species detection task, if 95% of the dataset consists of images without fish, a model that predicts “no fish” 100% of the time would still have high accuracy despite being ineffective.</p>
+\]</div>
+<p>While accuracy is a good metric when classes are balanced, it can be misleading in cases where the dataset is imbalanced.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="precision">
-<h3><span class="section-number">8.2.2. </span>Precision<a class="headerlink" href="#precision" title="Permalink to this heading">#</a></h3>
-<p><strong>Precision</strong> measures how many of the predicted positive instances (e.g., correctly classified images) are actually correct.</p>
+<h3><span class="section-number">8.2.2. </span>2. Precision<a class="headerlink" href="#precision" title="Permalink to this heading">#</a></h3>
+<p><strong>Precision</strong> measures how many of the predicted positive instances are actually correct.</p>
 <section id="id1">
 <h4><span class="section-number">8.2.2.1. </span>Formula:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
-<p>[
+<div class="math notranslate nohighlight">
+\[
 \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
-]</p>
-<p>Precision is useful in scenarios where false positives are costly, such as in object detection, where incorrectly classifying background elements as objects would reduce precision.</p>
-<p><strong>Use Case</strong>: In a marine species classification task, high precision ensures that when the model predicts the presence of a species (e.g., fish), it is more likely to be correct.</p>
+\]</div>
+<p>Precision is crucial in scenarios where false positives are costly.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="recall">
-<h3><span class="section-number">8.2.3. </span>Recall<a class="headerlink" href="#recall" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.3. </span>3. Recall<a class="headerlink" href="#recall" title="Permalink to this heading">#</a></h3>
 <p><strong>Recall</strong> measures how many of the actual positive instances were correctly identified by the model.</p>
 <section id="id2">
 <h4><span class="section-number">8.2.3.1. </span>Formula:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
-<p>[
+<div class="math notranslate nohighlight">
+\[
 \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-]</p>
-<p><strong>Use Case</strong>: In underwater species detection, recall is crucial if it’s important not to miss any instances of a rare species. High recall ensures the model detects as many true positives as possible, even at the cost of a few false positives.</p>
+\]</div>
+<p>Recall is essential if it’s important not to miss any instances of a particular class.</p>
 </section>
 </section>
-<hr class="docutils" />
 <section id="f1-score">
-<h3><span class="section-number">8.2.4. </span>F1 Score<a class="headerlink" href="#f1-score" title="Permalink to this heading">#</a></h3>
-<p>The <strong>F1 Score</strong> is the harmonic mean of precision and recall. It balances the trade-off between the two metrics, especially when dealing with imbalanced datasets.</p>
+<h3><span class="section-number">8.2.4. </span>4. F1 Score<a class="headerlink" href="#f1-score" title="Permalink to this heading">#</a></h3>
+<p>The <strong>F1 Score</strong> is the harmonic mean of precision and recall. It balances the trade-off between the two metrics. It ranges from 0 to 1, with 1 being the best possible score. The harmonic mean is used to give equal weight to low values. Because of this, if either precision or recall is low, the F1 score will also be low, even if the other value is high. This means that if a model has high precision but low recall, it will have a low F1 score because it is not correctly identifying all of the positive instances.</p>
 <section id="id3">
 <h4><span class="section-number">8.2.4.1. </span>Formula:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
-<p>[
+<div class="math notranslate nohighlight">
+\[
 F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
-]</p>
-<p><strong>Use Case</strong>: F1 score is particularly useful in marine imagery with imbalanced datasets, such as detecting small or rare species.</p>
+\]</div>
 </section>
 </section>
-<hr class="docutils" />
 <section id="mean-average-precision-map">
-<h3><span class="section-number">8.2.5. </span>Mean Average Precision (mAP)<a class="headerlink" href="#mean-average-precision-map" title="Permalink to this heading">#</a></h3>
-<p>In object detection tasks, the <strong>mean Average Precision (mAP)</strong> is a widely used metric that evaluates how well the model predicts the bounding boxes for multiple classes.</p>
+<h3><span class="section-number">8.2.5. </span>5. Mean Average Precision (mAP)<a class="headerlink" href="#mean-average-precision-map" title="Permalink to this heading">#</a></h3>
+<p>In object detection tasks, the <strong>mean Average Precision (mAP)</strong> evaluates how well the model predicts bounding boxes for multiple classes.</p>
 <section id="id4">
 <h4><span class="section-number">8.2.5.1. </span>Formula:<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <p>mAP is calculated by averaging the <strong>Average Precision (AP)</strong> across all classes:
-[
+$<span class="math notranslate nohighlight">\(
 \text{mAP} = \frac{1}{n} \sum_{i=1}^{n} AP_i
-]</p>
-<ul class="simple">
-<li><p><strong>AP</strong> measures the area under the precision-recall curve for each class.</p></li>
-<li><p><strong>mAP</strong> is the mean of these values across all classes, providing a single metric to evaluate model performance.</p></li>
-</ul>
-<p><strong>Use Case</strong>: In a marine object detection task where you are detecting multiple species or objects (e.g., fish, crabs, underwater debris), mAP provides a more comprehensive metric than accuracy alone, as it considers both the precision and recall of bounding boxes.</p>
+\)</span>$</p>
 </section>
 </section>
 </section>
 <hr class="docutils" />
-<section id="training-and-validation-loss">
-<h2><span class="section-number">8.3. </span>Training and Validation Loss<a class="headerlink" href="#training-and-validation-loss" title="Permalink to this heading">#</a></h2>
-<section id="training-loss">
-<h3><span class="section-number">8.3.1. </span>Training Loss<a class="headerlink" href="#training-loss" title="Permalink to this heading">#</a></h3>
-<p><strong>Training loss</strong> measures how well the model is performing on the training data. It is calculated by comparing the model’s predictions to the actual labels and computing a loss function (e.g., <strong>categorical cross-entropy</strong> for classification tasks).</p>
+<section id="key-metrics-and-their-graphs">
+<h2><span class="section-number">8.3. </span>Key Metrics and Their Graphs<a class="headerlink" href="#key-metrics-and-their-graphs" title="Permalink to this heading">#</a></h2>
+<section id="f1-confidence-curve">
+<h3><span class="section-number">8.3.1. </span>F1- Confidence Curve<a class="headerlink" href="#f1-confidence-curve" title="Permalink to this heading">#</a></h3>
+<p>The <strong>F1 Curve</strong> shows how the F1 score changes across different thresholds.</p>
+<ul class="simple">
+<li><p><strong>X-axis</strong>: Confidence (e.g., 0 to 1).</p></li>
+<li><p><strong>Y-axis</strong>: Corresponding F1 score.</p></li>
+</ul>
 <section id="interpretation">
 <h4><span class="section-number">8.3.1.1. </span>Interpretation:<a class="headerlink" href="#interpretation" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Decreasing Training Loss</strong>: A decreasing training loss indicates that the model is learning from the data.</p></li>
-<li><p><strong>Low Training Loss</strong>: If the training loss is too low while the validation loss is high, the model may be <strong>overfitting</strong> to the training data.</p></li>
+<li><p>A peak in the F1 curve indicates the optimal balance between precision and recall.</p></li>
+</ul>
+<figure class="align-default" id="f1-curve">
+<img alt="../_images/F1_curve.png" src="../_images/F1_curve.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Bigham &amp; Carter 2025</span><a class="headerlink" href="#f1-curve" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>In this figure the model is reporting a ratio of 0.77 F1 at 0.22 confidence. In general a well fitting model will show similar results to well represented classes like the Sebastes, Asteroidea and Chionoecetes. Conversely, classes like Zoarcidae, Euphausia and Bubble are not displaying the nice rounded parabola with a middle plateu at a high F1 value for a wide range of confidences.</p></li>
 </ul>
 </section>
 </section>
-<hr class="docutils" />
-<section id="validation-loss">
-<h3><span class="section-number">8.3.2. </span>Validation Loss<a class="headerlink" href="#validation-loss" title="Permalink to this heading">#</a></h3>
-<p><strong>Validation loss</strong> measures how well the model is performing on the validation dataset, which is not seen by the model during training. It is crucial for evaluating the model’s ability to generalize to new data.</p>
+<section id="precision-recall-pr-curve">
+<h3><span class="section-number">8.3.2. </span>Precision-Recall (PR) Curve<a class="headerlink" href="#precision-recall-pr-curve" title="Permalink to this heading">#</a></h3>
+<p>The <strong>PR Curve</strong> plots precision against recall for different thresholds.</p>
+<ul class="simple">
+<li><p><strong>X-axis</strong>: Recall.</p></li>
+<li><p><strong>Y-axis</strong>: Precision.</p></li>
+</ul>
 <section id="id5">
 <h4><span class="section-number">8.3.2.1. </span>Interpretation:<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Increasing Validation Loss</strong>: If the validation loss increases while the training loss decreases, it suggests the model is overfitting.</p></li>
-<li><p><strong>Balanced Validation Loss</strong>: If the validation loss decreases and converges alongside the training loss, the model is likely generalizing well.</p></li>
+<li><p>A higher integrated area under the PR curve (AUC) indicates better performance.</p></li>
 </ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="overfitting-and-underfitting">
-<h3><span class="section-number">8.3.3. </span>Overfitting and Underfitting<a class="headerlink" href="#overfitting-and-underfitting" title="Permalink to this heading">#</a></h3>
-<section id="overfitting">
-<h4><span class="section-number">8.3.3.1. </span>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this heading">#</a></h4>
-<p><strong>Overfitting</strong> occurs when the model learns too much from the training data, capturing noise and patterns that do not generalize to unseen data. This results in:</p>
+<figure class="align-default" id="pr-curve">
+<img alt="../_images/PR_curve.png" src="../_images/PR_curve.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">Bigham &amp; Carter 2025</span><a class="headerlink" href="#pr-curve" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
-<li><p><strong>Low training loss</strong> but <strong>high validation loss</strong>.</p></li>
-<li><p>Poor performance on the test dataset.</p></li>
+<li><p>This figure shows the aforementioned classes that are performing well have a greater AUC then underrepresented classes.</p></li>
 </ul>
 </section>
-<section id="how-to-address-overfitting">
-<h4><span class="section-number">8.3.3.2. </span>How to Address Overfitting:<a class="headerlink" href="#how-to-address-overfitting" title="Permalink to this heading">#</a></h4>
+</section>
+<section id="recall-confidence-r-curve">
+<h3><span class="section-number">8.3.3. </span>Recall-Confidence (R) Curve<a class="headerlink" href="#recall-confidence-r-curve" title="Permalink to this heading">#</a></h3>
+<p>The <strong>Recall Curve</strong> shows how recall changes with different thresholds.</p>
 <ul class="simple">
-<li><p><strong>Early stopping</strong>: Stop training when the validation loss starts increasing.</p></li>
-<li><p><strong>Data augmentation</strong>: Increase the variety of the training data by applying transformations like rotation, flipping, or scaling.</p></li>
-<li><p><strong>Regularization</strong>: Techniques like <strong>dropout</strong> or <strong>L2 regularization</strong> can help prevent overfitting by making the model less complex.</p></li>
+<li><p><strong>X-axis</strong>: Confidence (e.g., 0 to 1).</p></li>
+<li><p><strong>Y-axis</strong>: Recall values.</p></li>
 </ul>
-</section>
-<hr class="docutils" />
-<section id="underfitting">
-<h4><span class="section-number">8.3.3.3. </span>Underfitting<a class="headerlink" href="#underfitting" title="Permalink to this heading">#</a></h4>
-<p><strong>Underfitting</strong> occurs when the model is too simple and fails to learn the underlying patterns in the data. This results in:</p>
-<ul class="simple">
-<li><p><strong>High training loss</strong> and <strong>high validation loss</strong>.</p></li>
-<li><p>Poor performance on both training and test datasets.</p></li>
-</ul>
-</section>
-<section id="how-to-address-underfitting">
-<h4><span class="section-number">8.3.3.4. </span>How to Address Underfitting:<a class="headerlink" href="#how-to-address-underfitting" title="Permalink to this heading">#</a></h4>
-<ul class="simple">
-<li><p><strong>Increase model complexity</strong>: Add more layers or units to the model.</p></li>
-<li><p><strong>Train for more epochs</strong>: Ensure the model has enough time to learn from the data.</p></li>
-<li><p><strong>Use better features</strong>: Improve the quality or variety of the training data.</p></li>
-</ul>
-</section>
-</section>
-</section>
-<hr class="docutils" />
-<section id="training-and-validation-accuracy">
-<h2><span class="section-number">8.4. </span>Training and Validation Accuracy<a class="headerlink" href="#training-and-validation-accuracy" title="Permalink to this heading">#</a></h2>
-<section id="training-accuracy">
-<h3><span class="section-number">8.4.1. </span>Training Accuracy<a class="headerlink" href="#training-accuracy" title="Permalink to this heading">#</a></h3>
-<p><strong>Training accuracy</strong> refers to the model’s accuracy on the training dataset. A high training accuracy means that the model is able to correctly classify a large portion of the training data.</p>
 <section id="id6">
-<h4><span class="section-number">8.4.1.1. </span>Interpretation:<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">8.3.3.1. </span>Interpretation:<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Increasing Training Accuracy</strong>: A steadily increasing training accuracy is a good sign that the model is learning.</p></li>
-<li><p><strong>Too High Training Accuracy</strong>: If training accuracy becomes very high, but validation accuracy is low, this could indicate <strong>overfitting</strong>.</p></li>
+<li><p>High recall at low thresholds indicates the model captures most positive instances.</p></li>
+</ul>
+<figure class="align-default" id="r-curve">
+<img alt="../_images/R_curve.png" src="../_images/R_curve.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.3 </span><span class="caption-text">Bigham &amp; Carter 2025</span><a class="headerlink" href="#r-curve" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Similar to the PR curve, a higher AUC generally indicates higher performance. Uniquely, this type of graph allows you to analyze your models predictive accuracy on edge cases. This is because you are able to assess performance of correct IDs even if the confidence is low. For classes detected on the edge of the camera lense that is subject to chromatic aberation and being partially blocked. Looking at the recall rate at low confidence can be a good indicator of detection performance and model health.</p></li>
 </ul>
 </section>
 </section>
-<hr class="docutils" />
-<section id="validation-accuracy">
-<h3><span class="section-number">8.4.2. </span>Validation Accuracy<a class="headerlink" href="#validation-accuracy" title="Permalink to this heading">#</a></h3>
-<p><strong>Validation accuracy</strong> is the model’s accuracy on the validation dataset, which represents its ability to generalize to new, unseen data.</p>
+<section id="precision-curve">
+<h3><span class="section-number">8.3.4. </span>Precision Curve<a class="headerlink" href="#precision-curve" title="Permalink to this heading">#</a></h3>
+<p>The <strong>Precision Curve</strong> depicts precision as a function of the confidence threshold.</p>
+<ul class="simple">
+<li><p><strong>X-axis</strong>: Confidence threshold.</p></li>
+<li><p><strong>Y-axis</strong>: Precision.</p></li>
+</ul>
 <section id="id7">
-<h4><span class="section-number">8.4.2.1. </span>Interpretation:<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">8.3.4.1. </span>Interpretation:<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Balanced Training and Validation Accuracy</strong>: If training and validation accuracy rise together, this indicates a well-performing model.</p></li>
-<li><p><strong>Validation Accuracy Drops</strong>: If validation accuracy decreases while training accuracy increases, this suggests <strong>overfitting</strong>.</p></li>
+<li><p>A sharp drop in precision at higher thresholds indicates overconfidence in predictions.</p></li>
+<li><p><strong>How to Use</strong>: Adjust the threshold to balance precision and recall.</p></li>
 </ul>
-</section>
+<figure class="align-default" id="p-curve">
+<img alt="../_images/P_curve.png" src="../_images/P_curve.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.4 </span><span class="caption-text">Bigham &amp; Carter 2025</span><a class="headerlink" href="#p-curve" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>In this figure the model is reporting an increase in precision as confidence increases. Noticably the Anoplopoma shows a sharp drop in precision at the higher confidence threshold, this sharp drop is indicative of <strong>overfitting</strong> where a model too confidentally learns features in the training set that are not representative of a class in real world data. This can be remedied by rebalance of the Train/Val splits and ensuring enough representative classes in the dataset.</p></li>
+</ul>
 </section>
 </section>
 <hr class="docutils" />
-<section id="graphs-training-vs-validation-metrics">
-<h2><span class="section-number">8.5. </span>Graphs: Training vs Validation Metrics<a class="headerlink" href="#graphs-training-vs-validation-metrics" title="Permalink to this heading">#</a></h2>
-<section id="loss-graphs">
-<h3><span class="section-number">8.5.1. </span>Loss Graphs<a class="headerlink" href="#loss-graphs" title="Permalink to this heading">#</a></h3>
+<section id="confusion-matrices">
+<h3><span class="section-number">8.3.5. </span>Confusion Matrices<a class="headerlink" href="#confusion-matrices" title="Permalink to this heading">#</a></h3>
+<section id="standard-confusion-matrix">
+<h4><span class="section-number">8.3.5.1. </span>Standard Confusion Matrix<a class="headerlink" href="#standard-confusion-matrix" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Training Loss vs Validation Loss</strong>: A typical loss graph should show both training and validation loss decreasing over time. If validation loss starts to increase while training loss decreases, it indicates overfitting.</p></li>
+<li><p>Values are counts which can be useful for detecting class imbalance.</p></li>
+<li><p><strong>Rows</strong>: True labels.</p></li>
+<li><p><strong>Columns</strong>: Predicted labels.</p></li>
 </ul>
 </section>
-<section id="accuracy-graphs">
-<h3><span class="section-number">8.5.2. </span>Accuracy Graphs<a class="headerlink" href="#accuracy-graphs" title="Permalink to this heading">#</a></h3>
+<section id="normalized-confusion-matrix">
+<h4><span class="section-number">8.3.5.2. </span>Normalized Confusion Matrix<a class="headerlink" href="#normalized-confusion-matrix" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>Training Accuracy vs Validation Accuracy</strong>: The accuracy graph should ideally show both training and validation accuracy increasing. If the gap between training and validation accuracy becomes too large, the model may be overfitting.</p></li>
+<li><p>Values are normalized to show percentages rather than counts. Oftentimes this figure will be the one reported as it gives per class values that are not affected by class imbalance.</p></li>
+<li><p><strong>Rows</strong>: True labels.</p></li>
+<li><p><strong>Columns</strong>: Predicted labels.</p></li>
 </ul>
-<hr class="docutils" />
 </section>
+<section id="id8">
+<h4><span class="section-number">8.3.5.3. </span>Interpretation:<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>High diagonal values indicate accurate predictions.</p></li>
+<li><p>Off-diagonal values highlight misclassifications.</p></li>
+</ul>
+<figure class="align-default" id="confusion-matrix">
+<img alt="../_images/confusion_matrix.png" src="../_images/confusion_matrix.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.5 </span><span class="caption-text">Bigham &amp; Carter 2025</span><a class="headerlink" href="#confusion-matrix" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="confusion-matrix-normalized">
+<img alt="../_images/confusion_matrix_normalized.png" src="../_images/confusion_matrix_normalized.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.6 </span><span class="caption-text">Bigham &amp; Carter 2025</span><a class="headerlink" href="#confusion-matrix-normalized" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>In this figure the model is reporting relatively high performance for most classes. In an ideal world, a perfect model would predict the true label 100 percent of the time, this would lead to the graph showing a perfect diagonal line with no hits for the other classes. When working with real world data this is never the case. In this specific example we can note a couple of things. First it is important to see that class imbalance can change the way these metrics are reported. One example of this is the difference between the Liponema and Sebastes class. Both classes show high Predicted/True values looking at the normalized matrix. However when looking at the raw counts we can see that the 97% reported by Sebastes shows 7933 true labels and around 300 missidentification (or entire misses in the case of “background” detections). Contrarily although Liponema is reporting a 100% Predict/True, that rate is based only on 13 correct IDs.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="putting-it-all-together">
+<h2><span class="section-number">8.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">#</a></h2>
+<p>Interpreting these graphs helps diagnose issues like:</p>
+<ul class="simple">
+<li><p><strong>Overfitting</strong>: High training accuracy with low validation accuracy.</p></li>
+<li><p><strong>Underfitting</strong>: Both training and validation accuracy remain low.</p></li>
+</ul>
 </section>
 </section>
 
@@ -823,63 +848,55 @@ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \t
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.1.1. Learning Objectives</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics-in-computer-vision">8.2. Key Metrics in Computer Vision</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy">8.2.1. Accuracy</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics-and-how-they-are-calculated">8.2. Key Metrics and How They Are Calculated</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy">8.2.1. 1. Accuracy</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formula">8.2.1.1. Formula:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">8.2.2. Precision</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision">8.2.2. 2. Precision</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.2.2.1. Formula:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall">8.2.3. Recall</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall">8.2.3. 3. Recall</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">8.2.3.1. Formula:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">8.2.4. F1 Score</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">8.2.4. 4. F1 Score</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">8.2.4.1. Formula:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-average-precision-map">8.2.5. Mean Average Precision (mAP)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-average-precision-map">8.2.5. 5. Mean Average Precision (mAP)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">8.2.5.1. Formula:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-validation-loss">8.3. Training and Validation Loss</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-loss">8.3.1. Training Loss</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics-and-their-graphs">8.3. Key Metrics and Their Graphs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-confidence-curve">8.3.1. F1- Confidence Curve</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">8.3.1.1. Interpretation:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-loss">8.3.2. Validation Loss</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-recall-pr-curve">8.3.2. Precision-Recall (PR) Curve</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">8.3.2.1. Interpretation:</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting-and-underfitting">8.3.3. Overfitting and Underfitting</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">8.3.3.1. Overfitting</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-address-overfitting">8.3.3.2. How to Address Overfitting:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#underfitting">8.3.3.3. Underfitting</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-address-underfitting">8.3.3.4. How to Address Underfitting:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-confidence-r-curve">8.3.3. Recall-Confidence (R) Curve</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8.3.3.1. Interpretation:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-curve">8.3.4. Precision Curve</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8.3.4.1. Interpretation:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrices">8.3.5. Confusion Matrices</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-confusion-matrix">8.3.5.1. Standard Confusion Matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalized-confusion-matrix">8.3.5.2. Normalized Confusion Matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">8.3.5.3. Interpretation:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-validation-accuracy">8.4. Training and Validation Accuracy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-accuracy">8.4.1. Training Accuracy</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">8.4.1.1. Interpretation:</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-accuracy">8.4.2. Validation Accuracy</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">8.4.2.1. Interpretation:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs-training-vs-validation-metrics">8.5. Graphs: Training vs Validation Metrics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-graphs">8.5.1. Loss Graphs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-graphs">8.5.2. Accuracy Graphs</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">8.4. Putting It All Together</a></li>
 </ul>
   </nav></div>
 
