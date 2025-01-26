@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>17. Keypoint Detection With YOLO &#8212; Computer Vision Across Oceanography</title>
+    <title>18. Keypoint Detection With YOLO &#8212; Computer Vision Across Oceanography</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="shortcut icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="18. Instance Segmentation with YOLO" href="InstanceSegmentation_YOLO.html" />
-    <link rel="prev" title="16. Object in Zone Detection with Fathomnet and YOLO" href="FathomnetObjInZone_YOLO.html" />
+    <link rel="next" title="19. Instance Segmentation with YOLO" href="InstanceSegmentation_YOLO.html" />
+    <link rel="prev" title="17. Object in Zone Detection with Fathomnet and YOLO" href="FathomnetObjInZone_YOLO.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -203,22 +203,23 @@
 <li class="toctree-l1"><a class="reference internal" href="TrainandDeployObj_YOLO.html">11. Training and Deploying Object Detection with YOLO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Classification_YOLO.html">12. Training and Deploying Many Class Classification with YOLO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Introduction_Fathomnet.html">13. Introduction to FathomNet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FathomnetPullingData_YOLO.html">14. Pulling Data from Fathomnet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FathomnetObjTracking_YOLO.html">15. Object and Multi-Object Tracking with Fathomnet and YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FathomnetObjInZone_YOLO.html">16. Object in Zone Detection with Fathomnet and YOLO</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Keypoint Detection With YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="InstanceSegmentation_YOLO.html">18. Instance Segmentation with YOLO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ClusterSegmentation_Kmeans.html">19. K-means Segmentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SRGAN_Tensorflow.html">20. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetLocalizing_YOLO.html">14. Localizing FathomNet to a New Dataset Using YOLOv11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetPullingData_YOLO.html">15. Pulling Data from Fathomnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetObjTracking_YOLO.html">16. Object and Multi-Object Tracking with Fathomnet and YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FathomnetObjInZone_YOLO.html">17. Object in Zone Detection with Fathomnet and YOLO</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Keypoint Detection With YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InstanceSegmentation_YOLO.html">19. Instance Segmentation with YOLO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ClusterSegmentation_Kmeans.html">20. K-means Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SRGAN_Tensorflow.html">21. Image Super-Resolution and Enhancement with SRGAN in TensorFlow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 4 - Synthesis Project</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Final_DataPrep.html">21. Dataset Preparation and Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_ModelSelection.html">22. Model Selection and Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_TrainEval.html">23. Training and Evaluation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_DataViz.html">24. Data Visualization and Figure Creation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_Usecase.html">25. Usecase Development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Final_TyingItAllTogether.html">26. Tying it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_DataPrep.html">22. Dataset Preparation and Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_ModelSelection.html">23. Model Selection and Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_TrainEval.html">24. Training and Evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_DataViz.html">25. Data Visualization and Figure Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_Usecase.html">26. Usecase Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Final_TyingItAllTogether.html">27. Tying it all together</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -489,7 +490,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="keypoint-detection-with-yolo">
-<span id="lesson-14"></span><h1><span class="section-number">17. </span>Keypoint Detection With YOLO<a class="headerlink" href="#keypoint-detection-with-yolo" title="Permalink to this heading">#</a></h1>
+<span id="lesson-14"></span><h1><span class="section-number">18. </span>Keypoint Detection With YOLO<a class="headerlink" href="#keypoint-detection-with-yolo" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;black cod length and width&#39;</span><span class="p">)</span>
@@ -540,7 +541,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Object in Zone Detection with Fathomnet and YOLO</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Object in Zone Detection with Fathomnet and YOLO</p>
       </div>
     </a>
     <a class="right-next"
@@ -548,7 +549,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Instance Segmentation with YOLO</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Instance Segmentation with YOLO</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
