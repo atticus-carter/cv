@@ -35,7 +35,7 @@ parts:
       - file: book/TrainandDeployObj_YOLO.ipynb
       - file: book/Classification_YOLO.ipynb
       - file: book/Introduction_Fathomnet.md
-      - file: book/FathomnetIntroduction_YOLO.ipynb
+      - file: book/FathomnetLocalizing_YOLO.ipynb
       - file: book/FathomnetPullingData_YOLO.ipynb
       - file: book/FathomnetObjTracking_YOLO.ipynb
       - file: book/FathomnetObjInZone_YOLO.ipynb
