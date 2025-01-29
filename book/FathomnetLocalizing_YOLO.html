@@ -497,7 +497,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#localizing-the-model">14.4. Localizing the Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-and-inference-parameter-adjustment">14.5. Tracking and Inference Parameter Adjustment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-and-run-tracking">14.5.1. Configure and Run Tracking</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-the-results">14.5.2. Analyze the Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#track-in-zone">14.6. Track in Zone</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-capture-initialization">14.6.1. Video Capture Initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-writer-setup">14.6.2. Video Writer Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region-selection">14.6.3. Region Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-counting-initialization">14.6.4. Object Counting Initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-processing-loop">14.6.5. Video Processing Loop</a></li>
 </ul>
 </li>
 </ul>
@@ -804,14 +811,15 @@ document.write(`
 <p>To optimize the model, you will need to experiment with parameter combinations and evaluate performance by creating and analyzing four separate tracking videos.</p>
 <section id="configure-and-run-tracking">
 <h3><span class="section-number">14.5.1. </span>Configure and Run Tracking<a class="headerlink" href="#configure-and-run-tracking" title="Permalink to this heading">#</a></h3>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">ultralytics</span></code> library to configure tracking parameters. Students will create four separate videos by changing the following parameters:</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">ultralytics</span></code> library to configure tracking parameters.  You can create four separate videos by changing the following parameters:</p>
 <ol class="arabic simple">
 <li><p><strong>IoU Threshold</strong></p></li>
 <li><p><strong>Confidence Threshold</strong></p></li>
 <li><p><strong>Agnostic NMS</strong></p></li>
 <li><p><strong>Tracker Type</strong></p></li>
 </ol>
-<p>Here is an example setup to guide you:</p>
+<p>Here is an example setup to guide you:
+Feel free to change add or delete any of the configs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
@@ -843,19 +851,97 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="analyze-the-results">
-<h3><span class="section-number">14.5.2. </span>Analyze the Results<a class="headerlink" href="#analyze-the-results" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>After running the tracking for all four parameter sets, review the results for each video.</p></li>
-<li><p>Compare the accuracy and effectiveness of detections across different combinations.</p></li>
-<li><p>Answer the following questions:</p>
-<ul class="simple">
-<li><p>Which video most accurately captures the objects of interest?</p></li>
-<li><p>How do different parameters (e.g., confidence threshold or tracker type) impact the quality of the tracking?</p></li>
-</ul>
-</li>
-</ol>
-<hr class="docutils" />
+</section>
+<section id="track-in-zone">
+<h2><span class="section-number">14.6. </span>Track in Zone<a class="headerlink" href="#track-in-zone" title="Permalink to this heading">#</a></h2>
+<p>Tracking objects within a specific zone is crucial for analyzing ROV and other transects where the objects you are interested in pass by the camera. By focusing on a defined region, researchers can ensure accurate detection and counting of marine organisms or features while minimizing noise from irrelevant areas. This method helps standardize data collection, enabling more reliable comparisons across different transects and improving ecological assessments of underwater environments.</p>
+<section id="video-capture-initialization">
+<h3><span class="section-number">14.6.1. </span>Video Capture Initialization<a class="headerlink" href="#video-capture-initialization" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">&quot;/content/transect_compressed.mp4&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">&quot;Error reading video file&quot;</span>
+<span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span>
+                                       <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span>
+                                       <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This block initializes the video capture from the specified file (transect_compressed.mp4). It verifies that the video file is successfully opened and retrieves the video’s width, height, and frames per second (fps) using OpenCV properties.</p>
+</section>
+<section id="video-writer-setup">
+<h3><span class="section-number">14.6.2. </span>Video Writer Setup<a class="headerlink" href="#video-writer-setup" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">&quot;counting.avi&quot;</span><span class="p">,</span>
+                               <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">&quot;mp4v&quot;</span><span class="p">),</span>
+                               <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This section sets up a video writer to save the processed frames into a new output file (counting.avi). It uses the MP4V codec for encoding and ensures the output video has the same fps and dimensions as the original.</p>
+</section>
+<section id="region-selection">
+<h3><span class="section-number">14.6.3. </span>Region Selection<a class="headerlink" href="#region-selection" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">region_points</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">576</span><span class="p">),</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">576</span><span class="p">),</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">768</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This defines a rectangular region of interest (ROI) in the video, given as four coordinate points. This region is used to track and count objects only within the specified area. For our usecase the ROI is set to the bottom quarter of the video to count animals as the ROV passes above them.</p>
+</section>
+<section id="object-counting-initialization">
+<h3><span class="section-number">14.6.4. </span>Object Counting Initialization<a class="headerlink" href="#object-counting-initialization" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">ObjectCounter</span><span class="p">(</span>
+    <span class="n">region</span><span class="o">=</span><span class="n">region_points</span><span class="p">,</span>  
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;/content/best.pt&quot;</span><span class="p">,</span>
+    <span class="n">save_txt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">conf</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>
+    <span class="n">iou</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">agnostic_nms</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>An object counter is initialized using a trained model (<a class="reference external" href="http://best.pt">best.pt</a>). The parameters include:</p>
+<p>region=region_points: Specifies the defined tracking zone.</p>
+<p>save_txt=True: Saves the detection results to a text file.</p>
+<p>conf=0.10: Sets a confidence threshold of 10% for object detection.</p>
+<p>iou=0.5: Uses a 50% Intersection Over Union (IoU) threshold to refine detections.</p>
+<p>agnostic_nms=True: Enables class-agnostic non-maximum suppression for overlapping detections.</p>
+</section>
+<section id="video-processing-loop">
+<h3><span class="section-number">14.6.5. </span>Video Processing Loop<a class="headerlink" href="#video-processing-loop" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Video frame is empty or video processing has been successfully completed.&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="n">im0</span> <span class="o">=</span> <span class="n">counter</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># count the objects</span>
+    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>   <span class="c1"># write the video frames</span>
+
+<span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>   <span class="c1"># Release the capture</span>
+<span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This loop processes each frame from the video:</p>
+<p>Reads a frame from the video.
+If no frame is available, it prints a message and stops processing.
+Runs object counting on the frame using counter.count(im0).
+Writes the processed frame to the output video.
+Releases the video resources after processing all frames and closes all OpenCV windows.</p>
 </section>
 </section>
 </section>
@@ -934,7 +1020,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#localizing-the-model">14.4. Localizing the Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-and-inference-parameter-adjustment">14.5. Tracking and Inference Parameter Adjustment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-and-run-tracking">14.5.1. Configure and Run Tracking</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-the-results">14.5.2. Analyze the Results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#track-in-zone">14.6. Track in Zone</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-capture-initialization">14.6.1. Video Capture Initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-writer-setup">14.6.2. Video Writer Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region-selection">14.6.3. Region Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-counting-initialization">14.6.4. Object Counting Initialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-processing-loop">14.6.5. Video Processing Loop</a></li>
 </ul>
 </li>
 </ul>
