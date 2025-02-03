@@ -721,17 +721,15 @@ After training the model, we will run inference on a folder (named transect) con
 </section>
 <section id="visualizing-transect-predictions">
 <h2><span class="section-number">12.8. </span>Visualizing Transect Predictions<a class="headerlink" href="#visualizing-transect-predictions" title="Permalink to this heading">#</a></h2>
-<p>We now aggregate the predictions from each 100m segment. For each segment, we compute the mean probability for each species and then visualize these aggregated predictions using a heatmap and a stacked area plot.</p>
+<p>We now aggregate the predictions from each 100m segment. For each segment, we compute the mean probability for each species and then visualize these aggregated predictions using a heatmap, stacked area plot and stacked bar chart. This data was cleaned to remove erroneous ROIs via a simple clustering review system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-
 
 <span class="c1"># Define class labels in the order corresponding to the model outputs</span>
 <span class="n">class_labels</span> <span class="o">=</span> <span class="p">[</span>
@@ -740,46 +738,60 @@ After training the model, we will run inference on a folder (named transect) con
     <span class="s1">&#39;unknown_pup&#39;</span><span class="p">,</span> <span class="s1">&#39;unknown_seal&#39;</span>
 <span class="p">]</span>
 
+<span class="c1"># Helper function to extract a numeric value from a segment label</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_numeric</span><span class="p">(</span><span class="n">segment_label</span><span class="p">):</span>
+    <span class="c1"># This finds the first occurrence of one or more digits in the string.</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="n">segment_label</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># If no number is found, return a default value (e.g., 0)</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
 <span class="c1"># Create a DataFrame to hold mean probabilities per segment</span>
 <span class="n">segment_data</span> <span class="o">=</span> <span class="p">[]</span>
 
+<span class="c1"># Assume segment_predictions is defined somewhere in your code.</span>
+<span class="c1"># It should be a dictionary where keys are segment labels and values are lists of prediction objects.</span>
 <span class="k">for</span> <span class="n">segment</span><span class="p">,</span> <span class="n">probs_list</span> <span class="ow">in</span> <span class="n">segment_predictions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="c1"># Compute the mean probabilities for the segment if there are any predictions</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">probs_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># Ensure each probability array is a NumPy array and average over the images</span>
-        <span class="c1"># Access the data attribute of the Probs object before converting to NumPy</span>
+        <span class="c1"># Compute the mean probabilities over the list of predictions for this segment.</span>
         <span class="n">segment_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">prob</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">probs_list</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="c1"># Build a dictionary with the segment name and its mean probabilities</span>
+        <span class="c1"># Build a dictionary for this segment, including each species probability.</span>
         <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Segment&quot;</span><span class="p">:</span> <span class="n">segment</span><span class="p">}</span>
         <span class="n">row</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">label</span><span class="p">:</span> <span class="n">segment_mean</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">class_labels</span><span class="p">)})</span>
         <span class="n">segment_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
-<span class="c1"># Create a DataFrame from the aggregated segment data and sort by segment name</span>
+<span class="c1"># Create a DataFrame from the aggregated segment data</span>
 <span class="n">df_segment</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">segment_data</span><span class="p">)</span>
-<span class="n">df_segment</span> <span class="o">=</span> <span class="n">df_segment</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Segment&quot;</span><span class="p">)</span>
 
-<span class="c1"># Heatmap Visualization of Mean Classification Probabilities per Segment</span>
+<span class="c1"># Extract numeric values from the &#39;Segment&#39; column for proper sorting.</span>
+<span class="n">df_segment</span><span class="p">[</span><span class="s1">&#39;Segment_numeric&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_segment</span><span class="p">[</span><span class="s1">&#39;Segment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">extract_numeric</span><span class="p">)</span>
+<span class="n">df_segment</span> <span class="o">=</span> <span class="n">df_segment</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Segment_numeric&quot;</span><span class="p">)</span>
+
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_segment</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Segment&#39;</span><span class="p">),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="c1"># Use only the class columns for the heatmap, while the index is the segment label.</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_segment</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Segment&#39;</span><span class="p">)[</span><span class="n">class_labels</span><span class="p">],</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Heatmap of Mean Classification Probabilities per Transect Segment&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Species&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Transect Segment (every 100m)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1"># Assuming df_segment_sorted is your DataFrame</span>
-<span class="c1"># Sort the DataFrame by the &#39;Segment&#39; column and assign it to df_segment_sorted</span>
-<span class="n">df_segment_sorted</span> <span class="o">=</span> <span class="n">df_segment</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Segment&#39;</span><span class="p">])</span>
+
+<span class="n">df_segment_sorted</span> <span class="o">=</span> <span class="n">df_segment</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># Already sorted by numeric segment</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_segment_sorted</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>  <span class="c1"># Iterate through columns except &#39;Segment&#39;</span>
+<span class="c1"># Plot each species (columns after &#39;Segment&#39; and &#39;Segment_numeric&#39;) as a trace.</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">class_labels</span><span class="p">:</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="n">df_segment_sorted</span><span class="p">[</span><span class="s1">&#39;Segment&#39;</span><span class="p">],</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">df_segment_sorted</span><span class="p">[</span><span class="s1">&#39;Segment&#39;</span><span class="p">],</span>  <span class="c1"># Display the original segment labels on the x-axis</span>
         <span class="n">y</span><span class="o">=</span><span class="n">df_segment_sorted</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
-        <span class="n">name</span><span class="o">=</span><span class="n">col</span><span class="p">,</span>  <span class="c1"># Use column name for legend label</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">col</span><span class="p">,</span>
         <span class="n">stackgroup</span><span class="o">=</span><span class="s1">&#39;one&#39;</span><span class="p">,</span>  <span class="c1"># Group traces for stacking</span>
-        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>      <span class="c1"># Use lines for area fill</span>
-        <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;tonexty&#39;</span>     <span class="c1"># Fill area to the next trace</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+        <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;tonexty&#39;</span>
     <span class="p">))</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
@@ -792,6 +804,52 @@ After training the model, we will run inference on a folder (named transect) con
 <span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># Create a dictionary to hold counts per segment.</span>
+<span class="c1"># For each segment, we will count the best guess (i.e. highest probability) for every prediction.</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">segment</span><span class="p">,</span> <span class="n">probs_list</span> <span class="ow">in</span> <span class="n">segment_predictions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1"># Initialize a count dictionary for this segment.</span>
+    <span class="n">counts</span><span class="p">[</span><span class="n">segment</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">class_labels</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">probs_list</span><span class="p">:</span>
+        <span class="c1"># Convert the tensor to a NumPy array</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="c1"># Find the index of the highest probability</span>
+        <span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="n">best_label</span> <span class="o">=</span> <span class="n">class_labels</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">segment</span><span class="p">][</span><span class="n">best_label</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Convert the counts dictionary into a DataFrame.</span>
+<span class="c1"># The keys become the index (segments) and the values (dictionaries) become the row data.</span>
+<span class="n">df_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="n">df_counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Segment&#39;</span>
+<span class="n">df_counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Extract numeric values from the &#39;Segment&#39; column for sorting</span>
+<span class="n">df_counts</span><span class="p">[</span><span class="s1">&#39;Segment_numeric&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_counts</span><span class="p">[</span><span class="s1">&#39;Segment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">extract_numeric</span><span class="p">)</span>
+<span class="n">df_counts</span> <span class="o">=</span> <span class="n">df_counts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Segment_numeric&#39;</span><span class="p">)</span>
+
+<span class="n">fig_counts</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">class_labels</span><span class="p">:</span>
+    <span class="n">fig_counts</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">df_counts</span><span class="p">[</span><span class="s1">&#39;Segment&#39;</span><span class="p">],</span>  <span class="c1"># original segment labels on x-axis</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">df_counts</span><span class="p">[</span><span class="n">label</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">label</span>
+    <span class="p">))</span>
+
+<span class="n">fig_counts</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Counts of Individual Animals with Best Guesses per Segment&#39;</span><span class="p">,</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Transect Segment (every 100m)&#39;</span><span class="p">,</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">600</span>
+<span class="p">)</span>
+
+<span class="n">fig_counts</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
