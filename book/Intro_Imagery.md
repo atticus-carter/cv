@@ -12,7 +12,7 @@ By the end of this section, you will:
 
 ---
 
-## What is an image
+## What is an image?
 
 The dictionary definition of an image as given by Merriam-Webster is: 
 
@@ -57,4 +57,4 @@ There are many non-conventional photographic systems that are used in the marine
 - Multispectral fluorescence imaging to observe bioluminescence 
 - 3-dimensional laser holography to quantify and identify plankton and measure their geometry. 
 - Shadowgraph illumination and other systems that use dark-field illumination to image plankton and other particles.
-- Light-field cameras which allow for the focus in images to be changed after capture and allow for imaging of the seafloor and objects above it at the same time. 
+- Light-field cameras which allow for the focus in images to be changed after capture, and allow for imaging of the seafloor and objects above it at the same time. 
