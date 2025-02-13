@@ -1,6 +1,6 @@
 # Welcome to Computer Vision Across the Marine Sciences
 
-This textbook aims to provide a comprehensive and interactive guide to applying **Computer Vision (CV)** techniques in the fields of **Marine Biology**, **Fisheries** and, **Oceanography**. You'll explore how modern-day CV techniques can help with interpreting oceanic image data, building models, and understanding marine environments through visual data. 
+This textbook aims to provide a comprehensive and interactive guide to applying **Computer Vision (CV)** techniques in the fields of **Marine Biology**, **Fisheries**, and **Oceanography**. You'll explore how modern-day CV techniques can help with interpreting oceanic image data, building models, and understanding marine environments through visual data. 
 
 The book is structured to cover both **theoretical foundations** and **practical implementations** using **Python**, **PyTorch**, **Tensorflow** and marine datasets. You’ll also work on real-world datasets from open-source repositories to solidify your understanding.
 
