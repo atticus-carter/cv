@@ -78,7 +78,7 @@ Generally, these cameras are positioned on the seafloor or on a mooring at a fix
 
 A common type of fixed camera are baited remote underwater video systems (BRUVS). These are used to sample fish or other fauna assemblages, gather data on relative abundances, and body size structure. They are considered to be a cost-effective and non-invasive method. Further information on BRUVS can be found in Harvey et al., 2013, Whitmarsh et al., 2017, and Langlois et al., 2020. 
 
-Fixed camera systems can be cabled and uncabled. Uncabled camera systems are limited by their battery life and storage capacity. In contrast cabled camera systems can send data back in real-time and their sampling routine can be changed to respond to changing conditions. An example of cabled camera systems include the three digital still cameras and one video camera on the **Ocean Observatories Initiative's Regional Cabled Array** which provide live video feeds from deep-sea environments.
+Fixed camera systems can be cabled and uncabled. Uncabled camera systems are limited by their battery life and storage capacity. In contrast, cabled camera systems can send data back in real-time and their sampling routine can be changed to respond to changing conditions. An example of cabled camera systems include the three digital still cameras and one video camera on the **Ocean Observatories Initiative's Regional Cabled Array** which provide live video feeds from deep-sea environments.
 
 
 :::{figure} images/image.png
@@ -176,7 +176,7 @@ Satellite imagery showing a phytoplankton bloom. Credit: NASA Goddard Space Flig
 
 ### Aerial Imagery
 
-Aerially mounted cameras on drones, planes and helicopters can produce high quality often georeferenced imagery of nearshore sites or areas that are hard to get to by other means of transport like sea ice.
+Aerially mounted cameras on drones, planes and helicopters can produce high quality (often georeferenced) imagery of nearshore sites or areas that are hard to get to by other means of transport, like sea ice.
 
 :::{figure} images/image-4.png
 :name: seal-population
