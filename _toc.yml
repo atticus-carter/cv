@@ -47,13 +47,10 @@ parts:
   - caption: "Chapter 4 - Synthesis Project"
     numbered: true
     chapters:
-      - file: book/Final_Overview.md  
-      - file: book/Final_DataPrep.ipynb
-      - file: book/Final_ModelSelection.ipynb
-      - file: book/Final_TrainEval.ipynb
-      - file: book/Final_DataViz.ipynb
-      - file: book/Final_Usecase.ipynb
-      - file: book/Final_TyingItAllTogether.ipynb
+      - file: book/Final_HFOrganization.md
+      - file: book/Final_ModelCard.md
+      - file: book/Final_StreamlitApps.md
+      - file: book/Final_DatasetSelection.md
 
   - caption: "Appendices"
     numbered: false
