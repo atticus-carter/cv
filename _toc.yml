@@ -17,6 +17,8 @@ parts:
       - file: book/Intro_Imagery.md
       - file: book/OceanImageTypes.md
       - file: book/Introduction_AI.md
+      - file: book/Transfer_Learning_Marine.md
+      - file: book/Model_Interpretability_Marine.md
 
 
   - caption: "Chapter 2 - Introduction to Computer Vision"
