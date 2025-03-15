@@ -45,6 +45,7 @@ parts:
       - file: book/InstanceSegmentation_YOLO.ipynb
       - file: book/ClusterSegmentation_Kmeans.ipynb
       - file: book/SRGAN_Tensorflow.ipynb
+      - file: book/Vision_Transformers_Marine.ipynb
 
   - caption: "Chapter 4 - Synthesis Project"
     numbered: true
