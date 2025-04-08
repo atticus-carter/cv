@@ -8,6 +8,7 @@ parts:
       - file: book/Tools.md 
       - file: book/License_Page.md
       - file: book/Acknowledgements.md
+      - file: book/StudentProjects.md
    
 
   - caption: "Chapter 1 - Introduction to Marine Imaging"

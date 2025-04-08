@@ -60,8 +60,7 @@ We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.
 
 ## Authors and Maintainers
 
-- **Atticus Carter** - Primary Author
-- **Katie Bigham** - Primary Author
+- **Ada Carter & Katie Bigham** - Primary Authors
 - **Sasha Seroy** - Supervisor
 - **Mikelle Nuwer** - Supervisor
 

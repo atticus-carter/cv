@@ -5,9 +5,11 @@
 
 #######################################################################################
 # Book settings
-title: Computer Vision Across Oceanography # The title of the book. Will be placed in the left navbar.
-author: Atticus Carter # The author of the book
-copyright: "2024" # Copyright year to be placed in the footer
+title: Computer Vision for Marine Applications # The title of the book
+site_title: "Computer Vision for Marine Applications" # Text for html title element; fill with unicode characters mindfully
+subtitle: # (optional) A subtitle or tagline for the website; will be overwritten by page subtitle if present
+author: Ada Carter & Katie Bigham # The author of the book
+copyright: "2025" # Copyright year to be placed in the footer
 logo: logo.png # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
